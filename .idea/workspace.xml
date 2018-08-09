@@ -2,94 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="506241f0-772c-49e2-bf06-6b3d24bc0d15" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/holy-place-photo.iml" afterPath="$PROJECT_DIR$/.idea/holy-place-photo.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" afterPath="$PROJECT_DIR$/docker-compose.yml" />
-      <change beforePath="$PROJECT_DIR$/infra/nginx/default.conf" afterPath="$PROJECT_DIR$/infra/nginx/default.conf" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/.editorconfig" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/.env.example" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/.gitattributes" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/.gitignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/app/Console/Kernel.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/app/Exceptions/Handler.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/app/Http/Controllers/Auth/ForgotPasswordController.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/app/Http/Controllers/Auth/LoginController.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/app/Http/Controllers/Auth/RegisterController.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/app/Http/Controllers/Auth/ResetPasswordController.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/app/Http/Controllers/Controller.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/app/Http/Kernel.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/app/Http/Middleware/CheckForMaintenanceMode.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/app/Http/Middleware/EncryptCookies.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/app/Http/Middleware/RedirectIfAuthenticated.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/app/Http/Middleware/TrimStrings.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/app/Http/Middleware/TrustProxies.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/app/Http/Middleware/VerifyCsrfToken.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/app/Providers/AppServiceProvider.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/app/Providers/AuthServiceProvider.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/app/Providers/BroadcastServiceProvider.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/app/Providers/EventServiceProvider.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/app/Providers/RouteServiceProvider.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/app/User.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/artisan" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/bootstrap/app.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/bootstrap/cache/.gitignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/composer.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/composer.lock" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/config/app.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/config/auth.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/config/broadcasting.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/config/cache.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/config/database.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/config/filesystems.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/config/hashing.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/config/logging.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/config/mail.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/config/queue.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/config/services.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/config/session.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/config/view.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/database/.gitignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/database/factories/UserFactory.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/database/migrations/2014_10_12_000000_create_users_table.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/database/seeds/DatabaseSeeder.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/phpunit.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/public/.htaccess" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/public/css/app.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/public/favicon.ico" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/public/index.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/public/js/app.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/public/robots.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/resources/assets/js/app.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/resources/assets/js/bootstrap.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/resources/assets/js/components/ExampleComponent.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/resources/assets/sass/_variables.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/resources/assets/sass/app.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/resources/lang/en/auth.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/resources/lang/en/pagination.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/resources/lang/en/passwords.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/resources/lang/en/validation.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/resources/views/welcome.blade.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/routes/api.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/routes/channels.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/routes/console.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/routes/web.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/server.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/storage/app/.gitignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/storage/app/public/.gitignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/storage/framework/.gitignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/storage/framework/cache/.gitignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/storage/framework/sessions/.gitignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/storage/framework/testing/.gitignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/storage/framework/views/.gitignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/storage/logs/.gitignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/tests/CreatesApplication.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/tests/Feature/ExampleTest.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/tests/TestCase.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/tests/Unit/ExampleTest.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/holy-place-photo/webpack.mix.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -103,40 +16,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="docker-compose.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docker-compose.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="45">
-                <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="52" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="welcome.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="welcome.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="660">
-              <caret line="81" column="30" lean-forward="false" selection-start-line="81" selection-start-column="30" selection-end-line="81" selection-end-column="30" />
+              <caret line="81" column="33" lean-forward="false" selection-start-line="81" selection-start-column="33" selection-end-line="81" selection-end-column="33" />
               <folding>
-                <marker date="1533833899913" expanded="true" signature="30:50" ph="..." />
-                <marker date="1533833899913" expanded="true" signature="1760:1779" ph="..." />
-                <marker date="1533833899913" expanded="true" signature="1888:1902" ph="..." />
-                <marker date="1533833899913" expanded="true" signature="1976:1992" ph="..." />
-                <marker date="1533833899913" expanded="true" signature="2041:2060" ph="..." />
+                <marker date="1533834280665" expanded="true" signature="30:50" ph="..." />
+                <marker date="1533834280665" expanded="true" signature="1760:1779" ph="..." />
+                <marker date="1533834280665" expanded="true" signature="1888:1902" ph="..." />
+                <marker date="1533834280665" expanded="true" signature="1976:1992" ph="..." />
+                <marker date="1533834280665" expanded="true" signature="2041:2060" ph="..." />
               </folding>
             </state>
           </provider>
@@ -167,8 +57,8 @@
         <option value="$PROJECT_DIR$/src/holy-place-photo/.env" />
         <option value="$PROJECT_DIR$/docker-compose.yml" />
         <option value="$PROJECT_DIR$/infra/nginx/default.conf" />
-        <option value="$PROJECT_DIR$/resources/views/welcome.blade.php" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/resources/views/welcome.blade.php" />
       </list>
     </option>
   </component>
@@ -352,12 +242,12 @@
       <option name="presentableId" value="Default" />
       <updated>1533829742696</updated>
       <workItem from="1533829744678" duration="2728000" />
-      <workItem from="1533833773291" duration="156000" />
+      <workItem from="1533833773291" duration="442000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2884000" />
+    <option name="totallyTimeSpent" value="3170000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2560" y="0" width="2560" height="1080" extended-state="0" />
@@ -499,25 +389,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+    <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+        <state relative-caret-position="30">
+          <caret line="2" column="59" lean-forward="true" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="59" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="81" column="30" lean-forward="false" selection-start-line="81" selection-start-column="30" selection-end-line="81" selection-end-column="30" />
-          <folding>
-            <marker date="1533833899913" expanded="true" signature="30:50" ph="..." />
-            <marker date="1533833899913" expanded="true" signature="1760:1779" ph="..." />
-            <marker date="1533833899913" expanded="true" signature="1888:1902" ph="..." />
-            <marker date="1533833899913" expanded="true" signature="1976:1992" ph="..." />
-            <marker date="1533833899913" expanded="true" signature="2041:2060" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -529,6 +405,28 @@
             <folding />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="81" column="33" lean-forward="false" selection-start-line="81" selection-start-column="33" selection-end-line="81" selection-end-column="33" />
+          <folding>
+            <marker date="1533834280665" expanded="true" signature="30:50" ph="..." />
+            <marker date="1533834280665" expanded="true" signature="1760:1779" ph="..." />
+            <marker date="1533834280665" expanded="true" signature="1888:1902" ph="..." />
+            <marker date="1533834280665" expanded="true" signature="1976:1992" ph="..." />
+            <marker date="1533834280665" expanded="true" signature="2041:2060" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
