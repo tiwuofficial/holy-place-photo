@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 class PhotoController extends Controller
 {
 
@@ -30,8 +33,10 @@ class PhotoController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store()
+    public function store(Request $request)
     {
+        $photo = $request->file('photo');
+        Storage::disk('s3')->putFile('/photos', $photo, 'public');
         return redirect('/');
     }
 
