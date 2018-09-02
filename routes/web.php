@@ -39,6 +39,7 @@ Route::get('/users/{id}', 'UserController@show')->where('id', '[0-9]+');
 
 // 問い合わせ
 Route::get('/inquiry', 'TopController@inquiry');
+Route::post('/inquiry', 'TopController@inquiryStore');
 
 // ガイドライン
 Route::get('/guide', 'TopController@guide');
