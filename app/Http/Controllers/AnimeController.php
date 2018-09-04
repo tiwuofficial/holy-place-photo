@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Anime;
+use Illuminate\Support\Facades\Log;
+
 class AnimeController extends Controller
 {
 
@@ -12,7 +15,8 @@ class AnimeController extends Controller
      */
     public function index()
     {
-        return view('anime.index');
+        $animes = Anime::all();
+        return view('anime.index', compact('animes'));
     }
 
     /**
@@ -20,8 +24,9 @@ class AnimeController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show()
+    public function show($id)
     {
-        return view('anime.show');
+        $anime = Anime::where('id', $id)->first();
+        return view('anime.show', compact('anime'));
     }
 }
