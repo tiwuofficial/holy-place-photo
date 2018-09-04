@@ -16,10 +16,10 @@ class CreatePhotosTable extends Migration
         Schema::create('photos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('path');
-            $table->string('title')->nullable();;
-            $table->string('comment')->nullable();;
-            $table->double('lat')->nullable();;
-            $table->double('lng')->nullable();;
+            $table->string('title')->nullable();
+            $table->string('comment')->nullable();
+            $table->double('lat')->nullable();
+            $table->double('lng')->nullable();
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('anime_id');
             $table->timestamps();
