@@ -5,6 +5,9 @@
   "env": {
     "APP_KEY": {
       "required": true
+    },
+    "INHERIT_THIS_CONFIG_VAR": {
+      "required": true
     }
   },
   "formation": {
