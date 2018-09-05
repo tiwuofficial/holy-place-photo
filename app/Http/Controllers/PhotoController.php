@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Anime;
+use App\Model\Photo;
+use App\Model\PhotoUrl;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class PhotoController extends Controller
@@ -25,7 +29,8 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        return view('photo.create');
+        $animes = Anime::all();
+        return view('photo.create', compact('animes'));
     }
 
     /**
@@ -35,8 +40,20 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        $photo = $request->file('photo');
-        Storage::disk('s3')->putFile('/photos', $photo, 'public');
+        $data = $request->all();
+        $data['user_id'] = $request->session()->get('userId');
+        $photoModel = Photo::create($data);
+
+        $photos =  $request->file('photos');
+        foreach ($photos as $photo) {
+            $url = Storage::disk('s3')->putFile('/photos', $photo, 'public');
+
+            $photoUrl = new PhotoUrl();
+            $photoUrl->photo_id = $photoModel->id;
+            $photoUrl->url = $url;
+            $photoUrl->save();
+        }
+
         return redirect('/');
     }
 

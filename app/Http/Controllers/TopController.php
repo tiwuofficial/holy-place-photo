@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Inquiry;
+use App\Model\Photo;
 use Illuminate\Http\Request;
 
 class TopController extends Controller
@@ -15,7 +16,9 @@ class TopController extends Controller
      */
     public function index()
     {
-        return view('top.index');
+        $photos = Photo::with('urls', 'anime')->get();
+        $s3Url = env('AWS_S3_URL');
+        return view('top.index', compact('photos', 's3Url'));
     }
 
     /**
