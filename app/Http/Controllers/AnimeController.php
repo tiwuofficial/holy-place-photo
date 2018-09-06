@@ -15,8 +15,9 @@ class AnimeController extends Controller
      */
     public function index()
     {
-        $animes = Anime::all();
-        return view('anime.index', compact('animes'));
+        $animesHavePhoto = Anime::has('photos')->get();
+        $animesNotHavePhoto = Anime::has('photos', '=', 0)->get();
+        return view('anime.index', compact('animesHavePhoto', 'animesNotHavePhoto'));
     }
 
     /**
@@ -27,6 +28,7 @@ class AnimeController extends Controller
     public function show($id)
     {
         $anime = Anime::where('id', $id)->first();
-        return view('anime.show', compact('anime'));
+        $s3Url = env('AWS_S3_URL');
+        return view('anime.show', compact('anime', 's3Url'));
     }
 }
