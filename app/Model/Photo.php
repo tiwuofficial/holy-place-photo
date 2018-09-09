@@ -15,4 +15,18 @@ class Photo extends Model
     public function anime() {
         return $this->belongsTo('App\Model\Anime');
     }
+
+    public function like() {
+        return $this->hasMany('App\Model\Like');
+    }
+
+    public function getLikeCountAttribute()
+    {
+        return $this->like()->count();
+    }
+
+    public function likeDone($id)
+    {
+        return $this->like()->where('user_id', $id)->first();
+    }
 }

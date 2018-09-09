@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use App\User;
 use Closure;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\View;
 
 class CheckLogin
 {
@@ -22,6 +22,7 @@ class CheckLogin
             $user->save();
             $request->session()->put('userId', $user->id);
         }
+        View::share('user', $request->session()->get('userId'));
         return $next($request);
     }
 }
