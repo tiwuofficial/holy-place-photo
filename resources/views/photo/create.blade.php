@@ -15,6 +15,14 @@
     </div>
 
     <div>
+      <input type="password" name="password">
+    </div>
+
+    <div>
+      <input type="password" name="password-confirm">
+    </div>
+
+    <div>
       @foreach($animes as $anime)
         <p>{{$anime->name}}</p>
         <input type="radio" name="anime_id" value="{{$anime->id}}">

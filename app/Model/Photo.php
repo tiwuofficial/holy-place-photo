@@ -3,10 +3,16 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Hash;
 
 class Photo extends Model
 {
-    protected $fillable = ['name', 'title', 'comment', 'user_id', 'anime_id'];
+    protected $fillable = ['name', 'title', 'comment', 'user_id', 'anime_id', 'password'];
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = Hash::make($value);
+    }
 
     public function urls() {
         return $this->hasMany('App\Model\PhotoUrl');

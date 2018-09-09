@@ -20,6 +20,7 @@ class CreatePhotosTable extends Migration
             $table->string('comment')->nullable();
             $table->double('lat')->nullable();
             $table->double('lng')->nullable();
+            $table->string('password');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('anime_id');
             $table->timestamps();
