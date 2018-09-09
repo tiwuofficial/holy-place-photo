@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Anime;
+use App\Model\Like;
 use App\Model\Photo;
 use App\Model\PhotoUrl;
 use Illuminate\Http\Request;
@@ -17,9 +18,13 @@ class PhotoController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show()
+    public function show(Request $request, $id)
     {
-        return view('photo.show');
+        $photo = Photo::where('id', $id)->first();
+        $userPhotos = Photo::where('user_id', $photo->user_id)->where('id','!=', $id)->get();
+        $animePhotos = Photo::where('anime_id', $photo->anime_id)->where('id','!=', $id)->get();
+        $s3Url = env('AWS_S3_URL');
+        return view('photo.show', compact('photo', 'userPhotos','animePhotos' ,'s3Url'));
     }
 
     /**
