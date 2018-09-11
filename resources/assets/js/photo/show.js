@@ -1,4 +1,5 @@
 import '../common/base';
+import modal from '../components/modal';
 import axios from 'axios';
 
 Vue.directive('like-done', {
@@ -15,11 +16,13 @@ Vue.directive('like-count', {
 
 new Vue({
   el: '#wrapper',
-  data(){
+  components: {modal: modal},
+  data() {
     return {
       likeDone: false,
       likeCount: 0,
       likeDoneApiFlg: false,
+      deleteModalFlg: false,
     }
   },
   methods: {
@@ -41,6 +44,12 @@ new Vue({
           .then(() => {
             this.likeDoneApiFlg = false;
           });
+    },
+    deleteModalOpen() {
+      this.deleteModalFlg = true;
+    },
+    deleteModalClose() {
+      this.deleteModalFlg = true;
     }
   },
   computed: {
