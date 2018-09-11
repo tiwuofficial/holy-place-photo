@@ -25,9 +25,8 @@ class AnimeController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show($id)
+    public function show(Anime $anime)
     {
-        $anime = Anime::where('id', $id)->first();
         $s3Url = env('AWS_S3_URL');
         return view('anime.show', compact('anime', 's3Url'));
     }

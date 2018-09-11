@@ -24,17 +24,17 @@ Route::group(['middleware' => 'login'], function () {
     Route::post('/photos', 'PhotoController@store');
 
     // 写真編集
-    Route::get('/photos/{id}/edit', 'PhotoController@edit')->where('id', '[0-9]+');
-    Route::put('/photos/{id}', 'PhotoController@update')->where('id', '[0-9]+');
+    Route::get('/photos/{photo}/edit', 'PhotoController@edit')->where('photo', '[0-9]+');
+    Route::put('/photos/{photo}', 'PhotoController@update')->where('photo', '[0-9]+');
 
     // 写真削除
-    Route::delete('/photos/{id}', 'PhotoController@destory')->where('id', '[0-9]+');
+    Route::delete('/photos/{photo}', 'PhotoController@destory')->where('photo', '[0-9]+');
 
     // アニメ一覧
     Route::get('/anime', 'AnimeController@index');
 
     // アニメ詳細
-    Route::get('/anime/{id}', 'AnimeController@show')->where('id', '[0-9]+');
+    Route::get('/anime/{anime}', 'AnimeController@show')->where('anime', '[0-9]+');
 
     // ユーザー詳細
     Route::get('/users/{id}', 'UserController@show')->where('id', '[0-9]+');

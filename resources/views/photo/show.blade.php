@@ -7,12 +7,27 @@
   <p>{{$photo->title}}</p>
   <p>{{$photo->comment}}</p>
   <p v-like-count="{{$photo->likeCount}}">@{{ likeCount }}</p>
+  <a href="javascript:void(0);" @click="deleteModalOpen">削除</a>
   <div>
     <a href="javascript:void(0);" @click="like('{{$photo->id}}')" v-like-done="{{$photo->likeDone($user)}}">@{{ likeText }}</a>
   </div>
   @foreach($photo->urls as $url)
     <img src="{{$s3Url . $url->url}}">
   @endforeach
+
+
+  <modal :is-show="deleteModalFlg" @close="deleteModalClose">
+    <div slot="contents">
+      <p>削除しますか？</p>
+      <form action="{{action('PhotoController@destory', $photo->id)}}" method="post">
+        {{ csrf_field() }}
+        @method('delete')
+        パスワード
+        <input type="password" name="password">
+        <button type="submit">削除</button>
+      </form>
+    </div>
+  </modal>
 
   <h2>このユーザーの他の写真</h2>
 

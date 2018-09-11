@@ -7,6 +7,8 @@ use App\Model\Like;
 use App\Model\Photo;
 use App\Model\PhotoUrl;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
@@ -47,17 +49,19 @@ class PhotoController extends Controller
     {
         $data = $request->all();
         $data['user_id'] = $request->session()->get('userId');
-        $photoModel = Photo::create($data);
 
-        $photos =  $request->file('photos');
-        foreach ($photos as $photo) {
-            $url = Storage::disk('s3')->putFile('/photos', $photo, 'public');
+        DB::transaction(function () use($data, $request) {
+            $photoModel = Photo::create($data);
+            $photos =  $request->file('photos');
+            foreach ($photos as $photo) {
+                $url = Storage::disk('s3')->putFile('/photos', $photo, 'public');
 
-            $photoUrl = new PhotoUrl();
-            $photoUrl->photo_id = $photoModel->id;
-            $photoUrl->url = $url;
-            $photoUrl->save();
-        }
+                $photoUrl = new PhotoUrl();
+                $photoUrl->photo_id = $photoModel->id;
+                $photoUrl->url = $url;
+                $photoUrl->save();
+            }
+        });
 
         return redirect('/');
     }
@@ -87,8 +91,20 @@ class PhotoController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function destory()
+    public function destory(Request $request, Photo $photo)
     {
+        if(!Hash::check($request->password, $photo->password)) {
+            abort('404');
+        }
+
+        DB::transaction(function () use($photo) {
+            $photoUrls = PhotoUrl::where('photo_id', $photo->id)->get();
+            foreach ($photoUrls as $photoUrl) {
+                Storage::disk('s3')->delete($photoUrl->url);
+                $photoUrl->delete();
+            }
+            $photo->delete();
+        });
         return redirect('/');
     }
 }
