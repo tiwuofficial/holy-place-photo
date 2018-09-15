@@ -22,6 +22,7 @@ new Vue({
       likeDone: false,
       likeCount: 0,
       likeDoneApiFlg: false,
+      editModalFlg: false,
       deleteModalFlg: false,
     }
   },
@@ -44,6 +45,12 @@ new Vue({
           .then(() => {
             this.likeDoneApiFlg = false;
           });
+    },
+    editModalOpen() {
+      this.editModalFlg = true;
+    },
+    editModalClose() {
+      this.editModalFlg = true;
     },
     deleteModalOpen() {
       this.deleteModalFlg = true;
