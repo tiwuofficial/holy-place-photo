@@ -20,11 +20,10 @@ class PhotoController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show(Request $request, $id)
+    public function show(Photo $photo)
     {
-        $photo = Photo::where('id', $id)->first();
-        $userPhotos = Photo::where('user_id', $photo->user_id)->where('id','!=', $id)->get();
-        $animePhotos = Photo::where('anime_id', $photo->anime_id)->where('id','!=', $id)->get();
+        $userPhotos = Photo::where('user_id', $photo->user_id)->where('id','!=', $photo->id)->get();
+        $animePhotos = Photo::where('anime_id', $photo->anime_id)->where('id','!=', $photo->id)->get();
         $s3Url = env('AWS_S3_URL');
         return view('photo.show', compact('photo', 'userPhotos','animePhotos' ,'s3Url'));
     }
@@ -71,9 +70,13 @@ class PhotoController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function edit()
+    public function edit(Request $request, Photo $photo)
     {
-        return view('photo.edit');
+        if(!Hash::check($request->password, $photo->password)) {
+            abort('404');
+        }
+        $animes = Anime::all();
+        return view('photo.edit',compact('photo', 'animes'));
     }
 
     /**
@@ -96,7 +99,6 @@ class PhotoController extends Controller
         if(!Hash::check($request->password, $photo->password)) {
             abort('404');
         }
-
         DB::transaction(function () use($photo) {
             $photoUrls = PhotoUrl::where('photo_id', $photo->id)->get();
             foreach ($photoUrls as $photoUrl) {

@@ -7,6 +7,7 @@
   <p>{{$photo->title}}</p>
   <p>{{$photo->comment}}</p>
   <p v-like-count="{{$photo->likeCount}}">@{{ likeCount }}</p>
+  <a href="javascript:void(0);" @click="editModalOpen">編集</a>
   <a href="javascript:void(0);" @click="deleteModalOpen">削除</a>
   <div>
     <a href="javascript:void(0);" @click="like('{{$photo->id}}')" v-like-done="{{$photo->likeDone($user)}}">@{{ likeText }}</a>
@@ -14,6 +15,18 @@
   @foreach($photo->urls as $url)
     <img src="{{$s3Url . $url->url}}">
   @endforeach
+
+  <modal :is-show="editModalFlg" @close="editModalClose">
+    <div slot="contents">
+      <p>編集しますか？</p>
+      <form action="{{action('PhotoController@edit', $photo->id)}}" method="post">
+        {{ csrf_field() }}
+        パスワード
+        <input type="password" name="password">
+        <button type="submit">編集画面へ</button>
+      </form>
+    </div>
+  </modal>
 
 
   <modal :is-show="deleteModalFlg" @close="deleteModalClose">
