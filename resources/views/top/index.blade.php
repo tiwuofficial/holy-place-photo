@@ -1,15 +1,19 @@
 @extends('common.base')
 
+@section('head')
+  <link href="{{ asset('/dist/css/top/index.css') }}" rel="stylesheet">
+@endsection
+
 @section('main')
   <h1>トップ</h1>
 
+  <ul class="p-photo-list">
   @foreach($photos as $photo)
-    <p>{{$photo->anime->name}}</p>
-    <p>{{$photo->name}}</p>
-    <p>{{$photo->title}}</p>
-    <p>{{$photo->comment}}</p>
-    @foreach($photo->urls as $url)
-      <img src="{{$s3Url . $url->url}}">
-    @endforeach
+    <li class="p-photo-list__item">
+      <a href="{{action('PhotoController@show', $photo->id)}}" class="p-photo-cassette">
+        <img src="{{$s3Url . $photo->urls->first()->url}}">
+      </a>
+    </li>
   @endforeach
+  </ul>
 @endsection

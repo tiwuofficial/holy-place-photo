@@ -9,5 +9,7 @@ RUN docker-php-ext-install pdo_mysql
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 
+COPY php.ini /usr/local/etc/php/
+
 ENV COMPOSER_HOME /composer
 ENV PATH $PATH:/composer/vendor/bin

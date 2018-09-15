@@ -1,5 +1,9 @@
 @extends('common.base')
 
+@section('head')
+  <link href="{{ asset('/dist/css/photo/edit.css') }}" rel="stylesheet">
+@endsection
+
 @section('main')
   <h1>写真編集</h1>
 

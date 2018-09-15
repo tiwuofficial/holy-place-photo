@@ -1,5 +1,9 @@
 @extends('common.base')
 
+@section('head')
+  <link href="{{ asset('/dist/css/top/inquiry.css') }}" rel="stylesheet">
+@endsection
+
 @section('main')
   <h1>お問い合わせ</h1>
   @if (session('status'))
