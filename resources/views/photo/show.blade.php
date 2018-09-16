@@ -5,7 +5,7 @@
 @endsection
 
 @section('main')
-  <h1>写真詳細</h1>
+  <h1>{{$photo->title}}</h1>
   <div class="js-slider p-swiper swiper-container">
     <div class="swiper-wrapper">
       @foreach($photo->urls as $url)
@@ -21,20 +21,22 @@
   <section class="c-center-section">
     <div class="p-photo-detail">
       <div class="p-photo-detail__info">
-        <h2 class="p-photo-detail__info__title">{{$photo->title}}</h2>
         <p class="p-photo-detail__info__create">{{$photo->created_at}}</p>
         <p class="p-photo-detail__info__name">Photo by {{$photo->name}}</p>
         <p class="p-photo-detail__info__comment">{{$photo->comment}}</p>
+      </div>
+
+      <div class="p-photo-detail__info-sub">
+        <p v-like-count="{{$photo->likeCount}}">尊いね！ @{{ likeCount }}件</p>
+        <div>
+          <a href="javascript:void(0);" class="c-button" @click="like('{{$photo->id}}')" v-like-done="{{$photo->likeDone($user)}}">@{{ likeText }}</a>
+        </div>
       </div>
 
       <div class="p-photo-detail__action">
         <a href="javascript:void(0);" @click="editModalOpen" class="c-button">編集</a>
         <a href="javascript:void(0);" @click="deleteModalOpen" class="c-button">削除</a>
       </div>
-    </div>
-    <p v-like-count="{{$photo->likeCount}}">@{{ likeCount }}</p>
-    <div>
-      <a href="javascript:void(0);" @click="like('{{$photo->id}}')" v-like-done="{{$photo->likeDone($user)}}">@{{ likeText }}</a>
     </div>
   </section>
 

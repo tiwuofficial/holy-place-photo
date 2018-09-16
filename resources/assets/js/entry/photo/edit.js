@@ -1,5 +1,14 @@
 import '../../common/base';
 
+Vue.directive('photo', {
+  bind: function (el, binding, vnode) {
+    console.log(binding.value);
+    vnode.context.photo.name = binding.value.name;
+    vnode.context.photo.title = binding.value.title;
+    vnode.context.photo.comment = binding.value.comment;
+  }
+});
+
 new Vue({
   el: '#wrapper',
   created() {

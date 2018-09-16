@@ -5,47 +5,36 @@
 @endsection
 
 @section('main')
-  <h1>写真編集</h1>
+  <h1 v-photo="{{$photo}}">写真編集</h1>
 
-  <form action="{{action('PhotoController@update', $photo->id)}}" method="post" enctype="multipart/form-data">
+  <form action="{{action('PhotoController@update', $photo->id)}}" method="post" enctype="multipart/form-data" class="p-photo-form">
     {{ csrf_field() }}
     @method('put')
 
-    <div>
-      <input type="text" name="name">
-    </div>
+    @component('components.photo-form.name')
+    @endcomponent
 
-    <div>
-      <input type="text" name="title">
-    </div>
+    @component('components.photo-form.title')
+    @endcomponent
 
-    <div>
-      <input type="password" name="password">
-    </div>
+    @component('components.photo-form.comment')
+    @endcomponent
 
-    <div>
-      <input type="password" name="password-confirm">
-    </div>
+    @for ($i = 1; $i <= 5; $i++)
+      @component('components.photo-form.photo', [
+        'id' => $i
+      ])
+      @endcomponent
+    @endfor
 
-    <div>
-      @foreach($animes as $anime)
-        <p>{{$anime->name}}</p>
-        <input type="radio" name="anime_id" value="{{$anime->id}}">
-      @endforeach
-    </div>
-
-    <div>
-      <textarea name="comment"></textarea>
-    </div>
-
-    <div>
-      <input type="file" name="photos[]">
-    </div>
-
-    <div>
-      <input type="file" name="photos[]">
-    </div>
-
-    <button type="submit">保存</button>
+    @component('components.photo-form.anime', [
+      'animes' => $animes
+    ])
+    @endcomponent
+    <button type="submit">修正</button>
   </form>
+@endsection
+
+@section('script')
+  <script src="{{ asset('dist/js/photo/edit.js') }}"></script>
 @endsection

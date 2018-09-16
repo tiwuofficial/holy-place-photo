@@ -1,6 +1,7 @@
 .p-photo-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .p-photo-list__item {

@@ -3,7 +3,7 @@
 }
 
 .p-photo-detail__info {
-  width: 70%;
+  width: 50%;
   text-align: left;
 }
 
@@ -35,6 +35,24 @@
   margin-top: 30px;
 }
 
+.p-photo-detail__info-sub {
+  width: 25%;
+
+  .c-button {
+    width: 230px;
+    margin: 20px auto 0;
+  }
+}
+
 .p-photo-detail__action {
-  width: 30%;
+  width: 25%;
+
+  .c-button {
+    width: 230px;
+    margin: 0 auto;
+  }
+
+  .c-button + .c-button {
+    margin-top: 20px;
+  }
 }
