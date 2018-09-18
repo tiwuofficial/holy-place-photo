@@ -27,7 +27,6 @@ class AnimeController extends Controller
      */
     public function show(Anime $anime)
     {
-        $s3Url = env('AWS_S3_URL');
-        return view('anime.show', compact('anime', 's3Url'));
+        return view('anime.show', compact('anime'));
     }
 }

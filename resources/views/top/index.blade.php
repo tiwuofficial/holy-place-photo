@@ -11,7 +11,7 @@
   @foreach($photos as $photo)
     <li class="p-photo-list__item">
       <a href="{{action('PhotoController@show', $photo->id)}}" class="p-photo-cassette">
-        <img src="{{$s3Url . $photo->urls->first()->url}}">
+        <img src="{{$photo->urls->first()->full_url}}">
       </a>
     </li>
   @endforeach

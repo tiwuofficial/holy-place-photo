@@ -24,8 +24,7 @@ class PhotoController extends Controller
     {
         $userPhotos = Photo::where('user_id', $photo->user_id)->where('id','!=', $photo->id)->get();
         $animePhotos = Photo::where('anime_id', $photo->anime_id)->where('id','!=', $photo->id)->get();
-        $s3Url = env('AWS_S3_URL');
-        return view('photo.show', compact('photo', 'userPhotos','animePhotos' ,'s3Url'));
+        return view('photo.show', compact('photo', 'userPhotos','animePhotos'));
     }
 
     /**
@@ -76,6 +75,7 @@ class PhotoController extends Controller
             abort('404');
         }
         $animes = Anime::all();
+        $photo = Photo::where('id', $photo->id)->with('urls')->first();
         return view('photo.edit',compact('photo', 'animes'));
     }
 
@@ -84,9 +84,30 @@ class PhotoController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update()
+    public function update(Request $request, Photo $photo)
     {
-        return redirect('/');
+        $data = $request->all();
+        DB::transaction(function () use($data, $request, $photo) {
+            $photo->fill($data)->save();
+            // アップロードされた写真の登録
+            $inputPhotos = $request->file('photos', []);
+            foreach ($inputPhotos as $inputPhoto) {
+                $url = Storage::disk('s3')->putFile('/photos', $inputPhoto, 'public');
+
+                $photoUrl = new PhotoUrl();
+                $photoUrl->photo_id = $photo->id;
+                $photoUrl->url = $url;
+                $photoUrl->save();
+            }
+
+            // 画像の削除
+            $deletePhotoUrls = explode(',', $request->input('deletePhotoUrls')[0]);
+            if (!empty($deletePhotoUrls)) {
+                Storage::disk('s3')->delete($deletePhotoUrls);
+                PhotoUrl::whereIn('url', $deletePhotoUrls)->delete();
+            }
+        });
+        return redirect(action('PhotoController@show', $photo->id));
     }
 
     /**

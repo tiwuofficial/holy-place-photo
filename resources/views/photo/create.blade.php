@@ -26,7 +26,7 @@
       @component('components.photo-form.password-confirm')
       @endcomponent
 
-      @for ($i = 1; $i <= 5; $i++)
+      @for ($i = 0; $i < 5; $i++)
         @component('components.photo-form.photo', [
           'id' => $i
         ])

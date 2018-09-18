@@ -5,11 +5,10 @@
 @endsection
 
 @section('main')
-  <h1>{{$photo->title}}</h1>
   <div class="js-slider p-swiper swiper-container">
     <div class="swiper-wrapper">
       @foreach($photo->urls as $url)
-        <div class="swiper-slide" style="background-image:url({{$s3Url . $url->url}})"></div>
+        <div class="swiper-slide" style="background-image:url({{$url->full_url}})"></div>
       @endforeach
     </div>
     <div class="swiper-pagination"></div>
@@ -21,9 +20,11 @@
   <section class="c-center-section">
     <div class="p-photo-detail">
       <div class="p-photo-detail__info">
-        <p class="p-photo-detail__info__create">{{$photo->created_at}}</p>
+        <h1 class="p-photo-detail__info__title">{{$photo->title}}</h1>
+        <p class="p-photo-detail__info__anime">Anime is {{$photo->anime_name}}</p>
         <p class="p-photo-detail__info__name">Photo by {{$photo->name}}</p>
-        <p class="p-photo-detail__info__comment">{{$photo->comment}}</p>
+        <p class="p-photo-detail__info__comment">{!! nl2br($photo->comment) !!}</p>
+        <p class="p-photo-detail__info__create">{{$photo->created_at}}</p>
       </div>
 
       <div class="p-photo-detail__info-sub">
@@ -72,7 +73,7 @@
     @foreach($userPhotos as $photo)
       <li class="p-photo-list__item">
         <a href="{{action('PhotoController@show', $photo->id)}}" class="p-photo-cassette">
-          <img src="{{$s3Url . $photo->urls->first()->url}}">
+          <img src="{{$photo->urls->first()->full_url}}">
         </a>
       </li>
     @endforeach
@@ -84,7 +85,7 @@
     @foreach($animePhotos as $photo)
       <li class="p-photo-list__item">
         <a href="{{action('PhotoController@show', $photo->id)}}" class="p-photo-cassette">
-          <img src="{{$s3Url . $photo->urls->first()->url}}">
+          <img src="{{$photo->urls->first()->full_url}}">
         </a>
       </li>
     @endforeach

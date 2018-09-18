@@ -3,7 +3,7 @@ import '../../common/base';
 new Vue({
   el: '#wrapper',
   created() {
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 0; i < 5; i++) {
       this.$set(this.file, i, {});
       this.$set(this.file[i], 'previewImageSrc', '');
       this.$set(this.file[i], 'type', '');
@@ -15,7 +15,8 @@ new Vue({
       photo: {
         name: '',
         title: '',
-        comment: ''
+        comment: '',
+        anime_id: ''
       }
     }
   },

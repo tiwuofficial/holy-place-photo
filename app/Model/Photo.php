@@ -31,6 +31,11 @@ class Photo extends Model
         return $this->like()->count();
     }
 
+    public function getAnimeNameAttribute()
+    {
+        return $this->anime()->first()->name;
+    }
+
     public function likeDone($id)
     {
         return $this->like()->where('user_id', $id)->first();

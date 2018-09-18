@@ -10,6 +10,7 @@
   <form action="{{action('PhotoController@update', $photo->id)}}" method="post" enctype="multipart/form-data" class="p-photo-form">
     {{ csrf_field() }}
     @method('put')
+    <input type="hidden" v-model="deletePhotoUrls" name="deletePhotoUrls[]">
 
     @component('components.photo-form.name')
     @endcomponent
@@ -20,7 +21,7 @@
     @component('components.photo-form.comment')
     @endcomponent
 
-    @for ($i = 1; $i <= 5; $i++)
+    @for ($i = 0; $i < 5; $i++)
       @component('components.photo-form.photo', [
         'id' => $i
       ])

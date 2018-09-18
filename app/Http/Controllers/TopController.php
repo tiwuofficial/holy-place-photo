@@ -17,8 +17,7 @@ class TopController extends Controller
     public function index()
     {
         $photos = Photo::with('urls', 'anime')->get();
-        $s3Url = env('AWS_S3_URL');
-        return view('top.index', compact('photos', 's3Url'));
+        return view('top.index', compact('photos'));
     }
 
     /**
