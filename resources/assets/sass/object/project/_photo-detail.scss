@@ -1,0 +1,62 @@
+.p-photo-detail {
+  display: flex;
+}
+
+.p-photo-detail__info {
+  width: 50%;
+  text-align: left;
+}
+
+.p-photo-detail__info__title {
+  text-align: left;
+}
+
+.p-photo-detail__info__create {
+  font-size: 12px;
+}
+
+.p-photo-detail__info__title + .p-photo-detail__info__anime {
+  margin-top: 10px;
+}
+
+.p-photo-detail__info__name {
+  font-size: 16px;
+}
+
+.p-photo-detail__info__anime + .p-photo-detail__info__name {
+  margin-top: 10px;
+}
+
+.p-photo-detail__info__comment {
+  font-size: 18px;
+}
+
+.p-photo-detail__info__name + .p-photo-detail__info__comment {
+  margin-top: 30px;
+}
+
+.p-photo-detail__info__comment + .p-photo-detail__info__create {
+  margin-top: 30px;
+}
+
+.p-photo-detail__info-sub {
+  width: 25%;
+
+  .c-button {
+    width: 230px;
+    margin: 20px auto 0;
+  }
+}
+
+.p-photo-detail__action {
+  width: 25%;
+
+  .c-button {
+    width: 230px;
+    margin: 0 auto;
+  }
+
+  .c-button + .c-button {
+    margin-top: 20px;
+  }
+}

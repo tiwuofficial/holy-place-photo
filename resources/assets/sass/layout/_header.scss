@@ -1,0 +1,17 @@
+.l-header {
+  height: 50px;
+  display: flex;
+}
+
+.l-header__item {
+  display: flex;
+  align-items: center;
+  
+  &:first-of-type {
+    flex-grow: 1;
+  }
+}
+
+.l-header__item + .l-header__item {
+  margin-left: 20px;
+}

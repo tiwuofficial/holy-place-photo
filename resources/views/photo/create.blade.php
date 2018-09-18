@@ -1,46 +1,48 @@
 @extends('common.base')
 
+@section('head')
+  <link href="{{ asset('/dist/css/photo/create.css') }}" rel="stylesheet">
+@endsection
+
 @section('main')
-  <h1>写真投稿</h1>
+  <section class="c-center-section">
+    <h1>写真投稿</h1>
 
-  <form action="{{action('PhotoController@store')}}" method="post" enctype="multipart/form-data">
-    {{ csrf_field() }}
+    <form action="{{action('PhotoController@store')}}" method="post" enctype="multipart/form-data" class="p-photo-form">
+      {{ csrf_field() }}
 
-    <div>
-      <input type="text" name="name">
-    </div>
+      @component('components.photo-form.name')
+      @endcomponent
 
-    <div>
-      <input type="text" name="title">
-    </div>
+      @component('components.photo-form.title')
+      @endcomponent
 
-    <div>
-      <input type="password" name="password">
-    </div>
+      @component('components.photo-form.comment')
+      @endcomponent
 
-    <div>
-      <input type="password" name="password-confirm">
-    </div>
+      @component('components.photo-form.password')
+      @endcomponent
 
-    <div>
-      @foreach($animes as $anime)
-        <p>{{$anime->name}}</p>
-        <input type="radio" name="anime_id" value="{{$anime->id}}">
-      @endforeach
-    </div>
+      @component('components.photo-form.password-confirm')
+      @endcomponent
 
-    <div>
-      <textarea name="comment"></textarea>
-    </div>
+      @for ($i = 0; $i < 5; $i++)
+        @component('components.photo-form.photo', [
+          'id' => $i
+        ])
+        @endcomponent
+      @endfor
 
-    <div>
-    <input type="file" name="photos[]">
-    </div>
 
-    <div>
-      <input type="file" name="photos[]">
-    </div>
+      @component('components.photo-form.anime', [
+        'animes' => $animes
+      ])
+      @endcomponent
+      <button type="submit">保存</button>
+    </form>
+  </section>
+@endsection
 
-    <button type="submit">保存</button>
-  </form>
+@section('script')
+  <script src="{{ asset('dist/js/photo/create.js') }}"></script>
 @endsection

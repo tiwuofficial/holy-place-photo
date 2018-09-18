@@ -1,20 +1,45 @@
 @extends('common.base')
 
-@section('main')
-  <h1>写真詳細</h1>
+@section('head')
+  <link href="{{ asset('/dist/css/photo/show.css') }}" rel="stylesheet">
+@endsection
 
-  <p>{{$photo->name}}</p>
-  <p>{{$photo->title}}</p>
-  <p>{{$photo->comment}}</p>
-  <p v-like-count="{{$photo->likeCount}}">@{{ likeCount }}</p>
-  <a href="javascript:void(0);" @click="editModalOpen">編集</a>
-  <a href="javascript:void(0);" @click="deleteModalOpen">削除</a>
-  <div>
-    <a href="javascript:void(0);" @click="like('{{$photo->id}}')" v-like-done="{{$photo->likeDone($user)}}">@{{ likeText }}</a>
+@section('main')
+  <div class="js-slider p-swiper swiper-container">
+    <div class="swiper-wrapper">
+      @foreach($photo->urls as $url)
+        <div class="swiper-slide" style="background-image:url({{$url->full_url}})"></div>
+      @endforeach
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev swiper-button-white"></div>
+    <div class="swiper-button-next swiper-button-white"></div>
   </div>
-  @foreach($photo->urls as $url)
-    <img src="{{$s3Url . $url->url}}">
-  @endforeach
+
+
+  <section class="c-center-section">
+    <div class="p-photo-detail">
+      <div class="p-photo-detail__info">
+        <h1 class="p-photo-detail__info__title">{{$photo->title}}</h1>
+        <p class="p-photo-detail__info__anime">Anime is {{$photo->anime_name}}</p>
+        <p class="p-photo-detail__info__name">Photo by {{$photo->name}}</p>
+        <p class="p-photo-detail__info__comment">{!! nl2br($photo->comment) !!}</p>
+        <p class="p-photo-detail__info__create">{{$photo->created_at}}</p>
+      </div>
+
+      <div class="p-photo-detail__info-sub">
+        <p v-like-count="{{$photo->likeCount}}">尊いね！ @{{ likeCount }}件</p>
+        <div>
+          <a href="javascript:void(0);" class="c-button" @click="like('{{$photo->id}}')" v-like-done="{{$photo->likeDone($user)}}">@{{ likeText }}</a>
+        </div>
+      </div>
+
+      <div class="p-photo-detail__action">
+        <a href="javascript:void(0);" @click="editModalOpen" class="c-button">編集</a>
+        <a href="javascript:void(0);" @click="deleteModalOpen" class="c-button">削除</a>
+      </div>
+    </div>
+  </section>
 
   <modal :is-show="editModalFlg" @close="editModalClose">
     <div slot="contents">
@@ -44,25 +69,28 @@
 
   <h2>このユーザーの他の写真</h2>
 
-  @foreach($userPhotos as $photo)
-    <p>{{$photo->name}}</p>
-    <p>{{$photo->title}}</p>
-    <p>{{$photo->comment}}</p>
-    @foreach($photo->urls as $url)
-      <img src="{{$s3Url . $url->url}}">
+  <ul class="p-photo-list">
+    @foreach($userPhotos as $photo)
+      <li class="p-photo-list__item">
+        <a href="{{action('PhotoController@show', $photo->id)}}" class="p-photo-cassette">
+          <img src="{{$photo->urls->first()->full_url}}">
+        </a>
+      </li>
     @endforeach
-  @endforeach
+  </ul>
 
   <h2>同じアニメの写真</h2>
 
-  @foreach($animePhotos as $photo)
-    <p>{{$photo->name}}</p>
-    <p>{{$photo->title}}</p>
-    <p>{{$photo->comment}}</p>
-    @foreach($photo->urls as $url)
-      <img src="{{$s3Url . $url->url}}">
+  <ul class="p-photo-list">
+    @foreach($animePhotos as $photo)
+      <li class="p-photo-list__item">
+        <a href="{{action('PhotoController@show', $photo->id)}}" class="p-photo-cassette">
+          <img src="{{$photo->urls->first()->full_url}}">
+        </a>
+      </li>
     @endforeach
-  @endforeach
+  </ul>
+
 @endsection
 
 @section('script')

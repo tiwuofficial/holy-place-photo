@@ -11,6 +11,16 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/common/base.js', 'public/dist/js/common')
-    .js('resources/assets/js/photo/show.js', 'public/dist/js/photo')
-    .sass('resources/assets/sass/app.scss', 'public/dist/css');
+mix.js('resources/assets/js/entry/photo/create.js', 'public/dist/js/photo')
+    .js('resources/assets/js/entry/photo/edit.js', 'public/dist/js/photo')
+    .js('resources/assets/js/entry/photo/show.js', 'public/dist/js/photo')
+    .sass('resources/assets/sass/entry/anime/index.scss', 'public/dist/css/anime')
+    .sass('resources/assets/sass/entry/anime/show.scss', 'public/dist/css/anime')
+    .sass('resources/assets/sass/entry/photo/create.scss', 'public/dist/css/photo')
+    .sass('resources/assets/sass/entry/photo/edit.scss', 'public/dist/css/photo')
+    .sass('resources/assets/sass/entry/photo/show.scss', 'public/dist/css/photo')
+    .sass('resources/assets/sass/entry/top/about.scss', 'public/dist/css/top')
+    .sass('resources/assets/sass/entry/top/guide.scss', 'public/dist/css/top')
+    .sass('resources/assets/sass/entry/top/index.scss', 'public/dist/css/top')
+    .sass('resources/assets/sass/entry/top/inquiry.scss', 'public/dist/css/top')
+    .sass('resources/assets/sass/entry/user/show.scss', 'public/dist/css/user');
