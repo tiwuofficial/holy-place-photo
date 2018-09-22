@@ -6,6 +6,12 @@ Vue.directive('photo', {
   }
 });
 
+Vue.directive('animes', {
+  bind: function (el, binding, vnode) {
+    vnode.context.animes = binding.value;
+  }
+});
+
 new Vue({
   el: '#wrapper',
   mounted() {
@@ -18,6 +24,9 @@ new Vue({
         this.photoUrls[i] = false;
       }
     }
+    this.animeTitle = this.animes.filter(anime => {
+      return anime.id === this.photo.anime_id;
+    })[0].name;
   },
   created() {
     for (let i = 0; i < 5; i++) {
@@ -36,7 +45,17 @@ new Vue({
         title: '',
         comment: '',
         anime_id: ''
-      }
+      },
+      animeTitle: '',
+      animes: [],
+    }
+  },
+  computed: {
+    filteredAnimes() {
+      if (!this.animeTitle) return [];
+      return this.animes.filter(anime => {
+        return anime.name.indexOf(this.animeTitle) > -1
+      })
     }
   },
   methods: {

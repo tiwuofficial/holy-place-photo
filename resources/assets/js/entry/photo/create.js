@@ -1,5 +1,11 @@
 import '../../common/base';
 
+Vue.directive('animes', {
+  bind: function (el, binding, vnode) {
+    vnode.context.animes = binding.value;
+  }
+});
+
 new Vue({
   el: '#wrapper',
   mounted() {
@@ -39,7 +45,17 @@ new Vue({
         lng: ''
       },
       map: {},
-      marker: null
+      marker: null,
+      animeTitle: '',
+      animes: [],
+    }
+  },
+  computed: {
+    filteredAnimes() {
+      if (!this.animeTitle) return [];
+      return this.animes.filter(anime => {
+        return anime.name.indexOf(this.animeTitle) > -1
+      })
     }
   },
   methods: {

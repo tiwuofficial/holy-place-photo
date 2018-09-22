@@ -11,6 +11,21 @@
   flex-wrap: wrap;
 }
 
+.p-anime-list-search {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  .c-input-text {
+    width: 40%;
+  }
+
+  span {
+    width: 40%;
+  }
+}
+
 .p-anime-list-header + .p-anime-list {
   margin-top: 25px;
 }
