@@ -5,7 +5,7 @@
 @endsection
 
 @section('main')
-  <section class="c-center-section">
+  <section class="c-center-section" v-user="{{$user}}">
     <h1>写真投稿</h1>
 
     <form action="{{action('PhotoController@store')}}" method="post" enctype="multipart/form-data" class="p-photo-form">
@@ -40,7 +40,7 @@
         'animes' => $animes
       ])
       @endcomponent
-      <button type="submit">保存</button>
+      <button type="submit" class="c-button">投稿</button>
     </form>
   </section>
 @endsection

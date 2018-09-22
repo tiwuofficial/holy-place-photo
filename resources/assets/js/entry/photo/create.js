@@ -6,6 +6,12 @@ Vue.directive('animes', {
   }
 });
 
+Vue.directive('user', {
+  bind: function (el, binding, vnode) {
+    vnode.context.photo.name = binding.value.name;
+  }
+});
+
 new Vue({
   el: '#wrapper',
   mounted() {

@@ -6,6 +6,7 @@ use App\Model\Anime;
 use App\Model\Like;
 use App\Model\Photo;
 use App\Model\PhotoUrl;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -32,10 +33,11 @@ class PhotoController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function create()
+    public function create(Request $request)
     {
         $animes = Anime::all();
-        return view('photo.create', compact('animes'));
+        $user = User::where('id',$request->session()->get('userId'))->first();
+        return view('photo.create', compact('animes', 'user'));
     }
 
     /**
@@ -48,6 +50,10 @@ class PhotoController extends Controller
         $data = $request->all();
         $data['user_id'] = $request->session()->get('userId');
         DB::transaction(function () use($data, $request) {
+            $user = User::where('id', $data['user_id'])->first();
+            $user->name = $data['name'];
+            $user->save();
+
             $photoModel = Photo::create($data);
             $photos =  $request->file('photos');
             foreach ($photos as $photo) {
