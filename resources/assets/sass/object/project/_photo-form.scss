@@ -14,6 +14,30 @@
   }
 }
 
+.p-photo-form__group--map {
+  margin-top: 30px;
+}
+
+.p-photo-form__group--map__input-wrap {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  label {
+    width: 10%;
+  }
+
+  .c-input-text {
+    width: 20%;
+  }
+}
+
+.p-photo-form__group--map__gmap {
+  margin-top: 20px;
+  height: 500px;
+}
+
 .p-photo-form__group__name {
   width: 300px;
   display: flex;

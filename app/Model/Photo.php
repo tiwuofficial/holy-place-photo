@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Hash;
 
 class Photo extends Model
 {
-    protected $fillable = ['name', 'title', 'comment', 'user_id', 'anime_id', 'password'];
+    protected $fillable = ['name', 'title', 'comment', 'user_id', 'anime_id', 'password', 'lat', 'lng'];
 
     public function setPasswordAttribute($value)
     {
