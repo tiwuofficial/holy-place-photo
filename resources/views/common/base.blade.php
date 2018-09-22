@@ -16,6 +16,7 @@
     @yield('main')
   </main>
 </div>
+@include('common.footer')
 @yield('script')
 </body>
 </html>
