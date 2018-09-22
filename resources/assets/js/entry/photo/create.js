@@ -2,6 +2,24 @@ import '../../common/base';
 
 new Vue({
   el: '#wrapper',
+  mounted() {
+    this.map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 35.6698324, lng: 139.48197549999998},
+      zoom: 16
+    });
+    this.map.addListener('click', e => {
+      this.photo.lat = e.latLng.lat();
+      this.photo.lng = e.latLng.lng();
+      if (this.marker) {
+        this.marker.setMap(null);
+      }
+      this.marker = new google.maps.Marker({
+        position: e.latLng,
+        map: this.map
+      });
+      this.map.panTo(e.latLng);
+    });
+  },
   created() {
     for (let i = 0; i < 5; i++) {
       this.$set(this.file, i, {});
@@ -16,8 +34,12 @@ new Vue({
         name: '',
         title: '',
         comment: '',
-        anime_id: ''
-      }
+        anime_id: '',
+        lat: '',
+        lng: ''
+      },
+      map: {},
+      marker: null
     }
   },
   methods: {

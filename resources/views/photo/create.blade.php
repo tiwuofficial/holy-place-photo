@@ -33,6 +33,8 @@
         @endcomponent
       @endfor
 
+      @component('components.photo-form.map')
+      @endcomponent
 
       @component('components.photo-form.anime', [
         'animes' => $animes
@@ -44,5 +46,6 @@
 @endsection
 
 @section('script')
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdlSVTp1S7ryq4cQVBonRdAXPwPH1mhQ8"></script>
   <script src="{{ asset('dist/js/photo/create.js') }}"></script>
 @endsection

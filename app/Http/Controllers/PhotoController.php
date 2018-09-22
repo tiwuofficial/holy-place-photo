@@ -47,7 +47,6 @@ class PhotoController extends Controller
     {
         $data = $request->all();
         $data['user_id'] = $request->session()->get('userId');
-
         DB::transaction(function () use($data, $request) {
             $photoModel = Photo::create($data);
             $photos =  $request->file('photos');
