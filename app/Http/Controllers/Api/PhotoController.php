@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Model\Like;
+use App\Model\Photo;
 use Illuminate\Http\Request;
 
 class PhotoController extends Controller
@@ -20,5 +21,11 @@ class PhotoController extends Controller
         $like->photo_id = $id;
         $like->save();
         return response('ok');
+    }
+
+    public function readMore()
+    {
+        // todo magic number
+        return Photo::with('urls', 'anime')->paginate(2);
     }
 }

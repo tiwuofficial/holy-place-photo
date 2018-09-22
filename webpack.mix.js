@@ -14,6 +14,7 @@ let mix = require('laravel-mix');
 mix.js('resources/assets/js/entry/photo/create.js', 'public/dist/js/photo')
     .js('resources/assets/js/entry/photo/edit.js', 'public/dist/js/photo')
     .js('resources/assets/js/entry/photo/show.js', 'public/dist/js/photo')
+    .js('resources/assets/js/entry/top/index.js', 'public/dist/js/top')
     .sass('resources/assets/sass/entry/anime/index.scss', 'public/dist/css/anime')
     .sass('resources/assets/sass/entry/anime/show.scss', 'public/dist/css/anime')
     .sass('resources/assets/sass/entry/photo/create.scss', 'public/dist/css/photo')

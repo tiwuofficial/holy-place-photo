@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Anime;
 use App\Model\Inquiry;
 use App\Model\Photo;
 use Illuminate\Http\Request;
@@ -16,8 +17,9 @@ class TopController extends Controller
      */
     public function index()
     {
-        $photos = Photo::with('urls', 'anime')->get();
-        return view('top.index', compact('photos'));
+        $animesHavePhoto = Anime::has('photos')->get();
+        $photos = Photo::with('urls', 'anime')->take(2)->get();
+        return view('top.index', compact('photos', 'animesHavePhoto'));
     }
 
     /**
