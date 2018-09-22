@@ -5,8 +5,11 @@
 @endsection
 
 @section('main')
-  <h1>トップ</h1>
-
+  <div class="p-hello-header">
+    <div class="p-hello-header__wrap">
+      <h1 class="p-hello-header__wrap__title">聖地を共有しよう</h1>
+    </div>
+  </div>
   <ul class="p-photo-list">
   @foreach($photos as $photo)
     <li class="p-photo-list__item">
