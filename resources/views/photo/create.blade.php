@@ -44,7 +44,7 @@
         'animes' => $animes
       ])
       @endcomponent
-      <button type="submit" class="c-button">投稿</button>
+      <button type="submit" class="c-button" v-bind:disabled="isDisabled">投稿</button>
     </form>
   </section>
 @endsection
