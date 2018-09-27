@@ -60,3 +60,27 @@
     margin-top: 20px;
   }
 }
+
+@media (max-width: 1100px) {
+  .p-photo-detail {
+    display: block;
+  }
+
+  .p-photo-detail__info {
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  .p-photo-detail__info-sub,
+  .p-photo-detail__action {
+    width: 100%;
+  }
+
+  .p-photo-detail__info + .p-photo-detail__info-sub {
+    margin-top: 20px;
+  }
+
+  .p-photo-detail__info-sub + .p-photo-detail__action {
+    margin-top: 40px;
+  }
+}

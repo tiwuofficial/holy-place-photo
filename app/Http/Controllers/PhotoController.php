@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PhotoRequest;
 use App\Model\Anime;
 use App\Model\Like;
 use App\Model\Photo;
@@ -45,7 +46,7 @@ class PhotoController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(PhotoRequest $request)
     {
         $data = $request->all();
         $data['user_id'] = $request->session()->get('userId');
