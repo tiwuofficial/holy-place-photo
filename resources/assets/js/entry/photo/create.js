@@ -6,6 +6,12 @@ Vue.directive('animes', {
   }
 });
 
+Vue.directive('user', {
+  bind: function (el, binding, vnode) {
+    vnode.context.photo.name = binding.value.name ? binding.value.name : '';
+  }
+});
+
 new Vue({
   el: '#wrapper',
   mounted() {
@@ -40,6 +46,8 @@ new Vue({
         name: '',
         title: '',
         comment: '',
+        password: '',
+        passwordConfirm: '',
         anime_id: '',
         lat: '',
         lng: ''
@@ -56,6 +64,28 @@ new Vue({
       return this.animes.filter(anime => {
         return anime.name.indexOf(this.animeTitle) > -1
       })
+    },
+    validation() {
+      return {
+        name: !!this.photo.name.trim(),
+        title: !!this.photo.title.trim(),
+        password: !!this.photo.password.trim() && this.photo.password.length >= 4,
+        passwordConfirm: !!this.photo.passwordConfirm.trim() && this.photo.passwordConfirm.length >= 4,
+        passwordSame: this.photo.password === this.photo.passwordConfirm,
+        anime_id: !!this.photo.anime_id
+      }
+    },
+    isDisabled() {
+      const existFiles = this.file.filter(v => {
+        return v.type !== '';
+      });
+      if (existFiles.length === 0) {
+        return true;
+      }
+      let allValidation = Vue.util.extend({}, this.validation);
+      return !Object.keys(allValidation).every(key => {
+        return allValidation[key];
+      });
     }
   },
   methods: {
@@ -66,6 +96,7 @@ new Vue({
         if (this.file[id].type === 'image/gif' || this.file[id].type === 'image/jpeg' || this.file[id].type === 'image/png') {
           this.file[id].previewImageSrc = window.URL.createObjectURL(file);
         } else {
+          this.file[id].type = '';
           this.file[id].previewImageSrc = '';
         }
       }

@@ -5,7 +5,7 @@
 @endsection
 
 @section('main')
-  <section class="c-center-section">
+  <section class="c-center-section" v-user="{{$user}}">
     <h1>写真投稿</h1>
 
     <form action="{{action('PhotoController@store')}}" method="post" enctype="multipart/form-data" class="p-photo-form">
@@ -26,6 +26,10 @@
       @component('components.photo-form.password-confirm')
       @endcomponent
 
+      <h2 class="p-photo-form__photo-title">写真</h2>
+      <p class="p-photo-form__caution p-photo-form__caution">※1枚は必須です</p>
+      <p class="p-photo-form__caution p-photo-form__caution">※5MB以内、ファイル形式はjpgまたはpngの画像を選択してください。</p>
+
       @for ($i = 0; $i < 5; $i++)
         @component('components.photo-form.photo', [
           'id' => $i
@@ -40,7 +44,7 @@
         'animes' => $animes
       ])
       @endcomponent
-      <button type="submit">保存</button>
+      <button type="submit" class="c-button" v-bind:disabled="isDisabled">投稿</button>
     </form>
   </section>
 @endsection

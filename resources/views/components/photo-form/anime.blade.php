@@ -1,4 +1,5 @@
-<h2 class="p-anime-list-header">アニメ一覧</h2>
+<h2 class="p-anime-list-header">アニメ</h2>
+<p class="p-photo-form__caution">※1つ選択してください。</p>
 <div class="p-anime-list-search">
   <span>タイトル検索</span>
   <input type="text" v-model="animeTitle" class="c-input-text">
