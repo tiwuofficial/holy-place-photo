@@ -11,3 +11,7 @@ h2 {
 input[type="file"] {
   display: none;
 }
+
+button:disabled {
+  opacity: 0.3;
+}
