@@ -1,4 +1,4 @@
-<div class="p-photo-form__group">
+<div class="p-photo-form__group p-photo-form__group--img">
   <div class="p-photo-form__group__name p-photo-form__group__name--img">
     <label for="photo_{{$id}}">
       写真をアップロード
