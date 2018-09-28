@@ -15,6 +15,12 @@ Vue.directive('like-count', {
   }
 });
 
+Vue.directive('photo', {
+  bind: function (el, binding, vnode) {
+    vnode.context.photo = binding.value;
+  }
+});
+
 new Vue({
   el: '#wrapper',
   components: {modal: modal},
@@ -48,6 +54,21 @@ new Vue({
         }
       },
     });
+    this.map = new google.maps.Map(document.getElementById('map'), {
+      center: {
+        lat: this.photo.lat,
+        lng: this.photo.lng
+      },
+      zoom: 16
+    });
+    this.marker = new google.maps.Marker({
+      position: {
+        lat: this.photo.lat,
+        lng: this.photo.lng
+      },
+      map: this.map
+    });
+    document.querySelector('.js-tw-share').href = 'http://twitter.com/share?url=' + location.href;
   },
   data() {
     return {
@@ -56,6 +77,9 @@ new Vue({
       likeDoneApiFlg: false,
       editModalFlg: false,
       deleteModalFlg: false,
+      map: {},
+      marker: null,
+      photo: {}
     }
   },
   computed: {
