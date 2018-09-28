@@ -17,27 +17,26 @@
   </div>
 
 
-  <section class="c-center-section">
+  <section class="c-center-section" v-photo="{{$photo}}">
     <div class="p-photo-detail">
       <div class="p-photo-detail__info">
         <h1 class="p-photo-detail__info__title">{{$photo->title}}</h1>
         <p class="p-photo-detail__info__anime">Anime is {{$photo->anime_name}}</p>
         <p class="p-photo-detail__info__name">Photo by {{$photo->name}}</p>
         <p class="p-photo-detail__info__comment">{!! nl2br($photo->comment) !!}</p>
-        <p class="p-photo-detail__info__create">{{$photo->created_at}}</p>
+        <p class="p-photo-detail__info__create">
+          <span>{{$photo->created_at}}</span>
+          <a href="javascript:void(0);" @click="editModalOpen">編集</a>
+          <a href="javascript:void(0);" @click="deleteModalOpen">削除</a>
+        </p>
       </div>
-
-      <div class="p-photo-detail__info-sub">
-        <p v-like-count="{{$photo->likeCount}}">尊いね！ @{{ likeCount }}件</p>
-        <div>
-          <a href="javascript:void(0);" class="c-button" @click="like('{{$photo->id}}')" v-like-done="{{$photo->likeDone($user)}}">@{{ likeText }}</a>
-        </div>
-      </div>
-
-      <div class="p-photo-detail__action">
-        <a href="javascript:void(0);" @click="editModalOpen" class="c-button">編集</a>
-        <a href="javascript:void(0);" @click="deleteModalOpen" class="c-button">削除</a>
-      </div>
+      <div id="map" class="p-photo-detail__map"></div>
+    </div>
+    <div class="p-photo-detail--footer">
+        <a href="javascript:void(0);" class="c-button" @click="like('{{$photo->id}}')" v-like-done="{{$photo->likeDone($user)}}" v-like-count="{{$photo->likeCount}}">尊いね！ @{{ likeCount }}件</a>
+        <a target="_blank" href="" rel="nofollow" class="js-tw-share tw-share-button">
+          Twitterでシェア
+        </a>
     </div>
   </section>
 
@@ -46,9 +45,11 @@
       <p>編集しますか？</p>
       <form action="{{action('PhotoController@edit', $photo->id)}}" method="post">
         {{ csrf_field() }}
-        パスワード
-        <input type="password" name="password">
-        <button type="submit">編集画面へ</button>
+        <div>
+          パスワード
+          <input type="password" name="password">
+        </div>
+        <button type="submit" class="c-button">編集画面へ</button>
       </form>
     </div>
   </modal>
@@ -60,9 +61,11 @@
       <form action="{{action('PhotoController@destory', $photo->id)}}" method="post">
         {{ csrf_field() }}
         @method('delete')
-        パスワード
-        <input type="password" name="password">
-        <button type="submit">削除</button>
+        <div>
+          パスワード
+          <input type="password" name="password">
+        </div>
+        <button type="submit" class="c-button">削除</button>
       </form>
     </div>
   </modal>
@@ -94,5 +97,6 @@
 @endsection
 
 @section('script')
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdlSVTp1S7ryq4cQVBonRdAXPwPH1mhQ8"></script>
   <script src="{{ asset('dist/js/photo/show.js') }}"></script>
 @endsection
