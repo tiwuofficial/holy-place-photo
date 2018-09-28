@@ -12,5 +12,6 @@
     "/dist/css/top/index.css": "/dist/css/top/index.css",
     "/dist/css/top/inquiry.css": "/dist/css/top/inquiry.css",
     "/dist/css/user/show.css": "/dist/css/user/show.css",
-    "/dist/js/photo/edit.js": "/dist/js/photo/edit.js"
+    "/dist/js/photo/edit.js": "/dist/js/photo/edit.js",
+    "/dist/js/anime/show.js": "/dist/js/anime/show.js"
 }

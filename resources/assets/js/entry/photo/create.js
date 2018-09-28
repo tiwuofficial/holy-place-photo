@@ -15,6 +15,7 @@ Vue.directive('user', {
 new Vue({
   el: '#wrapper',
   mounted() {
+    // TODO 初期値
     this.map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 35.6698324, lng: 139.48197549999998},
       zoom: 16
