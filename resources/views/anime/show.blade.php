@@ -5,7 +5,9 @@
 @endsection
 
 @section('main')
-  <h1>{{$anime->name}}</h1>
+  <h1 v-photos="{{$anime->photos}}">{{$anime->name}}</h1>
+
+  <div id="map" class="p-anime-detail--map"></div>
 
   <ul class="p-photo-list">
   @foreach($anime->photos as $photo)
@@ -16,4 +18,9 @@
     </li>
   @endforeach
   </ul>
+@endsection
+
+@section('script')
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdlSVTp1S7ryq4cQVBonRdAXPwPH1mhQ8"></script>
+  <script src="{{ asset('dist/js/anime/show.js') }}"></script>
 @endsection
