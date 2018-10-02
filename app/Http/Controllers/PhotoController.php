@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PhotoRequest;
+use App\Http\Requests\PhotoUpdateRequest;
 use App\Model\Anime;
 use App\Model\Like;
 use App\Model\Photo;
@@ -90,8 +91,11 @@ class PhotoController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, Photo $photo)
+    public function update(PhotoUpdateRequest $request, Photo $photo)
     {
+        if(!Hash::check($request->edit_password, $photo->password)) {
+            abort('404');
+        }
         $data = $request->all();
         DB::transaction(function () use($data, $request, $photo) {
             $photo->fill($data)->save();
