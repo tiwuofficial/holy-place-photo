@@ -53,4 +53,9 @@ Route::group(['middleware' => 'login'], function () {
 
     // サイトについて
     Route::get('/about', 'TopController@about');
+
+    // twitter login
+    Route::get('auth/twitter', 'Auth\TwitterController@redirectToProvider');
+    Route::get('auth/twitter/callback', 'Auth\TwitterController@handleProviderCallback');
+    Route::get('auth/twitter/logout', 'Auth\TwitterController@logout');
 });
