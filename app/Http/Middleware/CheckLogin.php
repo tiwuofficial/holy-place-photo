@@ -19,12 +19,10 @@ class CheckLogin
     public function handle($request, Closure $next)
     {
         if (!$request->session()->has('userId')) {
-            Log::info('hoge');
             $user = new User();
             $user->save();
             $request->session()->put('userId', $user->id);
         } else {
-            Log::info('fuga');
             $user = User::where('id', $request->session()->get('userId'))->first();
         }
         View::share('user', $user);
