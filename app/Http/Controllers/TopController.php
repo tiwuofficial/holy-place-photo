@@ -45,16 +45,6 @@ class TopController extends Controller
     }
 
     /**
-     * ガイドライン
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function guide()
-    {
-        return view('top.guide');
-    }
-
-    /**
      * サイトについて
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -62,5 +52,25 @@ class TopController extends Controller
     public function about()
     {
         return view('top.about');
+    }
+
+    /**
+     * 利用規約
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function kiyaku()
+    {
+        return view('top.kiyaku');
+    }
+
+    /**
+     * プライバシーポリシー
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function privacy()
+    {
+        return view('top.privacy');
     }
 }

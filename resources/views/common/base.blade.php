@@ -10,13 +10,14 @@
   @yield('head')
 </head>
 <body>
-@include('common.header')
-<div id="wrapper">
-  <main class="main">
-    @yield('main')
-  </main>
-</div>
-@include('common.footer')
-@yield('script')
+  <div id="wrapper">
+    @include('common.header')
+    @include('common.sideMenu')
+    <main>
+      @yield('main')
+    </main>
+    @include('common.footer')
+  </div>
+  @yield('script')
 </body>
 </html>

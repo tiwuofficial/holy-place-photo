@@ -18,3 +18,7 @@
     <button type="submit">送信</button>
   </form>
 @endsection
+
+@section('script')
+  <script src="{{ asset('dist/js/top/inquiry.js') }}"></script>
+@endsection

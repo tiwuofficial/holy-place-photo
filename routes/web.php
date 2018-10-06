@@ -48,11 +48,14 @@ Route::group(['middleware' => 'login'], function () {
     Route::get('/inquiry', 'TopController@inquiry');
     Route::post('/inquiry', 'TopController@inquiryStore');
 
-    // ガイドライン
-    Route::get('/guide', 'TopController@guide');
-
     // サイトについて
     Route::get('/about', 'TopController@about');
+
+    // 利用規約
+    Route::get('/kiyaku', 'TopController@kiyaku');
+
+    // プライバシーポリシー
+    Route::get('/privacy', 'TopController@privacy');
 
     // twitter login
     Route::get('auth/twitter', 'Auth\TwitterController@redirectToProvider');

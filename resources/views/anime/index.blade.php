@@ -31,3 +31,7 @@
   </ul>
 
 @endsection
+
+@section('script')
+  <script src="{{ asset('dist/js/anime/index.js') }}"></script>
+@endsection
