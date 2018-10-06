@@ -147,9 +147,19 @@
     width: 100%;
   }
 
+  .p-photo-form__group--img-desc {
+    padding: 0 15px;
+
+    .p-photo-form__caution {
+      text-align: left;
+    }
+  }
+
   .p-photo-form__group__name--img {
     justify-content: center;
     width: 100%;
+    flex-direction: column;
+    align-items: center;
   }
 
 }

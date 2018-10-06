@@ -1,5 +1,5 @@
 <header class="l-header">
-  <div class="l-header__item">
+  <div class="l-header__item l-header__item--logo">
     <a href="{{action('TopController@index')}}" class="l-header__item__link">Holy Place Photo</a>
   </div>
   <div class="l-header__item">
@@ -14,7 +14,12 @@
     </div>
   @else
     <div class="l-header__item">
-      <a href="{{action('Auth\TwitterController@redirectToProvider')}}" class="l-header__item__link">ログイン(Twitter)</a>
+      <a href="{{action('Auth\TwitterController@redirectToProvider')}}" class="l-header__item__link">ログイン</a>
     </div>
   @endif
+  <div class="l-header__item l-header__item--icon">
+    <a href="javascript:void(0);" @click="sideMenuOpen">
+      <img src="/img/icon/menu.svg" alt="menu icon" class="l-header__item__icon">
+    </a>
+  </div>
 </header>
