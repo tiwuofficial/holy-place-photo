@@ -29,8 +29,7 @@ class TopController extends Controller
      */
     public function inquiry()
     {
-        $hoge = Inquiry::all();
-        return view('top.inquiry', compact('hoge'));
+        return view('top.inquiry');
     }
 
     public function inquiryStore(Request $request)
@@ -42,7 +41,7 @@ class TopController extends Controller
         ]);
         $data = $request->all();
         Inquiry::create($data);
-        return redirect('/inquiry')->with('status', '入力内容を送信しました！');
+        return redirect('/inquiry')->with('status', 'お問い合わせ内容を送信しました！');
     }
 
     /**

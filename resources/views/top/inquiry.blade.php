@@ -10,9 +10,6 @@
     {{ session('status') }}
   @endif
 
-  @foreach($hoge as $fuga)
-    <p>{!! nl2br(e($fuga->message)) !!}</p>
-    @endforeach
   <form method="POST" action="{{action('TopController@inquiryStore')}}">
     {{ csrf_field() }}
     <input type="text" name="name" placeholder="お名前">
