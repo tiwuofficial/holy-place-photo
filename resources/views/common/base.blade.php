@@ -17,6 +17,15 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@holyplace_photo">
   @yield('head')
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68543693-6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-68543693-6');
+  </script>
 </head>
 <body>
   <div id="wrapper">
