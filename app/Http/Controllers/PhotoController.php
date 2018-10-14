@@ -27,7 +27,10 @@ class PhotoController extends Controller
     {
         $userPhotos = Photo::where('user_id', $photo->user_id)->where('id','!=', $photo->id)->get();
         $animePhotos = Photo::where('anime_id', $photo->anime_id)->where('id','!=', $photo->id)->get();
-        return view('photo.show', compact('photo', 'userPhotos','animePhotos'));
+
+        $title = '【Holy Place Photo】' . $photo->title;
+        $description = '【Holy Place Photo】' . $photo->comment;;
+        return view('photo.show', compact('photo', 'userPhotos','animePhotos', 'title', 'description'));
     }
 
     /**
@@ -39,7 +42,10 @@ class PhotoController extends Controller
     {
         $animes = Anime::all();
         $user = User::where('id',$request->session()->get('userId'))->first();
-        return view('photo.create', compact('animes', 'user'));
+
+        $title = '【Holy Place Photo】写真の投稿';
+        $description = 'アニメの聖地の写真を投稿ができます。アニメや聖地などを選択し、投稿してください。';
+        return view('photo.create', compact('animes', 'user', 'title', 'description'));
     }
 
     /**
@@ -83,7 +89,10 @@ class PhotoController extends Controller
         }
         $animes = Anime::all();
         $photo = Photo::where('id', $photo->id)->with('urls')->first();
-        return view('photo.edit',compact('photo', 'animes'));
+
+        $title = '【Holy Place Photo】写真の編集';
+        $description = '投稿した写真の編集ができます。';
+        return view('photo.edit',compact('photo', 'animes', 'title', 'description'));
     }
 
     /**

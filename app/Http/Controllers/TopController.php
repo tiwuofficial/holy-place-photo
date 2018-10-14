@@ -19,7 +19,11 @@ class TopController extends Controller
     {
         $animesHavePhoto = Anime::has('photos')->get();
         $photos = Photo::with('urls', 'anime')->take(2)->get();
-        return view('top.index', compact('photos', 'animesHavePhoto'));
+        $top = true;
+
+        $title = '【Holy Place Photo】アニメの聖地の写真の共有サイト';
+        $description = 'アニメの聖地で撮った写真を共有できるサイトです。好きなアニメの聖地の写真を投稿したり、聖地を地図から探したりして楽しんでください。';
+        return view('top.index', compact('photos', 'animesHavePhoto', 'title', 'description', 'top'));
     }
 
     /**
@@ -29,7 +33,9 @@ class TopController extends Controller
      */
     public function inquiry()
     {
-        return view('top.inquiry');
+        $title = '【Holy Place Photo】お問い合わせ';
+        $description = 'Holy Place Photoに関するお問い合わせはこちらからお願いします。';
+        return view('top.inquiry', compact('title', 'description'));
     }
 
     public function inquiryStore(Request $request)
@@ -51,7 +57,9 @@ class TopController extends Controller
      */
     public function about()
     {
-        return view('top.about');
+        $title = '【Holy Place Photo】サイトについて';
+        $description = 'Holy Place Photoについての説明です。';
+        return view('top.about', compact('title', 'description'));
     }
 
     /**
@@ -61,7 +69,9 @@ class TopController extends Controller
      */
     public function kiyaku()
     {
-        return view('top.kiyaku');
+        $title = '【Holy Place Photo】利用規約';
+        $description = 'Holy Place Photoの利用規約です。';
+        return view('top.kiyaku', compact('title', 'description'));
     }
 
     /**
@@ -71,6 +81,8 @@ class TopController extends Controller
      */
     public function privacy()
     {
-        return view('top.privacy');
+        $title = '【Holy Place Photo】プライバシーポリシー';
+        $description = 'Holy Place Photoの利用規約です。';
+        return view('top.privacy', compact('title', 'description'));
     }
 }
