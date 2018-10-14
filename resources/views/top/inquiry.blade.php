@@ -6,17 +6,19 @@
 
 @section('main')
   <h1>お問い合わせ</h1>
-  @if (session('status'))
-    {{ session('status') }}
-  @endif
+  <div  class="p-inquiry-form">
+    @if (session('status'))
+      <p>{{ session('status') }}</p>
+    @endif
 
-  <form method="POST" action="{{action('TopController@inquiryStore')}}">
-    {{ csrf_field() }}
-    <input type="text" name="name" placeholder="お名前">
-    <input type="email" name="email" placeholder="メールアドレス">
-    <textarea name="message" placeholder="ご要望・お問い合わせ内容" required></textarea>
-    <button type="submit">送信</button>
-  </form>
+    <form method="POST" action="{{action('TopController@inquiryStore')}}">
+      {{ csrf_field() }}
+      <input type="text" name="name" class="c-input-text" placeholder="お名前" required>
+      <input type="email" name="email" class="c-input-text" placeholder="メールアドレス" required>
+      <textarea name="message" class="c-textarea" placeholder="ご要望・お問い合わせ内容" required></textarea>
+      <button type="submit" class="c-button">送信</button>
+    </form>
+  </div>
 @endsection
 
 @section('script')

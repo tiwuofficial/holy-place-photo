@@ -5,6 +5,7 @@
 @endsection
 
 @section('main')
+  <div class="c-plane-section">
     <section>
       <h1>利用規約</h1>
         <p>
@@ -229,6 +230,7 @@
       <h2>第17条（管轄）</h2>
       <div><p>本規約またはサービス利用契約に起因し、または関連する一切の紛争については、東京地方裁判所を第一審の専属的合意管轄裁判所とします。</p></div>
     </section>
+  </div>
 @endsection
 
 @section('script')

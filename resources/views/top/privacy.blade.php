@@ -5,6 +5,7 @@
 @endsection
 
 @section('main')
+  <div class="c-plane-section">
     <section>
       <h2>プライバシーポリシー</h2>
         <p>
@@ -122,6 +123,7 @@
         </ol>
       </div>
     </section>
+  </div>
 @endsection
 
 @section('script')
