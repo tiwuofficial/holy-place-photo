@@ -54,6 +54,7 @@
         'animes' => $animes
       ])
       @endcomponent
+      <p class="p-photo-form__caution">投稿ボタンをクリックすることで、<a href="{{action('TopController@kiyaku')}}">利用規約</a>と<a href="{{action('TopController@privacy')}}">プライバシーポリシー</a>に同意したものとみなします。</p>
       <button type="submit" class="c-button" v-bind:disabled="isDisabled">投稿</button>
     </form>
   </section>
