@@ -17,7 +17,10 @@ class AnimeController extends Controller
     {
         $animesHavePhoto = Anime::has('photos')->get();
         $animesNotHavePhoto = Anime::has('photos', '=', 0)->get();
-        return view('anime.index', compact('animesHavePhoto', 'animesNotHavePhoto'));
+
+        $title = '【Holy Place Photo】アニメの一覧';
+        $description = 'アニメの一覧です。気になるアニメを選んで写真を探してみましょう。';
+        return view('anime.index', compact('animesHavePhoto', 'animesNotHavePhoto', 'title', 'description'));
     }
 
     /**
@@ -27,6 +30,8 @@ class AnimeController extends Controller
      */
     public function show(Anime $anime)
     {
-        return view('anime.show', compact('anime'));
+        $title = '【Holy Place Photo】' . $anime->name;
+        $description = $anime->name . 'の詳細です。気になる写真を選んでみましょう。';
+        return view('anime.show', compact('anime', 'title', 'description'));
     }
 }
