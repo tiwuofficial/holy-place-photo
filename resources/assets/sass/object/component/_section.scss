@@ -1,0 +1,19 @@
+.c-center-section {
+  margin: 0 auto;
+  max-width: 1100px;
+  text-align: center;
+}
+
+.c-plane-section {
+  padding: 15px;
+  line-height: 1.5;
+
+  h1, h2, p {
+    margin-bottom: 10px;
+  }
+
+  ol {
+    padding-left: 20px;
+    margin-bottom: 10px;
+  }
+}

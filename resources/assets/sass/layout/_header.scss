@@ -1,0 +1,39 @@
+.l-header {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  padding: 0 20px;
+}
+
+.l-header__item {
+  display: flex;
+  align-items: center;
+  
+  &:first-of-type {
+    flex-grow: 1;
+  }
+}
+
+.l-header__item + .l-header__item {
+  margin-left: 20px;
+}
+
+.l-header__item__link {
+  color: #000;
+}
+
+.l-header__item__icon {
+  height: 30px;
+}
+
+@media (max-width: 1100px) {
+  .l-header__item {
+    display: none;
+  }
+
+  .l-header__item--logo,
+  .l-header__item--icon {
+    display: flex;
+  }
+  
+}

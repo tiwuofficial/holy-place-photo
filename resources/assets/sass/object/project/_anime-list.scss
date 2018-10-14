@@ -1,0 +1,37 @@
+.p-anime-list-header {
+  text-align: center;
+  font-size: 20px;
+  &:first-of-type {
+    margin-top: 30px;
+  }
+}
+
+.p-anime-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.p-anime-list-search {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  .c-input-text {
+    width: 40%;
+  }
+
+  span {
+    width: 40%;
+  }
+}
+
+.p-anime-list-header + .p-anime-list {
+  margin-top: 25px;
+}
+
+.p-anime-list__item {
+  display: block;
+  padding: 10px;
+}

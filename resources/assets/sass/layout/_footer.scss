@@ -1,0 +1,13 @@
+.l-footer {
+  text-align: center;
+  background: #e1e4e8;
+  height: 30px;
+  line-height: 30px;
+  font-size: 12px;
+}
+
+@media (max-width: 1100px) {
+  .l-footer {
+    font-size: 10px;
+  }
+}
