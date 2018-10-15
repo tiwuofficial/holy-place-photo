@@ -16,6 +16,10 @@
   <meta property="og:locale" content="ja_JP">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@holyplace_photo">
+
+  <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
+
+
   @yield('head')
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68543693-6"></script>
