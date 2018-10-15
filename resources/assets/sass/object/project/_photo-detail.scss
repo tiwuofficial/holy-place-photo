@@ -1,6 +1,8 @@
 .p-photo-detail {
   display: flex;
+  justify-content: space-between;
   margin-top: 40px;
+  padding-bottom: 40px;
 }
 
 .p-photo-detail__info {
@@ -9,7 +11,7 @@
 }
 
 .p-photo-detail__map {
-  width: 50%;
+  width: 45%;
   height: 400px;
 }
 
@@ -18,7 +20,7 @@
 }
 
 .p-photo-detail__info__create {
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .p-photo-detail__info__title + .p-photo-detail__info__anime {
@@ -47,6 +49,10 @@
   span {
     flex-grow: 1;
   }
+
+  a + a {
+    padding-left: 10px;
+  }
 }
 
 .p-photo-detail__info__comment + .p-photo-detail__info__create {
@@ -60,6 +66,15 @@
   .c-button {
     width: 230px;
   }
+
+  .c-button--light-blue {
+    width: 230px;
+    margin-left: 20px;
+  }
+}
+
+.p-photo-detail--other {
+  padding-bottom: 40px;
 }
 
 @media (max-width: 1100px) {
