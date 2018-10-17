@@ -2,6 +2,7 @@
 
 @section('head')
   <link href="{{ asset('/dist/css/photo/show.css') }}" rel="stylesheet">
+  <meta name="twitter:image" content="{{$photo->urls->first()->full_url}}" />
 @endsection
 
 @section('main')
