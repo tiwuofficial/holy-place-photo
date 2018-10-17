@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Abraham\TwitterOAuth\TwitterOAuth;
 use App\Http\Requests\PhotoRequest;
 use App\Http\Requests\PhotoUpdateRequest;
 use App\Model\Anime;
@@ -72,7 +73,20 @@ class PhotoController extends Controller
                 $photoUrl->url = $url;
                 $photoUrl->save();
             }
+            $con = new TwitterOAuth(env('TWITTER_CLIENT_ID'),
+                env('TWITTER_CLIENT_SECRET'),
+                env('TWITTER_CLIENT_ID_ACCESS_TOKEN'),
+                env('TWITTER_CLIENT_ID_ACCESS_TOKEN_SECRET'));
+            $con->post("statuses/update", [
+                "status" =>
+                    'New Photo Post!'.PHP_EOL.
+                    '新しい聖地の写真が投稿されました!'.PHP_EOL.
+                    'タイトル「'.$data['title'].'」'.PHP_EOL.
+                    '#photo #anime #photography #アニメ #聖地 #写真'.PHP_EOL.
+                    'https://www.holy-place-photo.com/photos/'.$photoModel->id
+            ]);
         });
+
 
         return redirect('/');
     }
