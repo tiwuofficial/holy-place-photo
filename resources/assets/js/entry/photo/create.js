@@ -27,11 +27,12 @@ new Vue({
         this.marker.setMap(null);
       }
       this.marker = new google.maps.Marker({
-        position: e.latLng,
-        map: this.map
+        map: this.map,
+        position: e.latLng
       });
       this.map.panTo(e.latLng);
     });
+    this.geocoder = new google.maps.Geocoder();
   },
   created() {
     for (let i = 0; i < 5; i++) {
@@ -55,8 +56,10 @@ new Vue({
       },
       map: {},
       marker: null,
+      geocoder: {},
       animeTitle: '',
       animes: [],
+      address: ''
     }
   },
   computed: {
@@ -106,6 +109,21 @@ new Vue({
       this.file[id].type = '';
       this.file[id].previewImageSrc = '';
       document.getElementById(`photo_${id}`).value = '';
+    },
+    mapSearch() {
+      this.geocoder.geocode({
+        'address': this.address
+      }, (results, status) => {
+        if (status === google.maps.GeocoderStatus.OK) {
+          this.map.setCenter(results[0].geometry.location);
+          this.photo.lat = results[0].geometry.location.lat();
+          this.photo.lng = results[0].geometry.location.lng();
+          this.marker = new google.maps.Marker({
+            map: this.map,
+            position: results[0].geometry.location
+          });
+        }
+      });
     }
   },
 });

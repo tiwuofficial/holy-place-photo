@@ -72,6 +72,15 @@
   .c-input-text {
     width: 20%;
   }
+
+  p {
+    width: 20%;
+  }
+
+  .c-button {
+    width: 20%;
+    margin: 0;
+  }
 }
 
 .p-photo-form__group--map__gmap {
@@ -160,6 +169,19 @@
     width: 100%;
     flex-direction: column;
     align-items: center;
+  }
+
+  .p-photo-form__group--map__input-wrap {
+    flex-wrap: wrap;
+
+    label,
+    .c-input-text,
+    .c-button,
+    p {
+      width: 40%;
+      margin-top: 10px;
+    }
+
   }
 
 }
