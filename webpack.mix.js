@@ -32,3 +32,7 @@ mix.js('resources/assets/js/entry/photo/create.js', 'public/dist/js/photo')
     .sass('resources/assets/sass/entry/top/privacy.scss', 'public/dist/css/top')
     .sass('resources/assets/sass/entry/top/inquiry.scss', 'public/dist/css/top')
     .sass('resources/assets/sass/entry/user/show.scss', 'public/dist/css/user');
+
+if (mix.inProduction()) {
+  mix.version();
+}

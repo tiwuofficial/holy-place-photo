@@ -26,6 +26,7 @@
 
   @yield('head')
 
+  @if(app()->environment('production'))
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68543693-6"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -34,6 +35,7 @@
 
     gtag('config', 'UA-68543693-6');
   </script>
+  @endif
 </head>
 <body>
   <div id="wrapper">
