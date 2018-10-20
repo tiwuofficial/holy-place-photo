@@ -14,7 +14,11 @@
   <meta property="og:description" content="{{$description}}">
   <meta property="og:site_name" content="Holy Place Photo">
   <meta property="og:locale" content="ja_JP">
-  <meta name="twitter:card" content="summary">
+  @if(isset($summaryLargeImage))
+    <meta name="twitter:card" content="summary_large_image" >
+  @else
+    <meta name="twitter:card" content="summary">
+  @endif
   <meta name="twitter:site" content="@holyplace_photo">
   @yield('head')
 

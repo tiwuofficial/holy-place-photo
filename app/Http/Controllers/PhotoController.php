@@ -27,10 +27,11 @@ class PhotoController extends Controller
     {
         $userPhotos = Photo::where('user_id', $photo->user_id)->where('id','!=', $photo->id)->get();
         $animePhotos = Photo::where('anime_id', $photo->anime_id)->where('id','!=', $photo->id)->get();
+        $summaryLargeImage = true;
 
         $title = '【Holy Place Photo】' . $photo->title;
         $description = '【Holy Place Photo】' . $photo->comment;;
-        return view('photo.show', compact('photo', 'userPhotos','animePhotos', 'title', 'description'));
+        return view('photo.show', compact('photo', 'userPhotos','animePhotos', 'summaryLargeImage', 'title', 'description'));
     }
 
     /**
