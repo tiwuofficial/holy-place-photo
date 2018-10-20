@@ -2,6 +2,7 @@
 
 @section('head')
   <link href="{{ asset('/dist/css/photo/show.css') }}" rel="stylesheet">
+  <meta name="twitter:image" content="{{$photo->urls->first()->full_url}}" />
 @endsection
 
 @section('main')
@@ -16,8 +17,8 @@
     <div class="swiper-button-next swiper-button-white"></div>
   </div>
 
-
   <section class="c-center-section" v-photo="{{$photo}}">
+
     <div class="p-photo-detail">
       <div class="p-photo-detail__info">
         <h1 class="p-photo-detail__info__title">{{$photo->title}}</h1>
@@ -32,9 +33,10 @@
       </div>
       <div id="map" class="p-photo-detail__map"></div>
     </div>
+
     <div class="p-photo-detail--footer">
         <a href="javascript:void(0);" class="c-button" @click="like('{{$photo->id}}')" v-like-done="{{$photo->likeDone($user)}}" v-like-count="{{$photo->likeCount}}">尊いね！ @{{ likeCount }}件</a>
-        <a target="_blank" href="" rel="nofollow" class="js-tw-share tw-share-button">
+        <a target="_blank" href="" rel="nofollow" class="js-tw-share tw-share-button c-button--light-blue">
           Twitterでシェア
         </a>
     </div>
@@ -69,31 +71,33 @@
       </form>
     </div>
   </modal>
+  <div class="p-photo-detail--other">
+    @if(count($userPhotos) > 0)
+      <h2>このユーザーの他の写真</h2>
+      <ul class="p-photo-list">
+        @foreach($userPhotos as $photo)
+          <li class="p-photo-list__item">
+            <a href="{{action('PhotoController@show', $photo->id)}}" class="p-photo-cassette">
+              <img src="{{$photo->urls->first()->full_url}}">
+            </a>
+          </li>
+        @endforeach
+      </ul>
+    @endif
 
-  <h2>このユーザーの他の写真</h2>
-
-  <ul class="p-photo-list">
-    @foreach($userPhotos as $photo)
-      <li class="p-photo-list__item">
-        <a href="{{action('PhotoController@show', $photo->id)}}" class="p-photo-cassette">
-          <img src="{{$photo->urls->first()->full_url}}">
-        </a>
-      </li>
-    @endforeach
-  </ul>
-
-  <h2>同じアニメの写真</h2>
-
-  <ul class="p-photo-list">
-    @foreach($animePhotos as $photo)
-      <li class="p-photo-list__item">
-        <a href="{{action('PhotoController@show', $photo->id)}}" class="p-photo-cassette">
-          <img src="{{$photo->urls->first()->full_url}}">
-        </a>
-      </li>
-    @endforeach
-  </ul>
-
+    @if(count($animePhotos) > 0)
+      <h2>同じアニメの写真</h2>
+      <ul class="p-photo-list">
+        @foreach($animePhotos as $photo)
+          <li class="p-photo-list__item">
+            <a href="{{action('PhotoController@show', $photo->id)}}" class="p-photo-cassette">
+              <img src="{{$photo->urls->first()->full_url}}">
+            </a>
+          </li>
+        @endforeach
+      </ul>
+    @endif
+  </div>
 @endsection
 
 @section('script')
