@@ -1,7 +1,7 @@
 @extends('common.base')
 
 @section('head')
-  <link href="{{ asset('/dist/css/photo/show.css') }}" rel="stylesheet">
+  <link href="{{ mix('/dist/css/photo/show.css') }}" rel="stylesheet">
   <meta name="twitter:image" content="{{$photo->urls->first()->full_url}}" />
 @endsection
 
@@ -102,5 +102,5 @@
 
 @section('script')
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdlSVTp1S7ryq4cQVBonRdAXPwPH1mhQ8"></script>
-  <script src="{{ asset('dist/js/photo/show.js') }}"></script>
+  <script src="{{ mix('dist/js/photo/show.js') }}"></script>
 @endsection

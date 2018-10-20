@@ -1,7 +1,7 @@
 @extends('common.base')
 
 @section('head')
-  <link href="{{ asset('/dist/css/anime/index.css') }}" rel="stylesheet">
+  <link href="{{ mix('/dist/css/anime/index.css') }}" rel="stylesheet">
 @endsection
 
 @section('main')
@@ -33,5 +33,5 @@
 @endsection
 
 @section('script')
-  <script src="{{ asset('dist/js/anime/index.js') }}"></script>
+  <script src="{{ mix('dist/js/anime/index.js') }}"></script>
 @endsection

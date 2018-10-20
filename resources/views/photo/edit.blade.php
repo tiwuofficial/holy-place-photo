@@ -1,7 +1,7 @@
 @extends('common.base')
 
 @section('head')
-  <link href="{{ asset('/dist/css/photo/edit.css') }}" rel="stylesheet">
+  <link href="{{ mix('/dist/css/photo/edit.css') }}" rel="stylesheet">
 @endsection
 
 @section('main')
@@ -64,5 +64,5 @@
 
 @section('script')
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdlSVTp1S7ryq4cQVBonRdAXPwPH1mhQ8"></script>
-  <script src="{{ asset('dist/js/photo/edit.js') }}"></script>
+  <script src="{{ mix('dist/js/photo/edit.js') }}"></script>
 @endsection

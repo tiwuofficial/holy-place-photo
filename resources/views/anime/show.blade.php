@@ -1,7 +1,7 @@
 @extends('common.base')
 
 @section('head')
-  <link href="{{ asset('/dist/css/anime/show.css') }}" rel="stylesheet">
+  <link href="{{ mix('/dist/css/anime/show.css') }}" rel="stylesheet">
 @endsection
 
 @section('main')
@@ -22,5 +22,5 @@
 
 @section('script')
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdlSVTp1S7ryq4cQVBonRdAXPwPH1mhQ8"></script>
-  <script src="{{ asset('dist/js/anime/show.js') }}"></script>
+  <script src="{{ mix('dist/js/anime/show.js') }}"></script>
 @endsection
