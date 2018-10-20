@@ -27,3 +27,4 @@ new Vue({
     }
   },
 });
+console.log('hog');
