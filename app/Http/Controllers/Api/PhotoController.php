@@ -26,6 +26,6 @@ class PhotoController extends Controller
     public function readMore()
     {
         // todo magic number
-        return Photo::with('urls', 'anime')->paginate(2);
+        return Photo::with('urls', 'anime')->orderBy('created_at', 'desc')->paginate(2);
     }
 }

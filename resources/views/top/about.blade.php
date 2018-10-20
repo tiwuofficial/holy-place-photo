@@ -1,7 +1,7 @@
 @extends('common.base')
 
 @section('head')
-  <link href="{{ asset('/dist/css/top/about.css') }}" rel="stylesheet">
+  <link href="{{ mix('/dist/css/top/about.css') }}" rel="stylesheet">
 @endsection
 
 @section('main')
@@ -30,5 +30,5 @@
 @endsection
 
 @section('script')
-  <script src="{{ asset('dist/js/top/about.js') }}"></script>
+  <script src="{{ mix('dist/js/top/about.js') }}"></script>
 @endsection

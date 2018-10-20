@@ -1,7 +1,7 @@
 @extends('common.base')
 
 @section('head')
-  <link href="{{ asset('/dist/css/top/privacy.css') }}" rel="stylesheet">
+  <link href="{{ mix('/dist/css/top/privacy.css') }}" rel="stylesheet">
 @endsection
 
 @section('main')
@@ -127,5 +127,5 @@
 @endsection
 
 @section('script')
-  <script src="{{ asset('dist/js/top/privacy.js') }}"></script>
+  <script src="{{ mix('dist/js/top/privacy.js') }}"></script>
 @endsection
