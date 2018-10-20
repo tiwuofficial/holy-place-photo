@@ -83,7 +83,7 @@ class PhotoController extends Controller
                     'New Photo Post!'.PHP_EOL.
                     '新しい聖地の写真が投稿されました!'.PHP_EOL.
                     'タイトル「'.$data['title'].'」'.PHP_EOL.
-                    '#photo #anime #photography #アニメ #聖地 #写真'.PHP_EOL.
+                    '#photo #anime #photography #アニメ #聖地 #写真 #HolyPlacePhoto'.PHP_EOL.
                     'https://www.holy-place-photo.com/photos/'.$photoModel->id
             ]);
         });
