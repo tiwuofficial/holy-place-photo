@@ -21,9 +21,6 @@
   @endif
   <meta name="twitter:site" content="@holyplace_photo">
 
-  <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
-
-
   @yield('head')
 
   @if(app()->environment('production'))
