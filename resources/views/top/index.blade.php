@@ -12,7 +12,14 @@
   </div>
 
   <h2 class="p-top-photos__title">New</h2>
-  <ul class="p-photo-list" v-photos="{{$photos}}">
+  <ul class="p-photo-list">
+    @foreach($photos as $photo)
+      <li class="p-photo-list__item">
+        <a href="/photos/{{$photo->id}}" class="p-photo-cassette">
+          <img data-src="{{$photo->urls[0]->full_url}}">
+        </a>
+      </li>
+    @endforeach
     <li class="p-photo-list__item" v-for="photo in photos">
       <a v-bind:href="'/photos/' + photo.id" class="p-photo-cassette">
         <img v-bind:src="photo.urls[0].full_url">

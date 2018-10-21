@@ -1,12 +1,6 @@
 import '../../common/base';
 import axios from 'axios';
 
-Vue.directive('photos', {
-  bind: function (el, binding, vnode) {
-    vnode.context.photos = binding.value;
-  }
-});
-
 new Vue({
   el: '#wrapper',
   data() {

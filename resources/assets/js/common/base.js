@@ -19,3 +19,13 @@ Vue.mixin({
 });
 
 window.Vue = Vue;
+
+window.addEventListener("load", () => {
+  const imageElements = document.querySelectorAll('img');
+  for (let i = 0, len = imageElements.length; i < len; i++) {
+    const imageSrc = imageElements[i].getAttribute('data-src');
+    if (imageSrc) {
+      imageElements[i].setAttribute('src', imageSrc);
+    }
+  }
+}, false);
