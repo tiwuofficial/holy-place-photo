@@ -30,8 +30,8 @@ class PhotoController extends Controller
         $animePhotos = Photo::where('anime_id', $photo->anime_id)->where('id','!=', $photo->id)->get();
         $summaryLargeImage = true;
 
-        $title = '【Holy Place Photo】' . $photo->title;
-        $description = '【Holy Place Photo】' . $photo->comment;;
+        $title = '【Holy Place Photo】' . $photo->title . ' | アニメ「' . $photo->anime_name . '」の聖地の写真の詳細';
+        $description = 'アニメ「' . $photo->anime_name . '」の聖地の写真です。タイトル「' . $photo->title . '」【Holy Place Photo】はアニメの聖地の写真の共有サイトです。';
         return view('photo.show', compact('photo', 'userPhotos','animePhotos', 'summaryLargeImage', 'title', 'description'));
     }
 
@@ -45,8 +45,8 @@ class PhotoController extends Controller
         $animes = Anime::all();
         $user = User::where('id',$request->session()->get('userId'))->first();
 
-        $title = '【Holy Place Photo】写真の投稿';
-        $description = 'アニメの聖地の写真を投稿ができます。アニメや聖地などを選択し、投稿してください。';
+        $title = '【Holy Place Photo】アニメの聖地の写真の投稿';
+        $description = 'アニメの聖地の写真を投稿ができます。アニメや聖地などを選択し、投稿してください。【Holy Place Photo】はアニメの聖地の写真の共有サイトです。';
         return view('photo.create', compact('animes', 'user', 'title', 'description'));
     }
 
