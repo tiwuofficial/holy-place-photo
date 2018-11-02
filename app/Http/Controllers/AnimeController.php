@@ -17,10 +17,11 @@ class AnimeController extends Controller
     {
         $animesHavePhoto = Anime::has('photos')->get();
         $animesNotHavePhoto = Anime::has('photos', '=', 0)->get();
+        $googleAdsense = true;
 
         $title = '【Holy Place Photo】アニメの一覧 | 聖地の写真の共有';
         $description = 'アニメの一覧です。気になるアニメを選んで聖地の写真を探してみましょう。【Holy Place Photo】はアニメの聖地の写真の共有サイトです。';
-        return view('anime.index', compact('animesHavePhoto', 'animesNotHavePhoto', 'title', 'description'));
+        return view('anime.index', compact('animesHavePhoto', 'animesNotHavePhoto', 'title', 'description', 'googleAdsense'));
     }
 
     /**
@@ -32,6 +33,8 @@ class AnimeController extends Controller
     {
         $title = '【Holy Place Photo】アニメ「' . $anime->name . ' 」の聖地の写真の一覧';
         $description = 'アニメ「' . $anime->name . '」の聖地の写真の一覧です。気になる聖地の写真を選んでみましょう。【Holy Place Photo】はアニメの聖地の写真の共有サイトです。';
-        return view('anime.show', compact('anime', 'title', 'description'));
+
+        $googleAdsense = true;
+        return view('anime.show', compact('anime', 'title', 'description', 'googleAdsense'));
     }
 }
