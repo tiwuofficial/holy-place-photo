@@ -29,10 +29,11 @@ class PhotoController extends Controller
         $userPhotos = Photo::where('user_id', $photo->user_id)->where('id','!=', $photo->id)->get();
         $animePhotos = Photo::where('anime_id', $photo->anime_id)->where('id','!=', $photo->id)->get();
         $summaryLargeImage = true;
+        $googleAdsense = true;
 
         $title = '【Holy Place Photo】' . $photo->title . ' | アニメ「' . $photo->anime_name . '」の聖地の写真の詳細';
         $description = 'アニメ「' . $photo->anime_name . '」の聖地の写真です。タイトル「' . $photo->title . '」【Holy Place Photo】はアニメの聖地の写真の共有サイトです。';
-        return view('photo.show', compact('photo', 'userPhotos','animePhotos', 'summaryLargeImage', 'title', 'description'));
+        return view('photo.show', compact('photo', 'userPhotos','animePhotos', 'summaryLargeImage', 'title', 'description', 'googleAdsense'));
     }
 
     /**

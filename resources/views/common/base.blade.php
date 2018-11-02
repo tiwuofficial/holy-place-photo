@@ -24,14 +24,16 @@
   @yield('head')
 
   @if(app()->environment('production'))
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68543693-6"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68543693-6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-    gtag('config', 'UA-68543693-6');
-  </script>
+      gtag('config', 'UA-68543693-6');
+    </script>
+  @endif
+  @if(isset($googleAdsense) && app()->environment('production'))
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
       (adsbygoogle = window.adsbygoogle || []).push({
