@@ -2,7 +2,13 @@ import '../../common/base';
 
 Vue.directive('animes', {
   bind: function (el, binding, vnode) {
-    vnode.context.animes = binding.value;
+    const animes = binding.value;
+    for (let anime in animes) {
+      vnode.context.animes.push({
+        id: anime,
+        name: animes[anime]
+      });
+    }
   }
 });
 

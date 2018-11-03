@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Storage;
 
 class PhotoController extends Controller
@@ -43,8 +44,8 @@ class PhotoController extends Controller
      */
     public function create(Request $request)
     {
-        $animes = Anime::all();
         $user = User::where('id',$request->session()->get('userId'))->first();
+        $animes = Redis::hGetAll('anime');
 
         $title = '【Holy Place Photo】アニメの聖地の写真の投稿';
         $description = 'アニメの聖地の写真を投稿ができます。アニメや聖地などを選択し、投稿してください。【Holy Place Photo】はアニメの聖地の写真の共有サイトです。';
@@ -104,7 +105,7 @@ class PhotoController extends Controller
         if(!Hash::check($request->password, $photo->password)) {
             abort('404');
         }
-        $animes = Anime::all();
+        $animes = Redis::hGetAll('anime');
         $photo = Photo::where('id', $photo->id)->with('urls')->first();
 
         $title = '【Holy Place Photo】写真の編集';
