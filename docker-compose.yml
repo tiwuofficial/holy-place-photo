@@ -24,4 +24,11 @@ services:
      - MYSQL_USER=laravel
      - MYSQL_PASSWORD=laravel
     ports:
-      - 33333:3306
+      - 13306:3306
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+  redis:
+    image: redis
+    container_name: "laravel-redis"
+    ports:
+        - "16379:6379"
