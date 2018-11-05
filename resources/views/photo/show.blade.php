@@ -22,7 +22,7 @@
     <div class="p-photo-detail">
       <div class="p-photo-detail__info">
         <h1 class="p-photo-detail__info__title">{{$photo->title}}</h1>
-        <p class="p-photo-detail__info__anime">Anime is {{$photo->anime_name}}</p>
+        <p class="p-photo-detail__info__anime">Anime is <a href="{{action('AnimeController@show', $photo->anime->id)}}">{{$photo->anime_name}}</a></p>
         <p class="p-photo-detail__info__name">Photo by {{$photo->name}}</p>
         <p class="p-photo-detail__info__comment">{!! nl2br($photo->comment) !!}</p>
         <p class="p-photo-detail__info__create">
