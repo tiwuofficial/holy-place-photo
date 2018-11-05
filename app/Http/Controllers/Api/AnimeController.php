@@ -17,4 +17,14 @@ class AnimeController extends Controller
     {
         return response()->json(Anime::all());
     }
+
+    public function getForNoHavePhoto()
+    {
+        $animes = Anime::has('photos', '=', 0)->get();
+        $result = [];
+        foreach ($animes as $anime) {
+            $result[$anime->id] = $anime->name;
+        }
+        return response()->json($result);
+    }
 }

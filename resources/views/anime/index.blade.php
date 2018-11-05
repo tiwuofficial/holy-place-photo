@@ -21,13 +21,11 @@
 
   <h2 class="p-anime-list-header">未投稿のアニメ</h2>
   <ul class="p-anime-list">
-    @foreach($animesNotHavePhoto as $anime)
-      <li class="p-anime-list__item">
-        <a href="{{action('AnimeController@show', $anime->id)}}">
-          <p>{{$anime->name}}</p>
-        </a>
-      </li>
-    @endforeach
+    <li class="p-anime-list__item" v-for="anime in noHavePhotoAnimes">
+      <a v-bind:href="'/anime/' + anime.id">
+        <p>@{{anime.name}}</p>
+      </a>
+    </li>
   </ul>
 
 @endsection
