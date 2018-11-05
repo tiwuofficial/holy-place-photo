@@ -1,16 +1,5 @@
 import '../../common/base';
-
-Vue.directive('animes', {
-  bind: function (el, binding, vnode) {
-    const animes = binding.value;
-    for (let anime in animes) {
-      vnode.context.animes.push({
-        id: anime,
-        name: animes[anime]
-      });
-    }
-  }
-});
+import axios from 'axios';
 
 Vue.directive('user', {
   bind: function (el, binding, vnode) {
@@ -39,6 +28,15 @@ new Vue({
       this.map.panTo(e.latLng);
     });
     this.geocoder = new google.maps.Geocoder();
+    axios.get('/api/anime/get')
+        .then((data) => {
+          for (let anime in data.data) {
+            this.animes.push({
+              id: anime,
+              name: data.data[anime],
+            });
+          }
+        })
   },
   created() {
     for (let i = 0; i < 5; i++) {

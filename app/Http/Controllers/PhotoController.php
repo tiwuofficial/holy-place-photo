@@ -45,11 +45,10 @@ class PhotoController extends Controller
     public function create(Request $request)
     {
         $user = User::where('id',$request->session()->get('userId'))->first();
-        $animes = Redis::hGetAll('anime');
 
         $title = '【Holy Place Photo】アニメの聖地の写真の投稿';
         $description = 'アニメの聖地の写真を投稿ができます。アニメや聖地などを選択し、投稿してください。【Holy Place Photo】はアニメの聖地の写真の共有サイトです。';
-        return view('photo.create', compact('animes', 'user', 'title', 'description'));
+        return view('photo.create', compact('user', 'title', 'description'));
     }
 
     /**

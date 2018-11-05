@@ -18,7 +18,7 @@ class TopController extends Controller
     public function index()
     {
         $animesHavePhoto = Anime::has('photos')->get();
-        $photos = Photo::with('urls', 'anime')->orderBy('created_at', 'desc')->take(2)->get();
+        $photos = Photo::with('urls', 'anime')->orderBy('created_at', 'desc')->take(12)->get();
         $top = true;
         $googleAdsense = true;
 
