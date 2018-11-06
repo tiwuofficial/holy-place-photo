@@ -27,6 +27,7 @@ class PhotoRequest extends FormRequest
             'name' => 'required|string',
             'title' => 'required|string',
             'comment' => 'nullable|string',
+            'shooting_date' => 'nullable|date',
             'password' => 'required|string|confirmed',
             'anime_id' => 'required|integer',
             'photos.*' => 'image'

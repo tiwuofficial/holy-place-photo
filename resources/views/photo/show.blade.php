@@ -22,8 +22,11 @@
     <div class="p-photo-detail">
       <div class="p-photo-detail__info">
         <h1 class="p-photo-detail__info__title">{{$photo->title}}</h1>
-        <p class="p-photo-detail__info__anime">Anime is <a href="{{action('AnimeController@show', $photo->anime->id)}}">{{$photo->anime_name}}</a></p>
-        <p class="p-photo-detail__info__name">Photo by {{$photo->name}}</p>
+        <p class="p-photo-detail__info__text">Anime is <a href="{{action('AnimeController@show', $photo->anime->id)}}" class="p-photo-detail__info__anime">{{$photo->anime_name}}</a></p>
+        @if($photo->shooting_date)
+          <p class="p-photo-detail__info__text">撮影日時 {{$photo->formatShootingDate}}</p>
+        @endif
+        <p class="p-photo-detail__info__text">Photo by {{$photo->name}}</p>
         <p class="p-photo-detail__info__comment">{!! nl2br($photo->comment) !!}</p>
         <p class="p-photo-detail__info__create">
           <span>{{$photo->created_at}}</span>

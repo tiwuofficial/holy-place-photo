@@ -2,12 +2,13 @@
 
 namespace App\Model;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 
 class Photo extends Model
 {
-    protected $fillable = ['name', 'title', 'comment', 'user_id', 'anime_id', 'password', 'lat', 'lng'];
+    protected $fillable = ['name', 'title', 'comment', 'user_id', 'anime_id', 'password', 'lat', 'lng', 'shooting_date'];
 
     public function setPasswordAttribute($value)
     {
@@ -34,6 +35,11 @@ class Photo extends Model
     public function getAnimeNameAttribute()
     {
         return $this->anime()->first()->name;
+    }
+
+    public function getFormatShootingDateAttribute()
+    {
+        return Carbon::parse($this->shooting_date)->format('Y年m月d日');
     }
 
     public function likeDone($id)
