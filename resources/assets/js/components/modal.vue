@@ -20,7 +20,7 @@
   }
 </script>
 
-<style>
+<style scoped>
     .modal {
         top: 0;
         left: 0;

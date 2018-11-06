@@ -11,34 +11,37 @@
     </div>
   </div>
 
-  <h2 class="p-top-photos__title">New</h2>
-  <ul class="p-photo-list">
-    @foreach($photos as $photo)
-      <li class="p-photo-list__item">
-        <a href="/photos/{{$photo->id}}" class="p-photo-cassette">
-          <img data-src="{{$photo->urls[0]->full_url}}">
+  <div class="u-bc-f8f9fa">
+    <h2 class="p-top-photos__title">New</h2>
+    <ul class="p-photo-list">
+      @foreach($photos as $photo)
+        @component('components.photo.cassette',['photo' => $photo])
+        @endcomponent
+      @endforeach
+      <li class="p-photo-list__item" v-for="photo in photos">
+        <a v-bind:href="'/photos/' + photo.id" class="p-photo-cassette">
+          <img v-bind:src="photo.urls[0].full_url">
         </a>
+        <div class="p-photo-list__item__info">
+          <h3 class="p-photo-list__item__info__title">「@{{photo.title}}」</h3>
+          <p class="p-photo-list__item__info__anime">Anime is @{{photo.anime.name}}</p>
+        </div>
       </li>
-    @endforeach
-    <li class="p-photo-list__item" v-for="photo in photos">
-      <a v-bind:href="'/photos/' + photo.id" class="p-photo-cassette">
-        <img v-bind:src="photo.urls[0].full_url">
-      </a>
-    </li>
-  </ul>
-  <a href="javascript:void(0);" @click="readMore" class="p-top-photos__more-link">More</a>
+    </ul>
+    <a href="javascript:void(0);" @click="readMore" class="p-top-photos__more-link">More</a>
 
-  <h2 class="p-anime-list-header">投稿されているアニメ</h2>
-  <ul class="p-anime-list">
-    @foreach($animesHavePhoto as $anime)
-      <li class="p-anime-list__item">
-        <a href="{{action('AnimeController@show', $anime->id)}}" class="p-anime-list__item">
-          <p>{{$anime->name}}</p>
-          <p>投稿数：{{$anime->photoCount}}</p>
-        </a>
-      </li>
-    @endforeach
-  </ul>
+    <h2 class="p-anime-list-header">投稿されているアニメ</h2>
+    <ul class="p-anime-list">
+      @foreach($animesHavePhoto as $anime)
+        <li class="p-anime-list__item">
+          <a href="{{action('AnimeController@show', $anime->id)}}" class="p-anime-list__item">
+            <p>{{$anime->name}}</p>
+            <p>投稿数：{{$anime->photoCount}}</p>
+          </a>
+        </li>
+      @endforeach
+    </ul>
+  </div>
 @endsection
 
 @section('script')

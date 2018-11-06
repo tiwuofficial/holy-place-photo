@@ -1,12 +1,16 @@
 .p-top-photos__title {
-  margin-top: 40px;
+  padding-top: 40px;
 }
 
 .p-top-photos__more-link {
   text-align: center;
   display: block;
-}
 
-.p-top-photos__more-link + .p-anime-list-header {
-  margin-top: 20px;
+  .p-photo-list + & {
+    margin-top: 20px;
+  }
+
+  & + .p-anime-list-header {
+    margin-top: 20px;
+  }
 }
