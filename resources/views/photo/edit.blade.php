@@ -30,6 +30,9 @@
     @component('components.photo-form.comment')
     @endcomponent
 
+    @component('components.photo-form.shooting-date')
+    @endcomponent
+
     <h2 class="p-photo-form__photo-title">写真</h2>
     <p class="p-photo-form__caution p-photo-form__caution">※1枚は必須です</p>
     <p class="p-photo-form__caution p-photo-form__caution">※5MB以内、ファイル形式はjpgまたはpngの画像を選択してください。</p>

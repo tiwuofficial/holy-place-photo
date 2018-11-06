@@ -20,7 +20,7 @@
   }
 </script>
 
-<style>
+<style scoped>
     .sideMenu {
         top: 0;
         left: 0;

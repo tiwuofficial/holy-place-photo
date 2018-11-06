@@ -28,6 +28,9 @@
       @component('components.photo-form.comment')
       @endcomponent
 
+      @component('components.photo-form.shooting-date')
+      @endcomponent
+
       @component('components.photo-form.password')
       @endcomponent
 

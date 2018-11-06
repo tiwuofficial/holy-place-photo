@@ -1,5 +1,6 @@
 import '../../common/base';
 import modal from '../../components/modal';
+import axios from "axios/index";
 
 Vue.directive('photo', {
   bind: function (el, binding, vnode) {
@@ -32,9 +33,6 @@ new Vue({
         this.photoUrls[i] = false;
       }
     }
-    this.animeTitle = this.animes.filter(anime => {
-      return anime.id === this.photo.anime_id;
-    })[0].name;
 
     // TODO 初期値
     const lat = this.photo.lat ? this.photo.lat : 35.6698324;
@@ -65,6 +63,18 @@ new Vue({
       });
       this.map.panTo(e.latLng);
     });
+    axios.get('/api/anime/get')
+        .then((data) => {
+          for (let anime in data.data) {
+            this.animes.push({
+              id: anime,
+              name: data.data[anime],
+            });
+          }
+          this.animeTitle = this.animes.filter(anime => {
+            return anime.id === String(this.photo.anime_id);
+          })[0].name;
+        })
   },
   created() {
     for (let i = 0; i < 5; i++) {
@@ -82,11 +92,13 @@ new Vue({
         name: '',
         title: '',
         comment: '',
+        shooting_date: '',
         anime_id: ''
       },
       animeTitle: '',
       animes: [],
       editModalFlg: false,
+      address: ''
     }
   },
   computed: {
@@ -148,6 +160,21 @@ new Vue({
         this.deletePhotoUrls.push(this.photoUrls[id]);
         Vue.set(this.photoUrls, id, '');
       }
+    },
+    mapSearch() {
+      this.geocoder.geocode({
+        'address': this.address
+      }, (results, status) => {
+        if (status === google.maps.GeocoderStatus.OK) {
+          this.map.setCenter(results[0].geometry.location);
+          this.photo.lat = results[0].geometry.location.lat();
+          this.photo.lng = results[0].geometry.location.lng();
+          this.marker = new google.maps.Marker({
+            map: this.map,
+            position: results[0].geometry.location
+          });
+        }
+      });
     }
   },
 });

@@ -10,13 +10,10 @@
   <div id="map" class="p-anime-detail--map"></div>
 
   <ul class="p-photo-list">
-  @foreach($anime->photos as $photo)
-    <li class="p-photo-list__item">
-      <a href="{{action('PhotoController@show', $photo->id)}}" class="p-photo-cassette">
-        <img src="{{$photo->urls->first()->full_url}}">
-      </a>
-    </li>
-  @endforeach
+    @foreach($anime->photos as $photo)
+      @component('components.photo.cassette',['photo' => $photo])
+      @endcomponent
+    @endforeach
   </ul>
 @endsection
 

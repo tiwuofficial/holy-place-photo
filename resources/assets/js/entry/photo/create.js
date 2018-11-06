@@ -54,6 +54,7 @@ new Vue({
         comment: '',
         password: '',
         passwordConfirm: '',
+        shooting_date: '',
         anime_id: '',
         lat: '',
         lng: ''

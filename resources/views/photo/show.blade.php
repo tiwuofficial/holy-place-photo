@@ -22,8 +22,11 @@
     <div class="p-photo-detail">
       <div class="p-photo-detail__info">
         <h1 class="p-photo-detail__info__title">{{$photo->title}}</h1>
-        <p class="p-photo-detail__info__anime">Anime is <a href="{{action('AnimeController@show', $photo->anime->id)}}">{{$photo->anime_name}}</a></p>
-        <p class="p-photo-detail__info__name">Photo by {{$photo->name}}</p>
+        <p class="p-photo-detail__info__text">Anime is <a href="{{action('AnimeController@show', $photo->anime->id)}}" class="p-photo-detail__info__anime">{{$photo->anime_name}}</a></p>
+        @if($photo->shooting_date)
+          <p class="p-photo-detail__info__text">撮影日時 {{$photo->formatShootingDate}}</p>
+        @endif
+        <p class="p-photo-detail__info__text">Photo by {{$photo->name}}</p>
         <p class="p-photo-detail__info__comment">{!! nl2br($photo->comment) !!}</p>
         <p class="p-photo-detail__info__create">
           <span>{{$photo->created_at}}</span>
@@ -71,33 +74,30 @@
       </form>
     </div>
   </modal>
-  <div class="p-photo-detail--other">
-    @if(count($userPhotos) > 0)
-      <h2>このユーザーの他の写真</h2>
-      <ul class="p-photo-list">
-        @foreach($userPhotos as $photo)
-          <li class="p-photo-list__item">
-            <a href="{{action('PhotoController@show', $photo->id)}}" class="p-photo-cassette">
-              <img src="{{$photo->urls->first()->full_url}}">
-            </a>
-          </li>
-        @endforeach
-      </ul>
-    @endif
 
-    @if(count($animePhotos) > 0)
-      <h2>同じアニメの写真</h2>
-      <ul class="p-photo-list">
-        @foreach($animePhotos as $photo)
-          <li class="p-photo-list__item">
-            <a href="{{action('PhotoController@show', $photo->id)}}" class="p-photo-cassette">
-              <img src="{{$photo->urls->first()->full_url}}">
-            </a>
-          </li>
-        @endforeach
-      </ul>
-    @endif
+  @if(count($userPhotos) > 0)
+  <div class="p-photo-detail--other">
+    <h2>このユーザーの他の写真</h2>
+    <ul class="p-photo-list">
+      @foreach($userPhotos as $photo)
+        @component('components.photo.cassette',['photo' => $photo])
+        @endcomponent
+      @endforeach
+    </ul>
   </div>
+  @endif
+
+  @if(count($animePhotos) > 0)
+    <div class="p-photo-detail--other">
+    <h2>同じアニメの写真</h2>
+    <ul class="p-photo-list">
+      @foreach($animePhotos as $photo)
+        @component('components.photo.cassette',['photo' => $photo])
+        @endcomponent
+      @endforeach
+    </ul>
+  </div>
+  @endif
 @endsection
 
 @section('script')
