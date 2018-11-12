@@ -42,7 +42,7 @@ Route::group(['middleware' => 'login'], function () {
     });
 
     // ユーザー詳細
-    Route::get('/users/{id}', 'UserController@show')->where('id', '[0-9]+');
+    Route::get('/users/{user}', 'UserController@show')->where('user', '[0-9]+');
 
     // 問い合わせ
     Route::get('/inquiry', 'TopController@inquiry');

@@ -26,7 +26,7 @@
         @if($photo->shooting_date)
           <p class="p-photo-detail__info__text">撮影日時 {{$photo->formatShootingDate}}</p>
         @endif
-        <p class="p-photo-detail__info__text">Photo by {{$photo->name}}</p>
+        <p class="p-photo-detail__info__text">Photo by <a href="{{action('UserController@show', $photo->user_id)}}" class="p-photo-detail__info__user">{{$photo->name}}</a></p>
         <p class="p-photo-detail__info__comment">{!! nl2br($photo->comment) !!}</p>
         <p class="p-photo-detail__info__create">
           <span>{{$photo->created_at}}</span>
@@ -76,15 +76,15 @@
   </modal>
 
   @if(count($userPhotos) > 0)
-  <div class="p-photo-detail--other">
-    <h2>このユーザーの他の写真</h2>
-    <ul class="p-photo-list">
-      @foreach($userPhotos as $photo)
-        @component('components.photo.cassette',['photo' => $photo])
-        @endcomponent
-      @endforeach
-    </ul>
-  </div>
+    <div class="p-photo-detail--other">
+      <h2>このユーザーの他の写真</h2>
+      <ul class="p-photo-list">
+        @foreach($userPhotos as $photo)
+          @component('components.photo.cassette',['photo' => $photo])
+          @endcomponent
+        @endforeach
+      </ul>
+    </div>
   @endif
 
   @if(count($animePhotos) > 0)
