@@ -1,13 +1,21 @@
 {
-  "short_name": "Holy Place Photo",
+  "short_name": "HPP",
   "name": "Holy Place Photo",
   "icons": [
     {
       "src": "launcher-144x144.png",
       "type": "image/png",
       "sizes": "144x144"
+    },
+    {
+      "src": "launcher-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ],
+  "background_color": "#fff",
+  "theme_color": "#e1e4e8",
+  "orientation": "portrait",
   "start_url": "/",
   "display": "standalone"
 }
