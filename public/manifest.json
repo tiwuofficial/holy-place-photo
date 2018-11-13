@@ -1,0 +1,13 @@
+{
+  "short_name": "Holy Place Photo",
+  "name": "Holy Place Photo",
+  "icons": [
+    {
+      "src": "launcher-144x144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone"
+}
