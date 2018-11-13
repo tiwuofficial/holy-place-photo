@@ -9,15 +9,7 @@ Vue.directive('photos', {
 new Vue({
   el: '#wrapper',
   mounted() {
-    // TODO 初期値
-    this.map = new google.maps.Map(document.getElementById('map'), {
-      center: {
-        lat: 45.6698324,
-        lng: 139.48197549999998
-      },
-      zoom: 16
-    });
-    console.log(this.photos);
+    this.map = new google.maps.Map(document.getElementById('map'));
     let bounds = new google.maps.LatLngBounds();
     for (let i = 0; i < this.photos.length; i++) {
       if (!this.photos[i]['lat']) {
