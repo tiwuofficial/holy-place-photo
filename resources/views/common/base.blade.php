@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1">
 
   <title>{{$title}}</title>
   <meta name="description" content="{{$description}}">
   <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#e1e4e8"/>
 
   <meta property="og:url" content="{{'https://' . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]}}">
   <meta property="og:type" content="{{isset($top) ? 'website' : 'article'}}">
