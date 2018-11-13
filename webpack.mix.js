@@ -11,7 +11,8 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/entry/photo/create.js', 'public/dist/js/photo')
+mix.js('resources/assets/js/common/sw.js', 'public')
+    .js('resources/assets/js/entry/photo/create.js', 'public/dist/js/photo')
     .js('resources/assets/js/entry/photo/edit.js', 'public/dist/js/photo')
     .js('resources/assets/js/entry/photo/show.js', 'public/dist/js/photo')
     .js('resources/assets/js/entry/top/index.js', 'public/dist/js/top')

@@ -13,4 +13,5 @@ yarn-error.log
 .env
 .idea
 public/dist
+public/sw.js
 /data
