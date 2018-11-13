@@ -7,6 +7,7 @@
 
   <title>{{$title}}</title>
   <meta name="description" content="{{$description}}">
+  <link rel="manifest" href="/manifest.json">
 
   <meta property="og:url" content="{{'https://' . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]}}">
   <meta property="og:type" content="{{isset($top) ? 'website' : 'article'}}">
