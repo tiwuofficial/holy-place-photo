@@ -10,7 +10,7 @@ class HttpsRedirect {
 
     public function handle(Request $request, Closure $next)
     {
-        if ($_SERVER["HTTP_X_FORWARDED_PROTO"] != 'https' && App::environment() !== 'local') {
+        if (!$request->secure() && App::environment() === 'production') {
             return redirect()->secure($request->getRequestUri());
         }
         return $next($request);
