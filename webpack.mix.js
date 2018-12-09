@@ -1,4 +1,5 @@
 let mix = require('laravel-mix');
+const workboxPlugin = require('workbox-webpack-plugin');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,7 +12,7 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/common/sw.js', 'public')
+mix
     .js('resources/assets/js/entry/photo/create.js', 'public/dist/js/photo')
     .js('resources/assets/js/entry/photo/edit.js', 'public/dist/js/photo')
     .js('resources/assets/js/entry/photo/show.js', 'public/dist/js/photo')
@@ -34,6 +35,19 @@ mix.js('resources/assets/js/common/sw.js', 'public')
     .sass('resources/assets/sass/entry/top/privacy.scss', 'public/dist/css/top')
     .sass('resources/assets/sass/entry/top/inquiry.scss', 'public/dist/css/top')
     .sass('resources/assets/sass/entry/user/show.scss', 'public/dist/css/user');
+
+mix.version();
+mix.webpackConfig({
+  plugins: [
+    new workboxPlugin.GenerateSW({
+      globDirectory: 'public/',
+      globPatterns: [
+        'dist/**/*.js',
+      ],
+      swDest: 'sw.js',
+    })
+  ]
+});
 
 if (mix.inProduction()) {
   mix.version();

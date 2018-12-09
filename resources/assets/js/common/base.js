@@ -39,3 +39,4 @@ if ('serviceWorker' in navigator) {
     console.log('ServiceWorker registration failed: ', err);
   });
 }
+console.log('hfffff');
