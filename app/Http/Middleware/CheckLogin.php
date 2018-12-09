@@ -4,7 +4,6 @@ namespace App\Http\Middleware;
 
 use App\User;
 use Closure;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\View;
 
 class CheckLogin
