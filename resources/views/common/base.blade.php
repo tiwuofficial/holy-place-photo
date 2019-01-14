@@ -46,7 +46,7 @@
   @endif
 </head>
 <body>
-  <div id="wrapper">
+  <div id="wrapper" data-sw-cache-list="{{$swCacheList}}">
     @include('common.header')
     @include('common.sideMenu')
     <main>

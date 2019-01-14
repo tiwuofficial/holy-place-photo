@@ -1,6 +1,6 @@
 <header class="l-header">
   <div class="l-header__item l-header__item--logo">
-    <a href="{{action('TopController@index')}}" class="l-header__item__link">Holy Place Photo</a>
+    <a href="{{action('TopController@index')}}" class="l-header__item__link js-sw-fetch">Holy Place Photo</a>
   </div>
   <div class="l-header__item">
     <a href="{{action('PhotoController@create')}}" class="l-header__item__link">投稿する</a>
