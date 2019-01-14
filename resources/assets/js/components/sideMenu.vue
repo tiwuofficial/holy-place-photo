@@ -1,6 +1,6 @@
 <template>
     <transition name="sideMenu">
-        <section class="sideMenu" v-if="isShow">
+        <section class="sideMenu" v-show="isShow">
             <a href="javascript:void(0);" class="sideMenu__overlay" @click="close"></a>
             <div class="sideMenu__contents">
                 <slot name="contents"></slot>

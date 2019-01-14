@@ -21,21 +21,38 @@ Vue.mixin({
 window.Vue = Vue;
 
 window.addEventListener("load", () => {
-  const imageElements = document.querySelectorAll('img');
-  for (let i = 0, len = imageElements.length; i < len; i++) {
-    const imageSrc = imageElements[i].getAttribute('data-src');
+  document.querySelectorAll('img').forEach((e) => {
+    const imageSrc = e.getAttribute('data-src');
     if (imageSrc) {
-      imageElements[i].setAttribute('src', imageSrc);
+      e.setAttribute('src', imageSrc);
     }
-  }
+  });
 }, false);
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js').then( (registration) => {
-    // 登録成功
-    console.log('ServiceWorker registration successful with scope: ', registration.scope);
-  }).catch((err) => {
-    // 登録失敗 :(
-    console.log('ServiceWorker registration failed: ', err);
+  const controllerChange = new Promise((resolve) => {
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      resolve(navigator.serviceWorker.controller);
+    });
+  });
+
+  navigator.serviceWorker.register('/sw.js').then(() => {
+    return navigator.serviceWorker.ready;
+  }).then(() => {
+    if (navigator.serviceWorker.controller) {
+      return navigator.serviceWorker.controller;
+    }
+    return controllerChange;
+  }).then(() => {
+    document.querySelectorAll('.js-sw-fetch').forEach((e) => {
+      const url = e.getAttribute('href');
+      fetch(url);
+    });
+
+    JSON.parse(document.getElementById('wrapper').dataset.swCacheList).forEach((file) => {
+      fetch(file);
+    });
   });
 }
+
+

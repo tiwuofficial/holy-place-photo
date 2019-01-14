@@ -34,7 +34,7 @@
     <ul class="p-anime-list">
       @foreach($animesHavePhoto as $anime)
         <li class="p-anime-list__item">
-          <a href="{{action('AnimeController@show', $anime->id)}}" class="p-anime-list__item">
+          <a href="{{action('AnimeController@show', $anime->id)}}" class="p-anime-list__item js-sw-fetch">
             <p>{{$anime->name}}</p>
             <p>投稿数：{{$anime->photoCount}}</p>
           </a>
