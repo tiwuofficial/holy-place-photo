@@ -30,7 +30,7 @@ window.addEventListener("load", () => {
 }, false);
 
 if ('serviceWorker' in navigator) {
-  const CACHE_NAME = '1';
+  const CACHE_NAME = '2';
 
   const controllerChange = new Promise((resolve) => {
     navigator.serviceWorker.addEventListener('controllerchange', resolve);
