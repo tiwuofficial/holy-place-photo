@@ -12,6 +12,6 @@ class PhotoUrl extends Model
 
     public function getFullUrlAttribute()
     {
-        return env('AWS_S3_URL') . $this->url;
+        return env('CLOUDINARY_FETCH_URL') .env('AWS_S3_URL') . $this->url;
     }
 }
