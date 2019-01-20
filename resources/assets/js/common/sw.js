@@ -1,4 +1,4 @@
-const CACHE_NAME = '2';
+const CACHE_NAME = '3';
 
 const cacheByInstall = [
   '/img/icon/menu.svg',
@@ -30,14 +30,17 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  event.respondWith(
-      caches.open(CACHE_NAME).then((cache) => {
-        return cache.match(event.request).then((response) => {
-          return response || fetch(event.request).then((response) => {
-            cache.put(event.request, response.clone());
-            return response;
+  const url = new URL(event.request.url);
+  if ([location.origin, 'https://res.cloudinary.com'].indexOf(url.origin) > -1) {
+    event.respondWith(
+        caches.open(CACHE_NAME).then((cache) => {
+          return cache.match(event.request).then((response) => {
+            return response || fetch(event.request).then((response) => {
+              cache.put(event.request, response.clone());
+              return response;
+            });
           });
-        });
-      })
-  );
+        })
+    );
+  }
 });
