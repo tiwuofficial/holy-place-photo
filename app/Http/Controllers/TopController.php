@@ -17,14 +17,12 @@ class TopController extends Controller
      */
     public function index()
     {
-        $animesHavePhoto = Anime::has('photos')->get();
-        $photos = Photo::with('urls', 'anime')->orderBy('created_at', 'desc')->take(12)->get();
         $top = true;
         $googleAdsense = true;
 
         $title = '【Holy Place Photo】アニメの聖地の写真の共有サイト';
         $description = 'アニメの聖地で撮った写真を共有できるサイトです。好きなアニメの聖地の写真を投稿したり、聖地を地図から探したりして楽しんでください。';
-        return view('top.index', compact('photos', 'animesHavePhoto', 'title', 'description', 'top', 'googleAdsense'));
+        return view('top.index', compact('animesHavePhoto', 'title', 'description', 'top', 'googleAdsense'));
     }
 
     /**

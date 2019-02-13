@@ -17,5 +17,6 @@ Route::group(['middleware' => 'login'], function () {
     Route::get('/photos', 'Api\PhotoController@readMore');
     Route::get('/anime/get', 'Api\AnimeController@get');
     Route::get('/anime/get/old', 'Api\AnimeController@getOld');
+    Route::get('/anime/get/havePhoto', 'Api\AnimeController@getForHavePhoto');
     Route::get('/anime/get/noHavePhoto', 'Api\AnimeController@getForNoHavePhoto');
 });

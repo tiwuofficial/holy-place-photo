@@ -26,6 +26,10 @@
   @yield('head')
 
   @if(app()->environment('production'))
+    <link rel="preconnect" href="https://adservice.google.co.jp">
+    <link rel="preconnect" href="https://googleads.g.doubleclick.net">
+    <link rel="preconnect" href="https://www.google-analytics.com">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68543693-6"></script>
     <script>
       window.dataLayer = window.dataLayer || [];

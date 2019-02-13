@@ -6,17 +6,34 @@ new Vue({
   data() {
     return {
       photos: [],
-      page: 2,
+      animes: [],
+      page: 1,
+      perPage: 12
     }
   },
+  created() {
+    const ua = navigator.userAgent;
+    if (ua.indexOf('iPhone') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0) {
+      this.perPage = 3;
+    }
+    this.readMorePhoto();
+    this.getAnimes();
+  },
   methods: {
-    readMore() {
+    readMorePhoto() {
       axios.get('/api/photos', {
         params: {
-          page: this.page++
+          page: this.page++,
+          perPage: this.perPage
         }
       }).then(res => {
         this.photos = this.photos.concat(res.data.data);
+      });
+    },
+    getAnimes() {
+      axios.get('/api/anime/get/havePhoto')
+      .then(res => {
+        this.animes = res.data;
       });
     }
   },

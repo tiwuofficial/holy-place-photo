@@ -23,9 +23,8 @@ class PhotoController extends Controller
         return response('ok');
     }
 
-    public function readMore()
+    public function readMore(Request $request)
     {
-        // todo magic number
-        return Photo::with('urls', 'anime')->orderBy('created_at', 'desc')->paginate(12);
+        return Photo::with('urls', 'anime')->orderBy('created_at', 'desc')->paginate((int) $request->input('perPage', 3));
     }
 }
