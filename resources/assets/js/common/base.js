@@ -33,7 +33,7 @@ window.addEventListener("load", () => {
 window.holyPlacePhoto = {};
 
 if ('serviceWorker' in navigator) {
-  window.holyPlacePhoto.CACHE_NAME = '4';
+  window.holyPlacePhoto.CACHE_NAME = '5';
 
   const controllerChange = new Promise((resolve) => {
     navigator.serviceWorker.addEventListener('controllerchange', resolve);
@@ -48,11 +48,11 @@ if ('serviceWorker' in navigator) {
     return controllerChange;
   }).then(() => {
     document.querySelectorAll('.js-sw-fetch').forEach((e) => {
-      cacheExpire(e.getAttribute('href'), CACHE_NAME);
+      cacheExpire(e.getAttribute('href'), window.holyPlacePhoto.CACHE_NAME);
     });
 
     JSON.parse(document.getElementById('wrapper').dataset.swCacheList).forEach((url) => {
-      cache(url, CACHE_NAME);
+      cache(url, window.holyPlacePhoto.CACHE_NAME);
     });
   });
 };
