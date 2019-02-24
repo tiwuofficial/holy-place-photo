@@ -24,9 +24,9 @@ class AnimeController extends Controller
         $result = [];
         foreach ($animes as $anime) {
             $result[] = [
-                'id' => $anime->id,
                 'name' => $anime->name,
-                'photoCount' => $anime->photoCount
+                'photoCount' => $anime->photoCount,
+                'url' => $anime->url
             ];
         }
         return response()->json($result);

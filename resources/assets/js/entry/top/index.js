@@ -1,5 +1,6 @@
 import '../../common/base';
 import axios from 'axios';
+import {cache, cacheExpire} from '../../module/cache';
 
 new Vue({
   el: '#wrapper',
@@ -27,13 +28,21 @@ new Vue({
           perPage: this.perPage
         }
       }).then(res => {
-        this.photos = this.photos.concat(res.data.data);
+        this.photos = this.photos.concat(res.data);
+        this.photos.forEach((photo) => {
+          console.log(photo);
+          cacheExpire(photo.url, window.holyPlacePhoto.CACHE_NAME);
+        });
       });
     },
     getAnimes() {
       axios.get('/api/anime/get/havePhoto')
       .then(res => {
         this.animes = res.data;
+        this.animes.forEach((anime) => {
+          console.log(anime);
+          cacheExpire(anime.url, window.holyPlacePhoto.CACHE_NAME);
+        });
       });
     }
   },

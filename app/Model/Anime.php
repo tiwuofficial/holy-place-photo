@@ -17,4 +17,8 @@ class Anime extends Model
         return $this->photos()->count();
     }
 
+    public function getUrlAttribute()
+    {
+        return action('AnimeController@show', $this->id);
+    }
 }

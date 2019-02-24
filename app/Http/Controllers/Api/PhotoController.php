@@ -25,6 +25,16 @@ class PhotoController extends Controller
 
     public function readMore(Request $request)
     {
-        return Photo::with('urls', 'anime')->orderBy('created_at', 'desc')->paginate((int) $request->input('perPage', 3));
+        $photos = Photo::with('urls', 'anime')->orderBy('created_at', 'desc')->paginate((int) $request->input('perPage', 3));
+        $result = [];
+        foreach ($photos as $photo) {
+            $result[] = [
+                'url' => $photo->url,
+                'title' => $photo->title,
+                'animeName' => $photo->anime_name,
+                'photoUrl' => $photo->first_photo_url
+            ];
+        }
+        return response()->json($result);
     }
 }

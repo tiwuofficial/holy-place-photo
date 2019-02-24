@@ -46,4 +46,14 @@ class Photo extends Model
     {
         return $this->like()->where('user_id', $id)->first();
     }
+
+    public function getFirstPhotoUrlAttribute()
+    {
+        return $this->urls()->first()->full_url;
+    }
+
+    public function getUrlAttribute()
+    {
+        return action('PhotoController@show', $this->id);
+    }
 }
