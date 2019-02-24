@@ -23,6 +23,9 @@
   @endif
   <meta name="twitter:site" content="@holyplace_photo">
   <link rel="preconnect" href="https://res.cloudinary.com">
+  <link rel="preconnect" href="https://adservice.google.com">
+  <link rel="preconnect" href="https://www.googletagservices.com">
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com">
 
   <style>
     .l-header {
