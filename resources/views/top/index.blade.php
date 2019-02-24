@@ -1,6 +1,33 @@
 @extends('common.base')
 
 @section('head')
+  <style>
+    .p-hello-header {
+      background: url("https://res.cloudinary.com/hkgg1yxai/image/fetch/h_1000,f_auto/https://s3-ap-northeast-1.amazonaws.com/holy-place-photo/resources/top.jpg") no-repeat;
+      height: 100vh;
+      width: 100vw;
+      background-position: 50%;
+      background-size: cover;
+    }
+
+    .p-hello-header__wrap {
+      height: 100vh;
+      background-color: rgba(74, 74, 74, 0.7);
+      position: relative;
+    }
+
+    .p-hello-header__wrap__title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translateY(-50%) translateX(-50%);
+      transform: translateY(-50%) translateX(-50%);
+      color: #fff;
+      font-size: 40px;
+      width: 100%;
+    }
+  </style>
+
   <link href="{{ mix('/dist/css/top/index.css') }}" rel="stylesheet">
 @endsection
 

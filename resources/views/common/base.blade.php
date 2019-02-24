@@ -22,6 +22,58 @@
     <meta name="twitter:card" content="summary">
   @endif
   <meta name="twitter:site" content="@holyplace_photo">
+  <link rel="preconnect" href="https://res.cloudinary.com">
+
+  <style>
+    .l-header {
+      width: 100%;
+      height: 50px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      padding: 0 20px;
+    }
+
+    .l-header__item {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    .l-header__item:first-of-type {
+      -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+    }
+
+    .l-header__item + .l-header__item {
+      margin-left: 20px;
+    }
+
+    .l-header__item__link {
+      color: #000;
+    }
+
+    .l-header__item__icon {
+      height: 30px;
+    }
+
+    @media (max-width: 1100px) {
+      .l-header__item {
+        display: none;
+      }
+
+      .l-header__item--logo,
+      .l-header__item--icon {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+      }
+    }
+  </style>
 
   @yield('head')
 
