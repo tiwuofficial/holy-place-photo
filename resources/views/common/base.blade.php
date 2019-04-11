@@ -7,7 +7,7 @@
 
   <title>{{$title}}</title>
 
-  <script type="module" src="{{mix('web-components/header.js')}}"></script>
+  <script type="module" src="{{asset('web-components/header.js')}}"></script>
 
   <meta name="description" content="{{$description}}">
   <link rel="manifest" href="/manifest.json">
@@ -86,7 +86,7 @@
     <hpp-footer></hpp-footer>
   </div>
   @yield('script')
-  <script type="module" src="{{mix('web-components/side-menu.js')}}"></script>
-  <script type="module" src="{{mix('web-components/footer.js')}}"></script>
+  <script type="module" src="{{asset('web-components/side-menu.js')}}"></script>
+  <script type="module" src="{{asset('web-components/footer.js')}}"></script>
 </body>
 </html>
