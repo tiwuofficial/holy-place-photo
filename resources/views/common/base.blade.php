@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1">
 
   <title>{{$title}}</title>
+
+  <script type="module" src="{{mix('web-components/header.js')}}"></script>
+
   <meta name="description" content="{{$description}}">
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#e1e4e8"/>
@@ -26,58 +29,6 @@
   <link rel="preconnect" href="https://adservice.google.com">
   <link rel="preconnect" href="https://www.googletagservices.com">
   <link rel="preconnect" href="https://pagead2.googlesyndication.com">
-
-  <style>
-    .l-header {
-      width: 100%;
-      height: 50px;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      padding: 0 20px;
-    }
-
-    .l-header__item {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-    }
-
-    .l-header__item:first-of-type {
-      -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-      flex-grow: 1;
-    }
-
-    .l-header__item + .l-header__item {
-      margin-left: 20px;
-    }
-
-    .l-header__item__link {
-      color: #000;
-    }
-
-    .l-header__item__icon {
-      height: 30px;
-    }
-
-    @media (max-width: 1100px) {
-      .l-header__item {
-        display: none;
-      }
-
-      .l-header__item--logo,
-      .l-header__item--icon {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-      }
-    }
-  </style>
-
   @yield('head')
 
   @if(app()->environment('production'))
@@ -107,13 +58,35 @@
 </head>
 <body>
   <div id="wrapper" data-sw-cache-list="{{$swCacheList}}">
-    @include('common.header')
-    @include('common.sideMenu')
+    <hpp-header
+      login="{{$user->auth_id}}"
+      top-href="{{action('TopController@index')}}"
+      photo-create-href="{{action('PhotoController@create')}}"
+      anime-href="{{action('AnimeController@index')}}"
+      logout-href="{{action('Auth\TwitterController@logout')}}"
+      login-href="{{action('Auth\TwitterController@redirectToProvider')}}"
+    >
+    </hpp-header>
+    <hpp-side-menu
+      login="{{$user->auth_id}}"
+      photo-create-href="{{action('PhotoController@create')}}"
+      anime-href="{{action('AnimeController@index')}}"
+      logout-href="{{action('Auth\TwitterController@logout')}}"
+      login-href="{{action('Auth\TwitterController@redirectToProvider')}}"
+      about-href="{{action('TopController@about')}}"
+      inquiry-href="{{action('TopController@inquiry')}}"
+      kiyaku-href="{{action('TopController@kiyaku')}}"
+      privacy-href="{{action('TopController@privacy')}}"
+      hidden
+    >
+    </hpp-side-menu>
     <main>
       @yield('main')
     </main>
-    @include('common.footer')
+    <hpp-footer></hpp-footer>
   </div>
   @yield('script')
+  <script type="module" src="{{mix('web-components/side-menu.js')}}"></script>
+  <script type="module" src="{{mix('web-components/footer.js')}}"></script>
 </body>
 </html>
