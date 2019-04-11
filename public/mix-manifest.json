@@ -4,12 +4,6 @@
     "/dist/js/top/index.js": "/dist/js/top/index.js",
     "/dist/js/photo/create.js": "/dist/js/photo/create.js",
     "/dist/js/anime/index.js": "/dist/js/anime/index.js",
-    "/dist/js/user/show.js": "/dist/js/user/show.js",
-    "/dist/js/top/privacy.js": "/dist/js/top/privacy.js",
-    "/dist/js/top/kiyaku.js": "/dist/js/top/kiyaku.js",
-    "/dist/js/top/inquiry.js": "/dist/js/top/inquiry.js",
-    "/dist/js/top/about.js": "/dist/js/top/about.js",
-    "/dist/js/anime/show.js": "/dist/js/anime/show.js",
     "/sw.js": "/sw.js",
     "/dist/css/anime/index.css": "/dist/css/anime/index.css",
     "/dist/css/anime/show.css": "/dist/css/anime/show.css",
@@ -21,5 +15,14 @@
     "/dist/css/top/kiyaku.css": "/dist/css/top/kiyaku.css",
     "/dist/css/top/privacy.css": "/dist/css/top/privacy.css",
     "/dist/css/top/inquiry.css": "/dist/css/top/inquiry.css",
-    "/dist/css/user/show.css": "/dist/css/user/show.css"
+    "/dist/css/user/show.css": "/dist/css/user/show.css",
+    "/dist/js/user/show.js": "/dist/js/user/show.js",
+    "/dist/js/top/privacy.js": "/dist/js/top/privacy.js",
+    "/dist/js/top/kiyaku.js": "/dist/js/top/kiyaku.js",
+    "/dist/js/top/inquiry.js": "/dist/js/top/inquiry.js",
+    "/dist/js/top/about.js": "/dist/js/top/about.js",
+    "/dist/js/anime/show.js": "/dist/js/anime/show.js",
+    "/web-components/header.js": "/web-components/header.js",
+    "/web-components/footer.js": "/web-components/footer.js",
+    "/web-components/side-menu.js": "/web-components/side-menu.js"
 }

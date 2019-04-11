@@ -12,6 +12,9 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/common/sw.js', 'public')
+    .scripts(['resources/assets/js/web-components/header.js'], 'public/web-components/header.js')
+    .scripts(['resources/assets/js/web-components/footer.js'], 'public/web-components/footer.js')
+    .scripts(['resources/assets/js/web-components/side-menu.js'], 'public/web-components/side-menu.js')
     .js('resources/assets/js/entry/photo/create.js', 'public/dist/js/photo')
     .js('resources/assets/js/entry/photo/edit.js', 'public/dist/js/photo')
     .js('resources/assets/js/entry/photo/show.js', 'public/dist/js/photo')
