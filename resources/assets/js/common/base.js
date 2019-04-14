@@ -4,7 +4,8 @@ import {cache, cacheExpire} from '../module/cache';
 Vue.config.ignoredElements = [
   'hpp-header',
   'hpp-footer',
-  'hpp-side-menu'
+  'hpp-side-menu',
+  'hpp-hero'
 ];
 
 window.Vue = Vue;
