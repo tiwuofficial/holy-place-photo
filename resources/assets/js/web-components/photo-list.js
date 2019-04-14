@@ -32,7 +32,7 @@ class PhotoList extends HTMLElement {
 
     this.shadow.innerHTML = `
       <style>
-        :host {
+        .list {
           display: flex;
           flex-wrap: wrap;
           justify-content: space-around;
@@ -46,7 +46,7 @@ class PhotoList extends HTMLElement {
       </style>
       
       <h2>New</h2>
-      <div id="js-list"></div>
+      <div id="js-list" class="list"></div>
       <a href="javascript:void(0);" id="js-link" class="link">More</a>
     `;
     this.shadow.getElementById('js-link').addEventListener('click', e => {
