@@ -32,6 +32,10 @@ class PhotoList extends HTMLElement {
 
     this.shadow.innerHTML = `
       <style>
+        h2 {
+          text-align: center;
+          margin: 0;
+        }
         .list {
           display: flex;
           flex-wrap: wrap;

@@ -55,6 +55,11 @@
       });
     </script>
   @endif
+  <style>
+    body {
+      margin: 0;
+    }
+  </style>
 </head>
 <body>
   <div id="wrapper" data-sw-cache-list="{{$swCacheList}}">
