@@ -33,7 +33,7 @@ class Hero extends HTMLElement {
       </style>
       
       <div class="wrap">
-        <h1 class="text">聖地を共有しよう</h1>
+        <h1 class="text"><slot></slot></h1>
       </div>
     `;
   }

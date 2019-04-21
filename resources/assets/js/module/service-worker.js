@@ -1,4 +1,4 @@
-import {cacheExpire} from "./cache";
+import {cache, cacheExpire} from "./cache";
 
 window.holyPlacePhoto = {};
 

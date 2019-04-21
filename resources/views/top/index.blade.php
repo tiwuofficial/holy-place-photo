@@ -10,7 +10,7 @@
 @endsection
 
 @section('main')
-  <hpp-hero></hpp-hero>
+  <hpp-hero>聖地を共有しよう</hpp-hero>
 
   <div class="u-bc-f8f9fa">
     <hpp-photo-list></hpp-photo-list>
@@ -19,9 +19,5 @@
 @endsection
 
 @section('script')
-  <script src="{{ mix('dist/js/top/index.js') }}"></script>
-  <script type="module" src="{{asset('web-components/photo-list.js')}}"></script>
-  <script type="module" src="{{asset('web-components/photo-card.js')}}"></script>
-  <script type="module" src="{{asset('web-components/anime-list.js')}}"></script>
-  <script type="module" src="{{asset('web-components/anime-card.js')}}"></script>
+  <script src="{{ mix('dist/js/top/index.js') }}" async></script>
 @endsection
