@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 Route::group(['middleware' => 'login'], function () {
     Route::post('/photos/{id}/like', 'Api\PhotoController@like')->where('id', '[0-9]+');
     Route::get('/photos', 'Api\PhotoController@readMore');
+    Route::get('/photos/get/anime/{id}', 'Api\PhotoController@getPhotosByAnime');
     Route::get('/anime/get', 'Api\AnimeController@get');
     Route::get('/anime/get/old', 'Api\AnimeController@getOld');
     Route::get('/anime/get/havePhoto', 'Api\AnimeController@getForHavePhoto');

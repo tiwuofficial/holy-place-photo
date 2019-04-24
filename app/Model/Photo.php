@@ -23,6 +23,13 @@ class Photo extends Model
         return $this->belongsTo('App\Model\Anime');
     }
 
+    public function scopeAnime($query, $animeId)
+    {
+        return $query->whereHas('anime', function ($query) use ($animeId) {
+            $query->where('id', $animeId);
+        });
+    }
+
     public function like() {
         return $this->hasMany('App\Model\Like');
     }
