@@ -4,7 +4,18 @@ class AnimeList extends HTMLElement {
 
     this.shadow = this.attachShadow({mode: 'open'});
 
-    fetch('/api/anime/get/havePhoto').then(res => res.json()).then(res => {
+    let url = '/api/anime/get/';
+
+    switch (this.getAttribute('type')) {
+      case 'have':
+        url += 'havePhoto';
+        break;
+      case 'noHave':
+        url += 'noHavePhoto';
+      break;
+    }
+
+    fetch(url).then(res => res.json()).then(res => {
       res.forEach(anime => {
         const animeCard = document.createElement('hpp-anime-card');
         animeCard.setAttribute('anime-url', anime.url);
@@ -27,7 +38,7 @@ class AnimeList extends HTMLElement {
         }
       </style>
       
-      <h2>投稿されているアニメ</h2>
+      <h2><slot></slot></h2>
       <div id="js-list" class="list"></div>
     `;
   }

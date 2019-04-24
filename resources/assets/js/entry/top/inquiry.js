@@ -1,5 +1,1 @@
-import '../../common/base';
-
-new Vue({
-  el: '#wrapper',
-});
+import '../../module/service-worker';

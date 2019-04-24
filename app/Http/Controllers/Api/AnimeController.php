@@ -37,7 +37,11 @@ class AnimeController extends Controller
         $animes = Anime::has('photos', '=', 0)->get();
         $result = [];
         foreach ($animes as $anime) {
-            $result[$anime->id] = $anime->name;
+            $result[] = [
+                'name' => $anime->name,
+                'photoCount' => $anime->photoCount,
+                'url' => $anime->url
+            ];
         }
         return response()->json($result);
     }

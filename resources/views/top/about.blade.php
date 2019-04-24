@@ -5,6 +5,7 @@
 @endsection
 
 @section('main')
+  {{-- todo web components --}}
   <div class="c-plane-section">
     <section>
       <h1>Holy Place Photoは聖地の写真投稿・共有サイトです</h1>
