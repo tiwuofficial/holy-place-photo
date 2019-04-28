@@ -9,9 +9,7 @@
 @section('main')
   <h1>アニメ一覧</h1>
 
-  <hpp-anime-list
-    type="have"
-  >
+  <hpp-anime-list>
     投稿されているアニメ
   </hpp-anime-list>
 

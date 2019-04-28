@@ -1,9 +1,7 @@
 {
     "/dist/js/photo/show.js": "/dist/js/photo/show.js",
     "/dist/js/photo/edit.js": "/dist/js/photo/edit.js",
-    "/dist/js/top/index.js": "/dist/js/top/index.js",
     "/dist/js/photo/create.js": "/dist/js/photo/create.js",
-    "/dist/js/anime/index.js": "/dist/js/anime/index.js",
     "/sw.js": "/sw.js",
     "/dist/css/anime/index.css": "/dist/css/anime/index.css",
     "/dist/css/anime/show.css": "/dist/css/anime/show.css",
@@ -20,6 +18,8 @@
     "/dist/js/top/privacy.js": "/dist/js/top/privacy.js",
     "/dist/js/top/kiyaku.js": "/dist/js/top/kiyaku.js",
     "/dist/js/top/inquiry.js": "/dist/js/top/inquiry.js",
+    "/dist/js/top/index.js": "/dist/js/top/index.js",
     "/dist/js/top/about.js": "/dist/js/top/about.js",
+    "/dist/js/anime/index.js": "/dist/js/anime/index.js",
     "/dist/js/anime/show.js": "/dist/js/anime/show.js"
 }

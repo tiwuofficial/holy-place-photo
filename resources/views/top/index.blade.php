@@ -14,7 +14,9 @@
 
   <div class="u-bc-f8f9fa">
     <hpp-photo-list></hpp-photo-list>
-    <hpp-anime-list></hpp-anime-list>
+    <hpp-anime-list>
+      投稿されているアニメ
+    </hpp-anime-list>
   </div>
 @endsection
 

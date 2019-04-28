@@ -7,11 +7,12 @@ class AnimeList extends HTMLElement {
     let url = '/api/anime/get/';
 
     switch (this.getAttribute('type')) {
-      case 'have':
-        url += 'havePhoto';
-        break;
       case 'noHave':
         url += 'noHavePhoto';
+      break;
+      case 'have':
+      default:
+        url += 'havePhoto';
       break;
     }
 
