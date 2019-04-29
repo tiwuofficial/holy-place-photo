@@ -32,7 +32,7 @@ class PhotoController extends Controller
 
         $title = '【Holy Place Photo】' . $photo->title . ' | アニメ「' . $photo->anime_name . '」の聖地の写真の詳細';
         $description = 'アニメ「' . $photo->anime_name . '」の聖地の写真です。タイトル「' . $photo->title . '」【Holy Place Photo】はアニメの聖地の写真の共有サイトです。';
-        return view('photo.show', compact('photo', 'userPhotos','animePhotos', 'summaryLargeImage', 'title', 'description', 'googleAdsense'));
+        return view('photo.show', compact('photo', 'summaryLargeImage', 'title', 'description', 'googleAdsense'));
     }
 
     /**

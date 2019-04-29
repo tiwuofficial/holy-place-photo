@@ -17,7 +17,7 @@ class AnimeController extends Controller
     {
         $title = '【Holy Place Photo】アニメの一覧 | 聖地の写真の共有';
         $description = 'アニメの一覧です。気になるアニメを選んで聖地の写真を探してみましょう。【Holy Place Photo】はアニメの聖地の写真の共有サイトです。';
-        return view('anime.index', compact('animesHavePhoto', 'animesNotHavePhoto', 'title', 'description'));
+        return view('anime.index', compact('title', 'description'));
     }
 
     /**
