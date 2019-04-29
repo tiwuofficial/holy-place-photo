@@ -34,7 +34,14 @@
           <a href="javascript:void(0);" @click="deleteModalOpen">削除</a>
         </p>
       </div>
-      <div id="map" class="p-photo-detail__map"></div>
+      <hpp-photo-map
+        map-id="js-map"
+        map-class="map"
+        lat="{{$photo->lat}}"
+        lng="{{$photo->lng}}"
+      >
+        <div id="js-map" class="map"></div>
+      </hpp-photo-map>
     </div>
 
     <div class="p-photo-detail--footer">
@@ -91,6 +98,7 @@
 @section('script')
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdlSVTp1S7ryq4cQVBonRdAXPwPH1mhQ8"></script>
   <script src="{{ mix('dist/js/photo/show.js') }}"></script>
+  <script type="module" src="{{asset('web-components/photo-map.js')}}"></script>
   <script type="module" src="{{asset('web-components/user-photo-list.js')}}"></script>
   <script type="module" src="{{asset('web-components/anime-photo-list.js')}}"></script>
   <script type="module" src="{{asset('web-components/photo-card.js')}}"></script>

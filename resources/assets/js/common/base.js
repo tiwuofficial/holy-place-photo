@@ -8,7 +8,9 @@ Vue.config.ignoredElements = [
   'hpp-side-menu',
   'hpp-footer',
     'hpp-anime-photo-list',
-    'hpp-user-photo-list'
+    'hpp-user-photo-list',
+    'hpp-anime-map',
+    'hpp-photo-map'
 ];
 
 

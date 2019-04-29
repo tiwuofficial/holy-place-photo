@@ -54,23 +54,7 @@ new Vue({
         }
       },
     });
-    // TODO 初期値
-    const lat = this.photo.lat ? this.photo.lat : 35.6698324;
-    const lng = this.photo.lng ? this.photo.lng : 139.48197549999998;
-    this.map = new google.maps.Map(document.getElementById('map'), {
-      center: {
-        lat: lat,
-        lng: lng
-      },
-      zoom: 16
-    });
-    this.marker = new google.maps.Marker({
-      position: {
-        lat: lat,
-        lng: lng
-      },
-      map: this.map
-    });
+
     document.querySelector('.js-tw-share').href = 'http://twitter.com/share?url=' + location.href;
   },
   data() {
@@ -80,8 +64,6 @@ new Vue({
       likeDoneApiFlg: false,
       editModalFlg: false,
       deleteModalFlg: false,
-      map: {},
-      marker: null,
       photo: {}
     }
   },

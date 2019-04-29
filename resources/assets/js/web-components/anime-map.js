@@ -2,10 +2,8 @@ class AnimeMap extends HTMLElement {
   constructor() {
     super();
 
-    const shadow = this.attachShadow({mode: 'open'});
-
     const positions = JSON.parse(this.getAttribute('positions'));
-    this.map = new google.maps.Map(document.getElementById('js-map'));
+    const map = new google.maps.Map(document.getElementById(this.getAttribute('map-id')));
     const bounds = new google.maps.LatLngBounds();
     positions.forEach(position => {
       if (!position['lat'] || !position['lng']) {
@@ -16,13 +14,13 @@ class AnimeMap extends HTMLElement {
           lat: position['lat'],
           lng: position['lng']
         },
-        map: this.map
+        map: map
       });
       bounds.extend(marker.position);
     });
-    this.map.fitBounds(bounds);
+    map.fitBounds(bounds);
 
-    shadow.innerHTML = `
+    this.attachShadow({mode: 'open'}).innerHTML = `
       <style>
         ::slotted(.${this.getAttribute('map-class')}) {
           width: 1000px;
