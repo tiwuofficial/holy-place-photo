@@ -51,7 +51,7 @@ class Photo extends Model
 
     public function likeDone($id)
     {
-        return $this->like()->where('user_id', $id)->first();
+        return (boolean) $this->like()->where('user_id', $id)->first();
     }
 
     public function getFirstPhotoUrlAttribute()

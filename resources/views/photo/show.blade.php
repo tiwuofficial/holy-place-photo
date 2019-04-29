@@ -45,7 +45,11 @@
     </div>
 
     <div class="p-photo-detail--footer">
-        <a href="javascript:void(0);" class="c-button" @click="like('{{$photo->id}}')" v-like-done="{{$photo->likeDone($user)}}" v-like-count="{{$photo->likeCount}}">尊いね！ @{{ likeCount }}件</a>
+        <hpp-like-button
+          photo-id="{{$photo->id}}"
+          like-count="{{$photo->likeCount}}"
+          like-done="{{$photo->likeDone($user->id)}}"
+        ></hpp-like-button>
         <a target="_blank" href="" rel="nofollow" class="js-tw-share tw-share-button c-button--light-blue">
           Twitterでシェア
         </a>
@@ -99,6 +103,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdlSVTp1S7ryq4cQVBonRdAXPwPH1mhQ8"></script>
   <script src="{{ mix('dist/js/photo/show.js') }}"></script>
   <script type="module" src="{{asset('web-components/photo-map.js')}}"></script>
+  <script type="module" src="{{asset('web-components/like-button.js')}}"></script>
   <script type="module" src="{{asset('web-components/user-photo-list.js')}}"></script>
   <script type="module" src="{{asset('web-components/anime-photo-list.js')}}"></script>
   <script type="module" src="{{asset('web-components/photo-card.js')}}"></script>
