@@ -75,32 +75,23 @@
     </div>
   </modal>
 
-  @if(count($userPhotos) > 0)
-    <div class="p-photo-detail--other">
-      <h2>このユーザーの他の写真</h2>
-      <ul class="p-photo-list">
-        @foreach($userPhotos as $photo)
-          @component('components.photo.cassette',['photo' => $photo])
-          @endcomponent
-        @endforeach
-      </ul>
-    </div>
-  @endif
+  <hpp-user-photo-list
+    user-id="{{$photo->user_id}}"
+  >
+    <h2>このユーザーの聖地写真</h2>
+  </hpp-user-photo-list>
 
-  @if(count($animePhotos) > 0)
-    <div class="p-photo-detail--other">
-    <h2>同じアニメの写真</h2>
-    <ul class="p-photo-list">
-      @foreach($animePhotos as $photo)
-        @component('components.photo.cassette',['photo' => $photo])
-        @endcomponent
-      @endforeach
-    </ul>
-  </div>
-  @endif
+  <hpp-anime-photo-list
+    anime-id="{{$photo->anime->id}}"
+  >
+    <h2>同じアニメの聖地写真</h2>
+  </hpp-anime-photo-list>
 @endsection
 
 @section('script')
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdlSVTp1S7ryq4cQVBonRdAXPwPH1mhQ8"></script>
   <script src="{{ mix('dist/js/photo/show.js') }}"></script>
+  <script type="module" src="{{asset('web-components/user-photo-list.js')}}"></script>
+  <script type="module" src="{{asset('web-components/anime-photo-list.js')}}"></script>
+  <script type="module" src="{{asset('web-components/photo-card.js')}}"></script>
 @endsection

@@ -3,7 +3,7 @@ import {cache, cacheExpire} from "./cache";
 window.holyPlacePhoto = {};
 
 if ('serviceWorker' in navigator) {
-  window.holyPlacePhoto.CACHE_NAME = '6';
+  window.holyPlacePhoto.CACHE_NAME = '7';
 
   const controllerChange = new Promise((resolve) => {
     navigator.serviceWorker.addEventListener('controllerchange', resolve);

@@ -1,4 +1,4 @@
-const CACHE_NAME = '6';
+const CACHE_NAME = '7';
 
 const cacheByInstall = [
   '/img/icon/menu.svg',

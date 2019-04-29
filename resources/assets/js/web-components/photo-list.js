@@ -11,7 +11,7 @@ class PhotoList extends HTMLElement {
         photoCard.setAttribute('photo-url', photo.url);
         photoCard.setAttribute('photo-src', photo.photoUrl);
         photoCard.setAttribute('photo-title', photo.title);
-        photoCard.setAttribute('anime-name', photo.animeName);
+        photoCard.setAttribute('anime-title', photo.animeName);
         this.shadow.getElementById('js-list').appendChild(photoCard);
       });
     });

@@ -27,8 +27,6 @@ class PhotoController extends Controller
      */
     public function show(Photo $photo)
     {
-        $userPhotos = Photo::where('user_id', $photo->user_id)->where('id','!=', $photo->id)->get();
-        $animePhotos = Photo::where('anime_id', $photo->anime_id)->where('id','!=', $photo->id)->get();
         $summaryLargeImage = true;
         $googleAdsense = true;
 

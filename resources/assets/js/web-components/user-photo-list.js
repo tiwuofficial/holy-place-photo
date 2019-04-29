@@ -1,7 +1,7 @@
-class AnimePhotoList extends HTMLElement {
+class UserPhotoList extends HTMLElement {
 
   fetchPhoto() {
-    fetch(`/api/photos/get/anime/${this.getAttribute('anime-id')}`).then(res => res.json()).then(res => {
+    fetch(`/api/photos/get/user/${this.getAttribute('user-id')}`).then(res => res.json()).then(res => {
       res.forEach(photo => {
         const photoCard = document.createElement('hpp-photo-card');
         photoCard.setAttribute('photo-url', photo.url);
@@ -39,4 +39,4 @@ class AnimePhotoList extends HTMLElement {
   }
 }
 
-customElements.define('hpp-anime-photo-list', AnimePhotoList);
+customElements.define('hpp-user-photo-list', UserPhotoList);

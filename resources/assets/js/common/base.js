@@ -6,7 +6,9 @@ window.Vue = Vue;
 Vue.config.ignoredElements = [
   'hpp-header',
   'hpp-side-menu',
-  'hpp-footer'
+  'hpp-footer',
+    'hpp-anime-photo-list',
+    'hpp-user-photo-list'
 ];
 
 
