@@ -3,21 +3,32 @@
 @section('head')
   <link href="{{ mix('/dist/css/photo/show.css') }}" rel="stylesheet">
   <meta name="twitter:image" content="{{$photo->urls->first()->full_url}}" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
+  <script type="module" src="{{asset('web-components/photo-swiper.js')}}"></script>
 @endsection
 
 @section('main')
-  <div class="js-slider p-swiper swiper-container">
+  <hpp-photo-swiper
+    swiper-id="js-swiper"
+    swiper-prev-class="js-swiper-button-prev"
+    swiper-next-class="js-swiper-button-next"
+    swiper-pagination-class="js-swiper-pagination"
+    swiper-slide-class="swiper-slide"
+    class="swiper-container"
+    id="js-swiper"
+  >
     <div class="swiper-wrapper">
       @foreach($photo->urls as $url)
         <div class="swiper-slide" style="background-image:url({{$url->full_url}})"></div>
       @endforeach
     </div>
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev swiper-button-white"></div>
-    <div class="swiper-button-next swiper-button-white"></div>
-  </div>
+    <div class="js-swiper-pagination swiper-pagination"></div>
+    <div class="js-swiper-button-prev swiper-button-white"></div>
+    <div class="js-swiper-button-next swiper-button-white"></div>
+  </hpp-photo-swiper>
 
-  <section class="c-center-section" v-photo="{{$photo}}">
+
+  <section class="c-center-section">
 
     <div class="p-photo-detail">
       <div class="p-photo-detail__info">

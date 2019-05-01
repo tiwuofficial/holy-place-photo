@@ -14,9 +14,9 @@ Vue.config.ignoredElements = [
   'hpp-like-button',
   'hpp-modal',
   'hpp-photo-edit-link',
-  'hpp-photo-destroy-link'
+  'hpp-photo-destroy-link',
+  'hpp-photo-swiper'
 ];
-
 
 window.addEventListener("load", () => {
   document.querySelectorAll('img').forEach((e) => {
