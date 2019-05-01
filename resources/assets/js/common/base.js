@@ -7,12 +7,14 @@ Vue.config.ignoredElements = [
   'hpp-header',
   'hpp-side-menu',
   'hpp-footer',
-    'hpp-anime-photo-list',
-    'hpp-user-photo-list',
-    'hpp-anime-map',
-    'hpp-photo-map',
-    'hpp-like-button',
+  'hpp-anime-photo-list',
+  'hpp-user-photo-list',
+  'hpp-anime-map',
+  'hpp-photo-map',
+  'hpp-like-button',
   'hpp-modal',
+  'hpp-photo-edit-link',
+  'hpp-photo-destroy-link'
 ];
 
 

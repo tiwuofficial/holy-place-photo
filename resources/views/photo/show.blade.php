@@ -30,8 +30,16 @@
         <p class="p-photo-detail__info__comment">{!! nl2br($photo->comment) !!}</p>
         <p class="p-photo-detail__info__create">
           <span>{{$photo->created_at}}</span>
-          <a href="javascript:void(0);" @click="editModalOpen">編集</a>
-          <a href="javascript:void(0);" @click="destroyModalOpen">削除</a>
+          <hpp-photo-edit-link
+            link="{{action('PhotoController@edit', $photo->id)}}"
+            csrf-token="{{csrf_token()}}"
+          >
+          </hpp-photo-edit-link>
+          <hpp-photo-destroy-link
+            link="{{action('PhotoController@edit', $photo->id)}}"
+            csrf-token="{{csrf_token()}}"
+          >
+          </hpp-photo-destroy-link>
         </p>
       </div>
       <hpp-photo-map
@@ -56,31 +64,6 @@
     </div>
   </section>
 
-  <hpp-modal hidden id="js-edit-modal">
-    <p>編集しますか？</p>
-    <form action="{{action('PhotoController@edit', $photo->id)}}" method="post">
-      {{ csrf_field() }}
-      <div>
-        パスワード
-        <input type="password" name="password">
-      </div>
-      <button type="submit" class="c-button">編集画面へ</button>
-    </form>
-  </hpp-modal>
-
-  <hpp-modal hidden id="js-destroy-modal">
-    <p>削除しますか？</p>
-    <form action="{{action('PhotoController@destroy', $photo->id)}}" method="post">
-      {{ csrf_field() }}
-      @method('delete')
-      <div>
-        パスワード
-        <input type="password" name="password">
-      </div>
-      <button type="submit" class="c-button">削除</button>
-    </form>
-  </hpp-modal>
-
   <hpp-user-photo-list
     user-id="{{$photo->user_id}}"
   >
@@ -102,5 +85,7 @@
   <script type="module" src="{{asset('web-components/user-photo-list.js')}}"></script>
   <script type="module" src="{{asset('web-components/anime-photo-list.js')}}"></script>
   <script type="module" src="{{asset('web-components/photo-card.js')}}"></script>
+  <script type="module" src="{{asset('web-components/photo-edit-link.js')}}"></script>
+  <script type="module" src="{{asset('web-components/photo-destroy-link.js')}}"></script>
   <script type="module" src="{{asset('web-components/modal.js')}}"></script>
 @endsection
