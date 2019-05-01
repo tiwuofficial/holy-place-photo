@@ -30,7 +30,7 @@ Route::group(['middleware' => ['login', 'sw.cache']], function () {
         Route::put('/{photo}', 'PhotoController@update')->where('photo', '[0-9]+');
 
         // 写真削除
-        Route::delete('/{photo}', 'PhotoController@destory')->where('photo', '[0-9]+');
+        Route::delete('/{photo}', 'PhotoController@destroy')->where('photo', '[0-9]+');
     });
 
     Route::prefix('anime')->group(function () {

@@ -149,7 +149,7 @@ class PhotoController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function destory(Request $request, Photo $photo)
+    public function destroy(Request $request, Photo $photo)
     {
         if(!Hash::check($request->password, $photo->password)) {
             abort('404');

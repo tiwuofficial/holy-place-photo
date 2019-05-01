@@ -11,7 +11,8 @@ Vue.config.ignoredElements = [
     'hpp-user-photo-list',
     'hpp-anime-map',
     'hpp-photo-map',
-    'hpp-like-button'
+    'hpp-like-button',
+  'hpp-modal',
 ];
 
 

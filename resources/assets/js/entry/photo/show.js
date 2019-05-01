@@ -1,5 +1,4 @@
 import '../../common/base';
-import modal from '../../components/modal';
 import Swiper from 'swiper';
 
 Vue.directive('photo', {
@@ -10,7 +9,6 @@ Vue.directive('photo', {
 
 new Vue({
   el: '#wrapper',
-  components: {modal: modal},
   mounted() {
     new Swiper('.js-slider', {
       speed:800,
@@ -46,23 +44,15 @@ new Vue({
   },
   data() {
     return {
-      editModalFlg: false,
-      deleteModalFlg: false,
       photo: {}
     }
   },
   methods: {
     editModalOpen() {
-      this.editModalFlg = true;
+      document.getElementById('js-edit-modal').removeAttribute('hidden');
     },
-    editModalClose() {
-      this.editModalFlg = false;
+    destroyModalOpen() {
+      document.getElementById('js-destroy-modal').removeAttribute('hidden');
     },
-    deleteModalOpen() {
-      this.deleteModalFlg = true;
-    },
-    deleteModalClose() {
-      this.deleteModalFlg = false;
-    }
   }
 });

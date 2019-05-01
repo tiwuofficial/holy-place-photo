@@ -31,7 +31,7 @@
         <p class="p-photo-detail__info__create">
           <span>{{$photo->created_at}}</span>
           <a href="javascript:void(0);" @click="editModalOpen">編集</a>
-          <a href="javascript:void(0);" @click="deleteModalOpen">削除</a>
+          <a href="javascript:void(0);" @click="destroyModalOpen">削除</a>
         </p>
       </div>
       <hpp-photo-map
@@ -45,46 +45,41 @@
     </div>
 
     <div class="p-photo-detail--footer">
-        <hpp-like-button
-          photo-id="{{$photo->id}}"
-          like-count="{{$photo->likeCount}}"
-          like-done="{{$photo->likeDone($user->id)}}"
-        ></hpp-like-button>
-        <a target="_blank" href="" rel="nofollow" class="js-tw-share tw-share-button c-button--light-blue">
-          Twitterでシェア
-        </a>
+      <hpp-like-button
+        photo-id="{{$photo->id}}"
+        like-count="{{$photo->likeCount}}"
+        like-done="{{$photo->likeDone($user->id)}}"
+      ></hpp-like-button>
+      <a target="_blank" href="" rel="nofollow" class="js-tw-share tw-share-button c-button--light-blue">
+        Twitterでシェア
+      </a>
     </div>
   </section>
 
-  <modal :is-show="editModalFlg" @close="editModalClose">
-    <div slot="contents">
-      <p>編集しますか？</p>
-      <form action="{{action('PhotoController@edit', $photo->id)}}" method="post">
-        {{ csrf_field() }}
-        <div>
-          パスワード
-          <input type="password" name="password">
-        </div>
-        <button type="submit" class="c-button">編集画面へ</button>
-      </form>
-    </div>
-  </modal>
+  <hpp-modal hidden id="js-edit-modal">
+    <p>編集しますか？</p>
+    <form action="{{action('PhotoController@edit', $photo->id)}}" method="post">
+      {{ csrf_field() }}
+      <div>
+        パスワード
+        <input type="password" name="password">
+      </div>
+      <button type="submit" class="c-button">編集画面へ</button>
+    </form>
+  </hpp-modal>
 
-
-  <modal :is-show="deleteModalFlg" @close="deleteModalClose">
-    <div slot="contents">
-      <p>削除しますか？</p>
-      <form action="{{action('PhotoController@destory', $photo->id)}}" method="post">
-        {{ csrf_field() }}
-        @method('delete')
-        <div>
-          パスワード
-          <input type="password" name="password">
-        </div>
-        <button type="submit" class="c-button">削除</button>
-      </form>
-    </div>
-  </modal>
+  <hpp-modal hidden id="js-destroy-modal">
+    <p>削除しますか？</p>
+    <form action="{{action('PhotoController@destroy', $photo->id)}}" method="post">
+      {{ csrf_field() }}
+      @method('delete')
+      <div>
+        パスワード
+        <input type="password" name="password">
+      </div>
+      <button type="submit" class="c-button">削除</button>
+    </form>
+  </hpp-modal>
 
   <hpp-user-photo-list
     user-id="{{$photo->user_id}}"
@@ -107,4 +102,5 @@
   <script type="module" src="{{asset('web-components/user-photo-list.js')}}"></script>
   <script type="module" src="{{asset('web-components/anime-photo-list.js')}}"></script>
   <script type="module" src="{{asset('web-components/photo-card.js')}}"></script>
+  <script type="module" src="{{asset('web-components/modal.js')}}"></script>
 @endsection

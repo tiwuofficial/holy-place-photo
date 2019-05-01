@@ -1,7 +1,7 @@
 {
-    "/dist/js/photo/show.js": "/dist/js/photo/show.js",
     "/dist/js/photo/edit.js": "/dist/js/photo/edit.js",
     "/dist/js/photo/create.js": "/dist/js/photo/create.js",
+    "/dist/js/photo/show.js": "/dist/js/photo/show.js",
     "/sw.js": "/sw.js",
     "/dist/css/anime/index.css": "/dist/css/anime/index.css",
     "/dist/css/anime/show.css": "/dist/css/anime/show.css",
