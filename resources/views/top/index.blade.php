@@ -2,8 +2,12 @@
 
 @section('head')
   <style>
-    .u-bc-f8f9fa {
+    .main {
       background-color: #f8f9fa;
+      padding-top: 15px;
+    }
+    hpp-photo-list + hpp-anime-list {
+      margin-top: 20px;
     }
   </style>
   <script type="module" src="{{asset('web-components/hero.js')}}"></script>
@@ -12,10 +16,12 @@
 @section('main')
   <hpp-hero>聖地を共有しよう</hpp-hero>
 
-  <div class="u-bc-f8f9fa">
-    <hpp-photo-list></hpp-photo-list>
+  <div class="main">
+    <hpp-photo-list>
+      <h2>New</h2>
+    </hpp-photo-list>
     <hpp-anime-list>
-      投稿されているアニメ
+      <h2>投稿されているアニメ</h2>
     </hpp-anime-list>
   </div>
 @endsection

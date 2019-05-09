@@ -23,7 +23,7 @@ class PhotoMap extends HTMLElement {
     this.attachShadow({mode: 'open'}).innerHTML = `
       <style>
         ::slotted(.${this.getAttribute('map-class')}) {
-          width: 1000px;
+          width: 600px;
           height: 500px;
           margin: 20px auto;
           display: block;

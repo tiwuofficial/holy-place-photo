@@ -5,6 +5,13 @@
   <meta name="twitter:image" content="{{$photo->urls->first()->full_url}}" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
   <script type="module" src="{{asset('web-components/photo-swiper.js')}}"></script>
+  <style>
+    hpp-photo-swiper + hpp-photo-detail,
+    hpp-photo-detail + hpp-user-photo-list,
+    hpp-user-photo-list + hpp-user-photo-list {
+      margin-top: 30px;
+    }
+  </style>
 @endsection
 
 @section('main')
@@ -27,53 +34,25 @@
     <div class="js-swiper-button-next swiper-button-white"></div>
   </hpp-photo-swiper>
 
-
-  <section class="c-center-section">
-
-    <div class="p-photo-detail">
-      <div class="p-photo-detail__info">
-        <h1 class="p-photo-detail__info__title">{{$photo->title}}</h1>
-        <p class="p-photo-detail__info__text">Anime is <a href="{{action('AnimeController@show', $photo->anime->id)}}" class="p-photo-detail__info__anime">{{$photo->anime_name}}</a></p>
-        @if($photo->shooting_date)
-          <p class="p-photo-detail__info__text">撮影日時 {{$photo->formatShootingDate}}</p>
-        @endif
-        <p class="p-photo-detail__info__text">Photo by <a href="{{action('UserController@show', $photo->user_id)}}" class="p-photo-detail__info__user">{{$photo->name}}</a></p>
-        <p class="p-photo-detail__info__comment">{!! nl2br($photo->comment) !!}</p>
-        <p class="p-photo-detail__info__create">
-          <span>{{$photo->created_at}}</span>
-          <hpp-photo-edit-link
-            link="{{action('PhotoController@edit', $photo->id)}}"
-            csrf-token="{{csrf_token()}}"
-          >
-          </hpp-photo-edit-link>
-          <hpp-photo-destroy-link
-            link="{{action('PhotoController@edit', $photo->id)}}"
-            csrf-token="{{csrf_token()}}"
-          >
-          </hpp-photo-destroy-link>
-        </p>
-      </div>
-      <hpp-photo-map
-        map-id="js-map"
-        map-class="map"
-        lat="{{$photo->lat}}"
-        lng="{{$photo->lng}}"
-      >
-        <div id="js-map" class="map"></div>
-      </hpp-photo-map>
-    </div>
-
-    <div class="p-photo-detail--footer">
-      <hpp-like-button
-        photo-id="{{$photo->id}}"
-        like-count="{{$photo->likeCount}}"
-        like-done="{{$photo->likeDone($user->id)}}"
-      ></hpp-like-button>
-      <a target="_blank" href="" rel="nofollow" class="js-tw-share tw-share-button c-button--light-blue">
-        Twitterでシェア
-      </a>
-    </div>
-  </section>
+  <hpp-photo-detail
+    title="{{$photo->title}}"
+    anime-link="{{action('AnimeController@show', $photo->anime->id)}}"
+    anime-name="{{$photo->anime_name}}"
+    shooting-date="{{$photo->shooting_date}}"
+    user-link="{{action('UserController@show', $photo->user_id)}}"
+    user-name="{{$photo->name}}"
+    comment="{!! nl2br($photo->comment) !!}"
+    created-at="{{$photo->created_at}}"
+    edit-link="{{action('PhotoController@edit', $photo->id)}}"
+    csrf-token="{{csrf_token()}}"
+    lat="{{$photo->lat}}"
+    lng="{{$photo->lng}}"
+    photo-id="{{$photo->id}}"
+    like-count="{{$photo->likeCount}}"
+    like-done="{{$photo->likeDone($user->id)}}"
+  >
+    <div id="js-map" class="map" slot="map"></div>
+  </hpp-photo-detail>
 
   <hpp-user-photo-list
     user-id="{{$photo->user_id}}"
@@ -91,8 +70,11 @@
 @section('script')
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdlSVTp1S7ryq4cQVBonRdAXPwPH1mhQ8"></script>
   <script src="{{ mix('dist/js/photo/show.js') }}"></script>
+  <script type="module" src="{{asset('web-components/photo-detail.js')}}"></script>
+  <script type="module" src="{{asset('web-components/photo-detail-info.js')}}"></script>
   <script type="module" src="{{asset('web-components/photo-map.js')}}"></script>
   <script type="module" src="{{asset('web-components/like-button.js')}}"></script>
+  <script type="module" src="{{asset('web-components/twitter-share-button.js')}}"></script>
   <script type="module" src="{{asset('web-components/user-photo-list.js')}}"></script>
   <script type="module" src="{{asset('web-components/anime-photo-list.js')}}"></script>
   <script type="module" src="{{asset('web-components/photo-card.js')}}"></script>

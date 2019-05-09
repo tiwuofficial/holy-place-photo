@@ -32,15 +32,19 @@ class PhotoList extends HTMLElement {
 
     this.shadow.innerHTML = `
       <style>
-        h2 {
+        :host {
+          display: block;
+        }
+        ::slotted(h2) {
           text-align: center;
-          margin: 0;
+          font-size: 20px;
+          margin: 0 0 15px 0;
         }
         .list {
           display: flex;
           flex-wrap: wrap;
           justify-content: space-around;
-          padding-top: 20px;
+          padding: 0 8px;
         }
         .link {
           text-align: center;
@@ -49,7 +53,7 @@ class PhotoList extends HTMLElement {
         }
       </style>
       
-      <h2>New</h2>
+      <slot></slot>
       <div id="js-list" class="list"></div>
       <a href="javascript:void(0);" id="js-link" class="link">More</a>
     `;

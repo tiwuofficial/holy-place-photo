@@ -25,13 +25,12 @@
     <meta name="twitter:card" content="summary">
   @endif
   <meta name="twitter:site" content="@holyplace_photo">
-  <link rel="preconnect" href="https://res.cloudinary.com">
-  <link rel="preconnect" href="https://adservice.google.com">
-  <link rel="preconnect" href="https://www.googletagservices.com">
-  <link rel="preconnect" href="https://pagead2.googlesyndication.com">
   @yield('head')
 
   @if(app()->environment('production'))
+    <link rel="preconnect" href="https://res.cloudinary.com">
+    <link rel="preconnect" href="https://adservice.google.com">
+    <link rel="preconnect" href="https://www.googletagservices.com">
     <link rel="preconnect" href="https://adservice.google.co.jp">
     <link rel="preconnect" href="https://googleads.g.doubleclick.net">
     <link rel="preconnect" href="https://www.google-analytics.com">

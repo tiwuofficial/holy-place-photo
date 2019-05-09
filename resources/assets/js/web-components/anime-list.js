@@ -28,9 +28,13 @@ class AnimeList extends HTMLElement {
 
     this.shadow.innerHTML = `
       <style>
-        h2 {
+        :host {
+          display: block;
+        }
+        ::slotted(h2) {
           text-align: center;
           font-size: 20px;
+          margin: 0 0 15px 0;
         }
         .list {
           display: flex;
@@ -39,7 +43,7 @@ class AnimeList extends HTMLElement {
         }
       </style>
       
-      <h2><slot></slot></h2>
+      <slot></slot>
       <div id="js-list" class="list"></div>
     `;
   }

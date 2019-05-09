@@ -21,11 +21,19 @@ class UserPhotoList extends HTMLElement {
 
     this.shadow.innerHTML = `
       <style>
+        :host {
+          display: block;
+        }
         .list {
           display: flex;
           flex-wrap: wrap;
           justify-content: space-around;
           padding-top: 20px;
+        }
+        ::slotted(h1) {
+          font-size: 25px;
+          text-align: center;
+          margin: 0;
         }
         ::slotted(h2) {
           text-align: center;
