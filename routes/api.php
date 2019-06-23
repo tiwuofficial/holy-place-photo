@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::group(['middleware' => 'login'], function () {
+Route::group(['middleware' => ['login', 'cors']], function () {
     Route::post('/photos/{id}/like', 'Api\PhotoController@like')->where('id', '[0-9]+');
     Route::get('/photos', 'Api\PhotoController@readMore');
     Route::get('/photos/get/anime/{id}', 'Api\PhotoController@getPhotosByAnime');

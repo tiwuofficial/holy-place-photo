@@ -64,5 +64,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'login' => \App\Http\Middleware\CheckLogin::class,
         'sw.cache' => \App\Http\Middleware\SWCacheList::class,
+        'cors'          => \App\Http\Middleware\Cors::class
     ];
 }
