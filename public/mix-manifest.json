@@ -13,13 +13,13 @@
     "/dist/css/top/privacy.css": "/dist/css/top/privacy.css",
     "/dist/css/top/inquiry.css": "/dist/css/top/inquiry.css",
     "/dist/css/user/show.css": "/dist/css/user/show.css",
-    "/dist/js/photo/show.js": "/dist/js/photo/show.js",
     "/dist/js/user/show.js": "/dist/js/user/show.js",
     "/dist/js/top/privacy.js": "/dist/js/top/privacy.js",
     "/dist/js/top/kiyaku.js": "/dist/js/top/kiyaku.js",
     "/dist/js/top/inquiry.js": "/dist/js/top/inquiry.js",
     "/dist/js/top/index.js": "/dist/js/top/index.js",
     "/dist/js/top/about.js": "/dist/js/top/about.js",
+    "/dist/js/photo/show.js": "/dist/js/photo/show.js",
     "/dist/js/anime/show.js": "/dist/js/anime/show.js",
     "/dist/js/anime/index.js": "/dist/js/anime/index.js"
 }

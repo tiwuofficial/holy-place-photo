@@ -17,7 +17,12 @@ Vue.config.ignoredElements = [
   'hpp-photo-destroy-link',
   'hpp-photo-swiper',
   'hpp-photo-detail-info',
-  'hpp-photo-detail'
+  'hpp-photo-detail',
+  'hpp-fieldset',
+  'hpp-input',
+  'hpp-textarea',
+  'hpp-form-caution-text',
+  'hpp-heading',
 ];
 
 window.addEventListener("load", () => {
