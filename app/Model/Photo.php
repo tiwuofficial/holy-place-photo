@@ -61,6 +61,6 @@ class Photo extends Model
 
     public function getUrlAttribute()
     {
-        return action('PhotoController@show', $this->id);
+        return action('PhotoController@show', $this->id, false);
     }
 }
