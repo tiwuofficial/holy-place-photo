@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 Route::group(['middleware' => ['login', 'cors']], function () {
     Route::post('/photos/{id}/like', 'Api\PhotoController@like')->where('id', '[0-9]+');
     Route::get('/photos', 'Api\PhotoController@readMore');
+    Route::get('/photos/get/{id}', 'Api\PhotoController@getByPhoto');
     Route::get('/photos/get/anime/{id}', 'Api\PhotoController@getPhotosByAnime');
     Route::get('/photos/get/user/{id}', 'Api\PhotoController@getPhotosByUser');
     Route::get('/anime/get', 'Api\AnimeController@get');

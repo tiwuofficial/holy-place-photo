@@ -38,6 +38,18 @@ class PhotoController extends Controller
         return response()->json($result);
     }
 
+    public function getByPhoto($id)
+    {
+        $photo = Photo::with('urls', 'anime')->where('id', $id)->first();
+        $result = [
+            'url' => $photo->url,
+            'title' => $photo->title,
+            'animeName' => $photo->anime_name,
+            'photoUrl' => $photo->first_photo_url
+        ];
+        return response()->json($result);
+    }
+
     public function getPhotosByAnime($id)
     {
         $photos = Photo::with('urls', 'anime')->anime($id)->orderBy('created_at', 'desc')->get();
