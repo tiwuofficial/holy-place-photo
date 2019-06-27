@@ -58,7 +58,7 @@ class PhotoController extends Controller
             'likeCount' => $photo->likeCount,
             'userId' => $photo->user_id,
             'animeId' => $photo->anime->id,
-            'photoUrl' => $photo->first_photo_url
+            'photoUrls' => $photo->urls
         ];
         return response()->json($result);
     }
