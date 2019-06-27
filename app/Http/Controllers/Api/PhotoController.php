@@ -45,6 +45,19 @@ class PhotoController extends Controller
             'url' => $photo->url,
             'title' => $photo->title,
             'animeName' => $photo->anime_name,
+            'animeUrl' => action('AnimeController@show', $photo->anime->id, false),
+            'shootingDate' => $photo->shooting_date,
+            'userUrl' => action('UserController@show', $photo->user_id, false),
+            'userName' => $photo->name,
+            'comment' => $photo->comment,
+            'createdAt' => $photo->created_at,
+            'editUrl' => action('PhotoController@edit', $photo->id, false),
+            'lat' => $photo->lat,
+            'lng' => $photo->lng,
+            'photoId' => $photo->id,
+            'likeCount' => $photo->likeCount,
+            'userId' => $photo->user_id,
+            'animeId' => $photo->anime->id,
             'photoUrl' => $photo->first_photo_url
         ];
         return response()->json($result);
