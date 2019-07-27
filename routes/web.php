@@ -64,3 +64,11 @@ Route::group(['middleware' => ['login', 'sw.cache']], function () {
 });
 
 Route::get('/sitemap', 'SiteMapController@sitemap');
+
+// AMP
+Route::prefix('amp')->group(function () {
+    Route::prefix('photos')->group(function () {
+        // 写真詳細
+        Route::get('/{photo}', 'PhotoController@showAmp')->where('photo', '[0-9]+');
+    });
+});

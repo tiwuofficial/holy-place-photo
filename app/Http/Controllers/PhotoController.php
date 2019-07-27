@@ -32,7 +32,26 @@ class PhotoController extends Controller
 
         $title = '【Holy Place Photo】' . $photo->title . ' | アニメ「' . $photo->anime_name . '」の聖地の写真の詳細';
         $description = 'アニメ「' . $photo->anime_name . '」の聖地の写真です。タイトル「' . $photo->title . '」【Holy Place Photo】はアニメの聖地の写真の共有サイトです。';
-        return view('photo.show', compact('photo', 'summaryLargeImage', 'title', 'description', 'googleAdsense'));
+
+        $ampUrl = action('PhotoController@showAmp', $photo->id);
+        return view('photo.show', compact('photo', 'summaryLargeImage', 'title', 'description', 'googleAdsense', 'ampUrl'));
+    }
+
+    /**
+     * 写真詳細
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showAmp(Photo $photo)
+    {
+        $summaryLargeImage = true;
+        $googleAdsense = true;
+
+        $title = '【Holy Place Photo】' . $photo->title . ' | アニメ「' . $photo->anime_name . '」の聖地の写真の詳細';
+        $description = 'アニメ「' . $photo->anime_name . '」の聖地の写真です。タイトル「' . $photo->title . '」【Holy Place Photo】はアニメの聖地の写真の共有サイトです。';
+
+        $canonicalUrl = action('PhotoController@show', $photo->id);
+        return view('amp.photo.show', compact('photo', 'summaryLargeImage', 'title', 'description', 'googleAdsense', 'canonicalUrl'));
     }
 
     /**

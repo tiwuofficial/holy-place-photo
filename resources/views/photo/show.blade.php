@@ -12,6 +12,7 @@
       margin-top: 30px;
     }
   </style>
+  <link rel="amphtml" href="{{$ampUrl}}">
 @endsection
 
 @section('main')
