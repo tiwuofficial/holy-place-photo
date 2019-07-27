@@ -22,24 +22,6 @@
     <meta name="twitter:card" content="summary">
   @endif
   <meta name="twitter:site" content="@holyplace_photo">
-  @if(app()->environment('production'))
-    <link rel="preconnect" href="https://res.cloudinary.com">
-    <link rel="preconnect" href="https://adservice.google.com">
-    <link rel="preconnect" href="https://www.googletagservices.com">
-    <link rel="preconnect" href="https://adservice.google.co.jp">
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net">
-    <link rel="preconnect" href="https://www.google-analytics.com">
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68543693-6"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-68543693-6');
-    </script>
-  @endif
 
   <style amp-boilerplate>
     body {
