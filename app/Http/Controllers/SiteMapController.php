@@ -25,6 +25,7 @@ class siteMapController extends Controller
         foreach ($photos as $photo)
         {
             $sitemap->add(URL::to('/photos/' . $photo->id), $photo->updated_at, '0.8', 'yearly');
+            $sitemap->add(URL::to('/amp/photos/' . $photo->id), $photo->updated_at, '0.8', 'yearly');
         }
 
         $animes = Anime::orderBy('updated_at', 'desc')->get();
