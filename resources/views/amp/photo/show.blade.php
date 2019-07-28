@@ -111,7 +111,7 @@
     </div>
     <div class="item item--icon">
       <div class="open">
-        <amp-img src="/img/icon/menu.svg" alt="menu icon" width="30" height="30" class="icon" on='tap:sidebar.open'></amp-img>
+        <amp-img src="/img/icon/menu.svg" role='button' tabindex="1" alt="menu icon" width="30" height="30" class="icon" on='tap:sidebar.open'></amp-img>
       </div>
     </div>
   </header>
