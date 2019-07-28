@@ -25,6 +25,16 @@ class TopController extends Controller
         return view('top.index', compact('title', 'description', 'top', 'googleAdsense'));
     }
 
+    public function story()
+    {
+        $photos = Photo::with('urls', 'anime')->orderBy('created_at', 'desc')->paginate(5);
+
+        $canonicalUrl = action('TopController@story');
+        $title = '【Holy Place Photo】アニメの聖地の写真の共有サイト';
+        $description = 'アニメの聖地で撮った写真を共有できるサイトです。好きなアニメの聖地の写真を投稿したり、聖地を地図から探したりして楽しんでください。';
+        return view('amp.story', compact('title', 'description', 'photos', 'canonicalUrl'));
+    }
+
     /**
      * 問い合わせ
      *

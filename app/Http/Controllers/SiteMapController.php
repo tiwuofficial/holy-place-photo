@@ -20,6 +20,7 @@ class siteMapController extends Controller
         $sitemap->add(URL::to('/about'), '2018-10-28', '0.7', 'monthly');
         $sitemap->add(URL::to('/kiyaku'), '2018-10-28', '0.3', 'yearly');
         $sitemap->add(URL::to('/privacy'), '2018-10-28', '0.3', 'yearly');
+        $sitemap->add(URL::to('/amp/story'), $now, '1.0', 'always');
 
         $photos = Photo::orderBy('updated_at', 'desc')->get();
         foreach ($photos as $photo)

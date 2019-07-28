@@ -71,4 +71,5 @@ Route::prefix('amp')->group(function () {
         // 写真詳細
         Route::get('/{photo}', 'PhotoController@showAmp')->where('photo', '[0-9]+');
     });
+    Route::get('/story', 'TopController@story');
 });
