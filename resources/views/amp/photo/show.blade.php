@@ -2,12 +2,13 @@
 
 @section('head')
   <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+  <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
   <style amp-custom>
     body {
       background-color: white;
       line-height: 1;
     }
-    {{-- header --}}
+    /* header */
     header {
       height: 50px;
       display: flex;
@@ -35,6 +36,41 @@
       .item--logo,
       .item--icon {
         display: flex;
+      }
+    }
+
+    /* sidemenu */
+    .side-menu__list {
+      height: 100%;
+      text-align: center;
+      background-color: #fff;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+
+    .side-menu__item + .side-menu__item {
+      border-top: 1px solid #d4d4d6;
+    }
+
+    .side-menu__item:last-child {
+      border-bottom: 1px solid #d4d4d6;
+    }
+
+    .side-menu__item--main {
+      display: none;
+    }
+
+    .side-menu__link {
+      padding: 20px 30px;
+      display: block;
+      color: #000;
+      text-decoration: none;
+    }
+
+    @media (max-width: 1100px) {
+      .side-menu__item--main {
+        display: list-item;
       }
     }
 
@@ -75,11 +111,33 @@
     </div>
     <div class="item item--icon">
       <div class="open">
-        <amp-img src="/img/icon/menu.svg" alt="menu icon" width="30" height="30" class="icon"></amp-img>
+        <amp-img src="/img/icon/menu.svg" alt="menu icon" width="30" height="30" class="icon" on='tap:sidebar.open'></amp-img>
       </div>
     </div>
   </header>
 
+  <amp-sidebar id="sidebar" layout="nodisplay" side="right">
+    <ul class="side-menu__list">
+      <li class="side-menu__item side-menu__item--main">
+        <a href="{{action('PhotoController@create')}}" class="side-menu__link js-sw-fetch">投稿する</a>
+      </li>
+      <li class="side-menu__item side-menu__item--main">
+        <a href="{{action('AnimeController@index')}}" class="side-menu__link js-sw-fetch">アニメ一覧</a>
+      </li>
+      <li class="side-menu__item">
+        <a href="{{action('TopController@about')}}" class="side-menu__link js-sw-fetch">このサイトについて</a>
+      </li>
+      <li class="side-menu__item">
+        <a href="{{action('TopController@inquiry')}}" class="side-menu__link js-sw-fetch">お問い合わせ</a>
+      </li>
+      <li class="side-menu__item">
+        <a href="{{action('TopController@kiyaku')}}" class="side-menu__link js-sw-fetch">利用規約</a>
+      </li>
+      <li class="side-menu__item">
+        <a href="{{action('TopController@privacy')}}" class="side-menu__link js-sw-fetch">プライバシーポリシー</a>
+      </li>
+    </ul>
+  </amp-sidebar>
 
   <amp-carousel layout="responsive" width="400" height="300" type="slides" autoplay delay="2000" loop>
     @foreach($photo->urls as $url)
