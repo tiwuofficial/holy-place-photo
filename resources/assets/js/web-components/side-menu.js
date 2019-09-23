@@ -109,6 +109,9 @@ class SideMenu extends HTMLElement {
         <li class="item">
           <a href="${this.getAttribute('privacy-href')}" class="link js-sw-fetch">プライバシーポリシー</a>
         </li>
+        <li class="item">
+          <a href="/photos/camera" class="link js-sw-fetch">camera</a>
+        </li>
       </ul>
     `;
 
