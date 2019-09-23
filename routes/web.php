@@ -25,6 +25,9 @@ Route::group(['middleware' => ['sw.cache']], function () {
         Route::get('/create', 'PhotoController@create');
         Route::post('/', 'PhotoController@store');
 
+        Route::get('/camera', 'PhotoController@camera');
+
+
         // 写真編集
         Route::post('/{photo}/edit', 'PhotoController@edit')->where('photo', '[0-9]+');
         Route::put('/{photo}', 'PhotoController@update')->where('photo', '[0-9]+');

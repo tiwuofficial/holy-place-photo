@@ -69,6 +69,18 @@ class PhotoController extends Controller
     }
 
     /**
+     * 写真投稿
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function camera(Request $request)
+    {
+        $title = '【Holy Place Photo】アニメの聖地の写真の投稿';
+        $description = 'アニメの聖地の写真を投稿ができます。アニメや聖地などを選択し、投稿してください。【Holy Place Photo】はアニメの聖地の写真の共有サイトです。';
+        return view('photo.camera', compact('title', 'description'));
+    }
+
+    /**
      * 写真投稿処理
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
