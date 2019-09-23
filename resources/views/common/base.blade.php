@@ -57,6 +57,7 @@
   <style>
     body {
       margin: 0;
+      font-family: HiraKakuProN-W3,Helvetica,sans-serif;
     }
   </style>
 </head>
