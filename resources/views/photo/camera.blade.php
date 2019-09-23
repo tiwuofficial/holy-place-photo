@@ -1,7 +1,6 @@
 @extends('common.base')
 
 @section('head')
-  <link href="{{ mix('/dist/css/photo/create.css') }}" rel="stylesheet">
   <style>
     video {
       width: 100%;
@@ -25,7 +24,7 @@
     @endif
 
     <button>snap</button>
-    <video autoplay></video>
+    <video autoplay playsinline></video>
     <p>canvas</p>
     <canvas></canvas>
     <p id="errorMsg"></p>
