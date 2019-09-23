@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['middleware' => ['login', 'sw.cache']], function () {
+Route::group(['middleware' => ['sw.cache']], function () {
 
     // トップ
     Route::get('/', 'TopController@index');

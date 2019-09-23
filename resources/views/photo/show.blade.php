@@ -50,7 +50,7 @@
     lng="{{$photo->lng}}"
     photo-id="{{$photo->id}}"
     like-count="{{$photo->likeCount}}"
-    like-done="{{$photo->likeDone($user->id)}}"
+    like-done="{{$photo->likeDone(isset($user) ? $user->id : '')}}"
   >
     <div id="js-map" class="map" slot="map"></div>
   </hpp-photo-detail>

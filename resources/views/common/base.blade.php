@@ -63,7 +63,7 @@
 <body>
   <div id="wrapper" data-sw-cache-list="{{$swCacheList}}">
     <hpp-header
-      login="{{$user->auth_id}}"
+      login="{{isset($user)}}"
       top-href="{{action('TopController@index')}}"
       photo-create-href="{{action('PhotoController@create')}}"
       anime-href="{{action('AnimeController@index')}}"
@@ -72,7 +72,7 @@
     >
     </hpp-header>
     <hpp-side-menu
-      login="{{$user->auth_id}}"
+      login="{{isset($user)}}"
       photo-create-href="{{action('PhotoController@create')}}"
       anime-href="{{action('AnimeController@index')}}"
       logout-href="{{action('Auth\TwitterController@logout')}}"
